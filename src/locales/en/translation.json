@@ -1,0 +1,256 @@
+{
+  "nav": {
+    "home": "Home",
+    "corporate": "Corporate",
+    "about": "About Us",
+    "mission": "Mission & Vision",
+    "certifications": "Certifications",
+    "projects": "Projects",
+    "completed": "Completed Projects",
+    "ongoing": "Ongoing Projects",
+    "services": "Services",
+    "contact": "Contact"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred.",
+    "notFound": "Page not found.",
+    "readMore": "Read More",
+    "viewAll": "View All",
+    "backToProjects": "Back to Projects",
+    "getQuote": "Get a Quote",
+    "callNow": "Call Now",
+    "sendMessage": "Send Message",
+    "learnMore": "Learn More",
+    "viewProject": "View Project",
+    "download": "Download",
+    "close": "Close",
+    "menu": "Menu",
+    "search": "Search",
+    "darkMode": "Dark Mode",
+    "lightMode": "Light Mode",
+    "language": "Language",
+    "sqm": "m²",
+    "units": "units",
+    "years": "years",
+    "projects": "projects",
+    "clients": "clients",
+    "scrollDown": "Scroll Down",
+    "noResults": "No results found."
+  },
+  "hero": {
+    "tagline": "25 Years of Trust & Expertise",
+    "title": "Building\nthe Future",
+    "subtitle": "As Ankara's most prestigious construction company, we create lasting landmarks across residential, commercial, and industrial projects.",
+    "cta": {
+      "primary": "Explore Our Projects",
+      "secondary": "Contact Us"
+    },
+    "stats": {
+      "completedProjects": "Completed Projects",
+      "sqmBuilt": "m² Built",
+      "satisfiedClients": "Satisfied Clients"
+    }
+  },
+  "stats": {
+    "title": "AYT Group by the Numbers",
+    "projects": "Completed Projects",
+    "years": "Years of Experience",
+    "sqm": "m² Constructed",
+    "clients": "Satisfied Clients"
+  },
+  "featuredProjects": {
+    "title": "Featured Projects",
+    "subtitle": "A selection of our most successful completed and ongoing works",
+    "viewAll": "View All Projects"
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "End-to-end construction solutions",
+    "viewAll": "View All Services",
+    "contracting": {
+      "title": "General Contracting",
+      "desc": "End-to-end construction management for residential, commercial, and industrial buildings. Guaranteed on-time and on-budget delivery."
+    },
+    "urbanTransformation": {
+      "title": "Urban Transformation",
+      "desc": "Renewal of risky structures, urban regeneration projects, and contractor–owner partnerships. Our specialist team is at your service."
+    },
+    "residential": {
+      "title": "Residential Projects",
+      "desc": "From luxury residences to affordable mass housing, we offer quality housing solutions across a wide spectrum."
+    },
+    "commercial": {
+      "title": "Commercial Buildings",
+      "desc": "Shopping centers, office buildings, and mixed-use complexes designed and built to meet the demands of modern business life."
+    },
+    "industrial": {
+      "title": "Industrial Facilities",
+      "desc": "Factories, warehouses, logistics centers, and organized industrial zone structures. Engineering solutions tailored to sectoral needs."
+    },
+    "renovation": {
+      "title": "Restoration & Renovation",
+      "desc": "Restoration of historic structures, corporate office renovations, and comprehensive refurbishment projects."
+    }
+  },
+  "projects": {
+    "title": "Our Projects",
+    "subtitle": "Completed and ongoing construction projects",
+    "filter": {
+      "all": "All",
+      "residential": "Residential",
+      "commercial": "Commercial",
+      "industrial": "Industrial"
+    },
+    "status": {
+      "completed": "Completed",
+      "ongoing": "Ongoing"
+    },
+    "detail": {
+      "sqm": "Floor Area",
+      "completionDate": "Completion Date",
+      "startDate": "Start Date",
+      "location": "Location",
+      "status": "Status",
+      "category": "Category",
+      "units": "Units",
+      "overview": "Project Overview",
+      "gallery": "Photo Gallery",
+      "timeline": "Progress",
+      "downloadBrochure": "Download Project Brochure",
+      "atGlance": "At a Glance",
+      "progress": {
+        "foundation": "Foundation",
+        "structure": "Structure",
+        "finishing": "Finishing"
+      }
+    },
+    "noResults": "No projects found for this filter.",
+    "loadMore": "Load More Projects"
+  },
+  "about": {
+    "title": "About Us",
+    "subtitle": "Shaping Ankara's skyline for 25 years",
+    "content": "AYT Group is a well-established company founded in Ankara in 2000, today ranking among Turkey's leading construction firms. With over 120 successful projects in residential, commercial, and industrial sectors, we have built hundreds of thousands of square metres of structures.\n\nBuilt on the strong engineering foundation laid by our founders, the company now operates with more than 500 experienced technical experts and workers. Our ISO 9001, ISO 14001, and OHSAS 18001 certifications document our commitment to quality, environment, and occupational safety.",
+    "values": {
+      "title": "Our Values",
+      "quality": { "title": "Quality", "desc": "We apply the highest quality standards at every stage, from material selection to final handover, and we stand behind our work." },
+      "trust": { "title": "Trust", "desc": "The trust we have built with our clients over 25 years is our most valuable asset. We deliver what we promise." },
+      "innovation": { "title": "Innovation", "desc": "By following the latest technologies and methods in the industry, we add value to our projects and build tomorrow's structures today." },
+      "sustainability": { "title": "Sustainability", "desc": "Through eco-friendly construction methods and energy-efficient designs, we fulfil our responsibility to nature and future generations." }
+    }
+  },
+  "mission": {
+    "title": "Mission & Vision",
+    "missionTitle": "Our Mission",
+    "missionContent": "To transform our clients' dreams into reality through quality, safe, and on-time project delivery; to be an ethical, innovative, and sustainable model in Turkey's construction sector.",
+    "visionTitle": "Our Vision",
+    "visionContent": "To rank among Turkey's top 10 construction companies by 2030 through domestic and international projects; to be recognised as an internationally standard, industry-leading brand.",
+    "valuesTitle": "Our Core Values"
+  },
+  "certifications": {
+    "title": "Certifications",
+    "subtitle": "Certificates that document our quality and reliability",
+    "iso9001": { "title": "ISO 9001:2015 Quality Management System", "desc": "ISO 9001 certification documenting that products and services are managed to international quality standards." },
+    "iso14001": { "title": "ISO 14001:2015 Environmental Management System", "desc": "ISO 14001 certification managing our environmental impacts and documenting sustainable practices." },
+    "ohsas18001": { "title": "OHSAS 18001 Occupational Health & Safety", "desc": "Document showing our compliance with international standards in employee health and occupational safety management." },
+    "tse": { "title": "TSE Service Competence Certificate", "desc": "Service quality and competence certificate issued by the Turkish Standards Institution." }
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Get in touch with us for your project",
+    "form": {
+      "title": "Write to Us",
+      "name": "Full Name",
+      "namePlaceholder": "Enter your name",
+      "email": "Email Address",
+      "emailPlaceholder": "example@email.com",
+      "phone": "Phone Number",
+      "phonePlaceholder": "+90 5XX XXX XX XX",
+      "subject": "Subject",
+      "subjectPlaceholder": "Select a subject",
+      "message": "Your Message",
+      "messagePlaceholder": "Provide detailed information about your project...",
+      "submit": "Send Message",
+      "submitting": "Sending...",
+      "success": "Your message has been sent successfully. We will get back to you as soon as possible.",
+      "error": "Message could not be sent. Please try again.",
+      "subjects": {
+        "general": "General Information",
+        "quote": "Price Quote",
+        "project": "Project Discussion",
+        "career": "Career",
+        "other": "Other"
+      }
+    },
+    "info": {
+      "title": "Contact Information",
+      "phone": "Phone",
+      "email": "Email",
+      "address": "Address",
+      "hours": "Working Hours"
+    },
+    "map": {
+      "title": "Our Location"
+    }
+  },
+  "footer": {
+    "tagline": "Building the future together.",
+    "links": {
+      "title": "Quick Links",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Use",
+      "kvkk": "KVKK Disclosure"
+    },
+    "social": {
+      "title": "Social Media"
+    },
+    "rights": "© {{year}} AYT Group. All rights reserved.",
+    "madeWith": "Made in Ankara."
+  },
+  "seo": {
+    "home": {
+      "title": "AYT Group – Construction & Contracting",
+      "description": "AYT Group is Ankara's leading construction contractor with 25 years of experience in residential, commercial, and industrial projects."
+    },
+    "about": {
+      "title": "About Us – AYT Group",
+      "description": "Learn about AYT Group: our founding story, values, and 25 years of construction experience in Ankara."
+    },
+    "projects": {
+      "title": "Projects – AYT Group",
+      "description": "AYT Group's completed and ongoing residential, commercial, and industrial construction projects. Ankara Çankaya, Söğütözü, Sincan and more."
+    },
+    "services": {
+      "title": "Services – AYT Group",
+      "description": "Services offered by AYT Group: general contracting, urban transformation, residential, commercial and industrial buildings, restoration."
+    },
+    "contact": {
+      "title": "Contact – AYT Group",
+      "description": "Contact AYT Group. Get a quote for construction and contracting services in Ankara."
+    }
+  },
+  "testimonials": {
+    "title": "What Our Clients Say",
+    "subtitle": "Reviews from our satisfied clients",
+    "testimonial1": "Working with AYT Group is a privilege. Project management on the Söğütözü Plaza was excellent in terms of time and budget. Highly recommended.",
+    "testimonial1Name": "Ahmet Yılmaz",
+    "testimonial1Role": "CEO, Yılmaz Holding",
+    "testimonial2": "On our Etimesgut residential project, quality and reliability exceeded our expectations. Thank you for your client-focused approach.",
+    "testimonial2Name": "Ayşe Kaya",
+    "testimonial2Role": "Homeowner",
+    "testimonial3": "The professionalism and technical competence on the Sincan Logistics Center project were truly impressive. The AYT Group team supported us in every way.",
+    "testimonial3Name": "Mehmet Demir",
+    "testimonial3Role": "General Manager, Demir Lojistik A.Ş."
+  },
+  "notFound": {
+    "title": "Page Not Found",
+    "subtitle": "The page you are looking for does not exist or may have been moved.",
+    "back": "Back to Home"
+  },
+  "ctaBanner": {
+    "title": "Let's Build Your Dream Project Together",
+    "subtitle": "Our expert team is with you at every stage of your project.",
+    "cta": "Get a Free Quote"
+  }
+}

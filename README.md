@@ -1,70 +1,124 @@
-# Getting Started with Create React App
+# AYT Group – Corporate Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Professional multi-lingual corporate website for **AYT Group**, an Ankara-based construction and contracting company. Built with React, Firebase, and Tailwind CSS.
 
-## Available Scripts
+🌐 **Domain:** [aytgroup.com.tr](https://aytgroup.com.tr)
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+| Layer | Technology |
+|-------|-----------|
+| UI Framework | React 19 (Create React App) |
+| Styling | Tailwind CSS v3 + custom design system |
+| Animation | Framer Motion |
+| Routing | React Router v6 |
+| i18n | react-i18next (TR / EN / DE) |
+| Backend | Firebase (Firestore + Storage) |
+| SEO | react-helmet-async |
+| Gallery | Swiper.js |
+| Deployment | Docker + Nginx |
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Multi-lingual** — Turkish (primary), English, German with automatic language detection and persistence
+- **Dark Mode** — System-preference aware, togglable, no FOUC
+- **Mobile-First** — Responsive design with sticky contact bar on mobile
+- **Project Gallery** — Interactive filter by category (Residential / Commercial / Industrial) and status (Completed / Ongoing)
+- **Project Detail Pages** — Gallery slider, progress timeline for ongoing projects, downloadable brochure support
+- **SEO Ready** — Unique meta tags per page, Open Graph, Twitter Card, hreflang, canonical URLs
+- **Performance** — Code splitting, lazy loading, WebP-friendly (no format enforcement, use WebP images in Firebase Storage)
+- **Firebase Integration** — Firestore for project data, Storage for images, graceful fallback to seed data when unconfigured
+- **Blueprint Aesthetic** — Construction-industry visual identity with architectural grid lines and gold accents
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Quick Start
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+# Clone
+git clone https://github.com/your-org/aytgroup.com.tr.git
+cd aytgroup.com.tr
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Install
+npm install --legacy-peer-deps
 
-### `npm run eject`
+# Configure
+cp .env.example .env.local
+# Edit .env.local with your Firebase credentials
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# Develop
+npm start
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+> The app runs without Firebase — it uses built-in seed projects as fallback data.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Scripts
 
-## Learn More
+| Command | Description |
+|---------|-------------|
+| `npm start` | Start dev server at `localhost:3000` |
+| `npm run build` | Production build to `/build` |
+| `npm test` | Run tests |
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Project Structure
 
-### Code Splitting
+```
+src/
+  components/     # Reusable UI + layout + section components
+  config/         # Firebase initialisation
+  constants/      # ← All design tokens, nav, static data (start here)
+  context/        # Theme (dark/light) context
+  hooks/          # Custom React hooks
+  i18n.js         # Internationalisation setup
+  locales/        # tr / en / de JSON translation files
+  pages/          # Full page components
+  services/       # Firebase CRUD services
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+## Environment Variables
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Copy `.env.example` to `.env.local` and fill in your Firebase project values. See `.env.example` for documentation on each variable.
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Deployment
 
-### Advanced Configuration
+### Docker (recommended for VPS)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```bash
+docker build \
+  --build-arg REACT_APP_FIREBASE_PROJECT_ID=your_id \
+  # ... other Firebase args \
+  -t aytgroup-web .
 
-### Deployment
+docker run -d -p 80:80 --restart unless-stopped --name aytgroup-web aytgroup-web
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Firebase Hosting
 
-### `npm run build` fails to minify
+```bash
+npm run build
+firebase deploy --only hosting
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+
+## Contributing
+
+Internal project. For issues or questions, contact the development team.
+
+---
+
+## License
+
+Private — all rights reserved © AYT Group.

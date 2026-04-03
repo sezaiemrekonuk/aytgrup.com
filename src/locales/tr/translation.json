@@ -1,0 +1,256 @@
+{
+  "nav": {
+    "home": "Ana Sayfa",
+    "corporate": "Kurumsal",
+    "about": "Hakkımızda",
+    "mission": "Misyon & Vizyon",
+    "certifications": "Belgelerimiz",
+    "projects": "Projelerimiz",
+    "completed": "Tamamlanan Projeler",
+    "ongoing": "Devam Eden Projeler",
+    "services": "Hizmetler",
+    "contact": "İletişim"
+  },
+  "common": {
+    "loading": "Yükleniyor...",
+    "error": "Bir hata oluştu.",
+    "notFound": "Sayfa bulunamadı.",
+    "readMore": "Devamını Oku",
+    "viewAll": "Tümünü Görüntüle",
+    "backToProjects": "Projelere Geri Dön",
+    "getQuote": "Teklif Al",
+    "callNow": "Hemen Ara",
+    "sendMessage": "Mesaj Gönder",
+    "learnMore": "Daha Fazla Bilgi",
+    "viewProject": "Projeyi İncele",
+    "download": "İndir",
+    "close": "Kapat",
+    "menu": "Menü",
+    "search": "Ara",
+    "darkMode": "Karanlık Mod",
+    "lightMode": "Aydınlık Mod",
+    "language": "Dil",
+    "sqm": "m²",
+    "units": "daire",
+    "years": "yıl",
+    "projects": "proje",
+    "clients": "müşteri",
+    "scrollDown": "Aşağı Kaydır",
+    "noResults": "Sonuç bulunamadı."
+  },
+  "hero": {
+    "tagline": "25 Yıllık Güven ve Uzmanlık",
+    "title": "Geleceği\nİnşa Ediyoruz",
+    "subtitle": "Ankara'nın en prestijli inşaat şirketi olarak konut, ticari ve endüstriyel projelerde kalıcı eserler bırakıyoruz.",
+    "cta": {
+      "primary": "Projelerimizi İnceleyin",
+      "secondary": "Bizimle İletişime Geçin"
+    },
+    "stats": {
+      "completedProjects": "Tamamlanan Proje",
+      "sqmBuilt": "m² İnşaat",
+      "satisfiedClients": "Memnun Müşteri"
+    }
+  },
+  "stats": {
+    "title": "Rakamlarla AYT Group",
+    "projects": "Tamamlanan Proje",
+    "years": "Yıllık Deneyim",
+    "sqm": "m² İnşaat",
+    "clients": "Memnun Müşteri"
+  },
+  "featuredProjects": {
+    "title": "Öne Çıkan Projelerimiz",
+    "subtitle": "Hayata geçirdiğimiz başarılı projelerden bir seçki",
+    "viewAll": "Tüm Projeleri Gör"
+  },
+  "services": {
+    "title": "Hizmetlerimiz",
+    "subtitle": "Uçtan uca inşaat çözümleri",
+    "viewAll": "Tüm Hizmetleri Gör",
+    "contracting": {
+      "title": "Genel İnşaat & Taahhüt",
+      "desc": "Konut, ticari ve endüstriyel yapılar için uçtan uca inşaat yönetimi. Projelerin zamanında ve bütçe dahilinde teslimi garantidir."
+    },
+    "urbanTransformation": {
+      "title": "Kentsel Dönüşüm",
+      "desc": "Riskli yapıların yenilenmesi, kentsel dönüşüm projeleri ve müteahhit-mülk sahibi ortaklıkları konusunda uzman ekibimizle hizmetinizdeyiz."
+    },
+    "residential": {
+      "title": "Konut Projeleri",
+      "desc": "Lüks rezidanslardan uygun fiyatlı toplu konut projelerine kadar geniş bir yelpazeде kaliteli konut çözümleri sunuyoruz."
+    },
+    "commercial": {
+      "title": "Ticari Yapılar",
+      "desc": "Alışveriş merkezleri, ofis binaları ve karma kullanımlı kompleksler. Modern iş hayatının gerekliliklerine uygun tasarım ve inşaat."
+    },
+    "industrial": {
+      "title": "Endüstriyel Tesisler",
+      "desc": "Fabrika, depo, lojistik merkezi ve organize sanayi bölgesi yapıları. Sektörel ihtiyaçlara özel mühendislik çözümleri."
+    },
+    "renovation": {
+      "title": "Restorasyon & Tadilat",
+      "desc": "Tarihi yapıların restore edilmesi, kurumsal ofis tadilatları ve kapsamlı yenileme projeleri için deneyimli ekibimiz."
+    }
+  },
+  "projects": {
+    "title": "Projelerimiz",
+    "subtitle": "Tamamlanan ve devam eden projelerimiz",
+    "filter": {
+      "all": "Tümü",
+      "residential": "Konut",
+      "commercial": "Ticari",
+      "industrial": "Endüstriyel"
+    },
+    "status": {
+      "completed": "Tamamlanan",
+      "ongoing": "Devam Eden"
+    },
+    "detail": {
+      "sqm": "Kapalı Alan",
+      "completionDate": "Teslim Tarihi",
+      "startDate": "Başlangıç Tarihi",
+      "location": "Konum",
+      "status": "Durum",
+      "category": "Kategori",
+      "units": "Daire Sayısı",
+      "overview": "Proje Özeti",
+      "gallery": "Fotoğraf Galerisi",
+      "timeline": "İlerleme Durumu",
+      "downloadBrochure": "Proje Broşürünü İndir",
+      "atGlance": "Bir Bakışta",
+      "progress": {
+        "foundation": "Temel",
+        "structure": "Kaba İnşaat",
+        "finishing": "İnce İşler"
+      }
+    },
+    "noResults": "Bu filtreye uygun proje bulunamadı.",
+    "loadMore": "Daha Fazla Proje Gör"
+  },
+  "about": {
+    "title": "Hakkımızda",
+    "subtitle": "25 yıldır Ankara'nın siluetini şekillendiriyoruz",
+    "content": "AYT Group, 2000 yılında Ankara'da kurulan ve bugün Türkiye'nin önde gelen inşaat şirketleri arasında yer alan köklü bir kuruluştur. Konut, ticari ve endüstriyel alanlarda gerçekleştirdiğimiz 120'yi aşkın başarılı proje ile yüz binlerce metrekare yapı inşa ettik.\n\nFirma kurucularımız tarafından oluşturulan güçlü mühendislik temeli üzerine büyüyen şirketimiz, bugün 500'ü aşkın deneyimli teknik uzman ve işçisi ile faaliyet göstermektedir. ISO 9001, ISO 14001 ve OHSAS 18001 sertifikaları ile kalite, çevre ve iş güvenliğine olan bağlılığımızı belgelemiş bulunmaktayız.",
+    "values": {
+      "title": "Değerlerimiz",
+      "quality": { "title": "Kalite", "desc": "Malzeme seçiminden son teslimatа kadar her aşamada en yüksek kalite standartlarını uyguluyor, yaptığımız işin arkasında duruyoruz." },
+      "trust": { "title": "Güven", "desc": "25 yıldır müşterilerimizle inşa ettiğimiz güven ilişkisi, en değerli varlığımızdır. Söz verdiğimizi teslim ederiz." },
+      "innovation": { "title": "Yenilikçilik", "desc": "Sektördeki en son teknoloji ve yöntemleri takip ederek projelerimize katma değer katıyor, geleceğin yapılarını bugünden inşa ediyoruz." },
+      "sustainability": { "title": "Sürdürülebilirlik", "desc": "Çevre dostu inşaat yöntemleri ve enerji verimli tasarımlar ile hem doğaya hem de gelecek nesillere karşı sorumluluğumuzu yerine getiriyoruz." }
+    }
+  },
+  "mission": {
+    "title": "Misyon & Vizyon",
+    "missionTitle": "Misyonumuz",
+    "missionContent": "Kaliteli, güvenli ve zamanında teslim edilen projeler ile müşterilerimizin hayallerini gerçeğe dönüştürmek; Türkiye'nin inşaat sektöründe etik, yenilikçi ve sürdürülebilir bir model olmak.",
+    "visionTitle": "Vizyonumuz",
+    "visionContent": "2030 yılına kadar yurt içi ve yurt dışı projelerle Türkiye'nin en büyük 10 inşaat şirketi arasında yer almak; uluslararası standartlarda, sektöre öncülük eden bir marka olarak tanınmak.",
+    "valuesTitle": "Temel Değerlerimiz"
+  },
+  "certifications": {
+    "title": "Belgelerimiz",
+    "subtitle": "Kalite ve güveni belgeleyen sertifikalarımız",
+    "iso9001": { "title": "ISO 9001:2015 Kalite Yönetim Sistemi", "desc": "Ürün ve hizmet kalitesinin uluslararası standartlarda yönetildiğini belgeleyen ISO 9001 sertifikası." },
+    "iso14001": { "title": "ISO 14001:2015 Çevre Yönetim Sistemi", "desc": "Çevresel etkilerimizi yöneten ve sürdürülebilir uygulamaları belgeleyen ISO 14001 sertifikası." },
+    "ohsas18001": { "title": "OHSAS 18001 İş Sağlığı ve Güvenliği", "desc": "Çalışan sağlığı ve iş güvenliği yönetiminde uluslararası standartlara uygunluğumuzu gösteren belge." },
+    "tse": { "title": "TSE Hizmet Yeterlilik Belgesi", "desc": "Türk Standartları Enstitüsü tarafından verilen hizmet kalitesi ve yeterlilik belgesi." }
+  },
+  "contact": {
+    "title": "İletişim",
+    "subtitle": "Projeniz için bizimle iletişime geçin",
+    "form": {
+      "title": "Bize Yazın",
+      "name": "Ad Soyad",
+      "namePlaceholder": "Adınızı girin",
+      "email": "E-posta Adresi",
+      "emailPlaceholder": "ornek@email.com",
+      "phone": "Telefon Numarası",
+      "phonePlaceholder": "+90 5XX XXX XX XX",
+      "subject": "Konu",
+      "subjectPlaceholder": "Konu seçin",
+      "message": "Mesajınız",
+      "messagePlaceholder": "Projeniz hakkında detaylı bilgi verin...",
+      "submit": "Mesajı Gönder",
+      "submitting": "Gönderiliyor...",
+      "success": "Mesajınız başarıyla iletildi. En kısa sürede dönüş yapacağız.",
+      "error": "Mesaj gönderilemedi. Lütfen tekrar deneyin.",
+      "subjects": {
+        "general": "Genel Bilgi",
+        "quote": "Fiyat Teklifi",
+        "project": "Proje Görüşmesi",
+        "career": "Kariyer",
+        "other": "Diğer"
+      }
+    },
+    "info": {
+      "title": "İletişim Bilgileri",
+      "phone": "Telefon",
+      "email": "E-posta",
+      "address": "Adres",
+      "hours": "Çalışma Saatleri"
+    },
+    "map": {
+      "title": "Konumumuz"
+    }
+  },
+  "footer": {
+    "tagline": "Geleceği birlikte inşa ediyoruz.",
+    "links": {
+      "title": "Hızlı Bağlantılar",
+      "privacy": "Gizlilik Politikası",
+      "terms": "Kullanım Koşulları",
+      "kvkk": "KVKK Aydınlatma Metni"
+    },
+    "social": {
+      "title": "Sosyal Medya"
+    },
+    "rights": "© {{year}} AYT Group. Tüm hakları saklıdır.",
+    "madeWith": "Ankara'da yapıldı."
+  },
+  "seo": {
+    "home": {
+      "title": "AYT Group – İnşaat ve Müteahhitlik",
+      "description": "AYT Group, Ankara'da 25 yıllık deneyimiyle konut, ticari ve endüstriyel inşaat projeleri gerçekleştiren lider müteahhit firmadır."
+    },
+    "about": {
+      "title": "Hakkımızda – AYT Group",
+      "description": "AYT Group hakkında detaylı bilgi: kuruluş hikayemiz, değerlerimiz ve Ankara'daki 25 yıllık inşaat deneyimimiz."
+    },
+    "projects": {
+      "title": "Projelerimiz – AYT Group",
+      "description": "AYT Group'un tamamlanan ve devam eden konut, ticari ve endüstriyel inşaat projeleri. Ankara Çankaya, Söğütözü, Sincan ve daha fazlası."
+    },
+    "services": {
+      "title": "Hizmetler – AYT Group",
+      "description": "AYT Group'un sunduğu hizmetler: genel inşaat, kentsel dönüşüm, konut, ticari ve endüstriyel yapılar, restorasyon."
+    },
+    "contact": {
+      "title": "İletişim – AYT Group",
+      "description": "AYT Group ile iletişime geçin. Ankara'da inşaat ve müteahhitlik hizmetleri için teklif alın."
+    }
+  },
+  "testimonials": {
+    "title": "Müşterilerimiz Ne Diyor?",
+    "subtitle": "Memnun müşterilerimizin görüşleri",
+    "testimonial1": "AYT Group ile çalışmak bir ayrıcalık. Söğütözü Plaza projemizde zaman ve bütçe yönetimi mükemmeldi. Kesinlikle tavsiye ederim.",
+    "testimonial1Name": "Ahmet Yılmaz",
+    "testimonial1Role": "CEO, Yılmaz Holding",
+    "testimonial2": "Etimesgut'taki konut projemizde kalite ve güven beklentilerimizin ötesine geçildi. Müşteri odaklı yaklaşımları için teşekkürler.",
+    "testimonial2Name": "Ayşe Kaya",
+    "testimonial2Role": "Konut Sahibi",
+    "testimonial3": "Sincan Lojistik Merkezi projemizde profesyonellik ve teknik yetkinlik gerçekten etkileyiciydi. AYT Group ekibi her konuda destek oldu.",
+    "testimonial3Name": "Mehmet Demir",
+    "testimonial3Role": "Genel Müdür, Demir Lojistik A.Ş."
+  },
+  "notFound": {
+    "title": "Sayfa Bulunamadı",
+    "subtitle": "Aradığınız sayfa mevcut değil veya taşınmış olabilir.",
+    "back": "Ana Sayfaya Dön"
+  },
+  "ctaBanner": {
+    "title": "Hayalinizdeki Projeyi Birlikte İnşa Edelim",
+    "subtitle": "Uzman ekibimiz projenizin her aşamasında yanınızda.",
+    "cta": "Ücretsiz Teklif Alın"
+  }
+}

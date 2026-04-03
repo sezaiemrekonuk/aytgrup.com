@@ -1,13 +1,201 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+/* ─── Tailwind Directives ─────────────────────────────────────────────────── */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Google Fonts Import ─────────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* ─── CSS Custom Properties ───────────────────────────────────────────────── */
+:root {
+  --color-primary: #1A2B3C;
+  --color-accent: #C5A059;
+  --color-neutral: #F4F4F4;
+  --color-cta: #E67E22;
+  --header-height: 80px;
+  --transition-base: 200ms ease;
+  --transition-smooth: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ─── Base Reset & Typography ─────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  @apply font-body bg-neutral-50 text-primary dark:bg-dark-bg dark:text-neutral-100;
+  transition: background-color var(--transition-smooth), color var(--transition-smooth);
+}
+
+/* ─── Headings ────────────────────────────────────────────────────────────── */
+h1, h2, h3, h4, h5, h6 {
+  @apply font-heading font-bold tracking-tight;
+}
+
+/* ─── Scrollbar Styling ───────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-neutral-200 dark:bg-dark-bg;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-primary dark:bg-primary-light rounded;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-accent;
+}
+
+/* ─── Selection ───────────────────────────────────────────────────────────── */
+::selection {
+  background-color: rgba(197, 160, 89, 0.25);
+  color: inherit;
+}
+
+/* ─── Focus Ring ──────────────────────────────────────────────────────────── */
+:focus-visible {
+  @apply outline-2 outline-offset-2 outline-accent;
+}
+
+/* ─── Utility Layer ───────────────────────────────────────────────────────── */
+@layer utilities {
+  /* Blueprint grid background helper */
+  .bg-blueprint {
+    background-image: linear-gradient(rgba(197,160,89,0.06) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(197,160,89,0.06) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+  .dark .bg-blueprint {
+    background-image: linear-gradient(rgba(197,160,89,0.10) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(197,160,89,0.10) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  /* Text gradient gold */
+  .text-gradient-gold {
+    background: linear-gradient(90deg, #C5A059, #D4B47A, #C5A059);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Structural divider line */
+  .divider-gold {
+    @apply h-px w-16 bg-accent;
+  }
+
+  /* Container with max-width */
+  .container-site {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Section vertical padding */
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+
+  /* Card base */
+  .card-base {
+    @apply bg-white dark:bg-dark-card rounded shadow-card border border-neutral-200 dark:border-dark-border transition-shadow duration-300;
+  }
+
+  /* Skeleton loading shimmer */
+  .skeleton {
+    background: linear-gradient(90deg, #e8e8e8 25%, #f4f4f4 50%, #e8e8e8 75%);
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite linear;
+  }
+  .dark .skeleton {
+    background: linear-gradient(90deg, #162436 25%, #243A52 50%, #162436 75%);
+    background-size: 1000px 100%;
+  }
+
+  /* Gold accent border left */
+  .border-l-accent {
+    border-left: 3px solid #C5A059;
+  }
+}
+
+/* ─── Component Layer ─────────────────────────────────────────────────────── */
+@layer components {
+  /* Navigation dropdown */
+  .nav-dropdown {
+    @apply absolute top-full left-0 mt-1 w-56 bg-white dark:bg-dark-card shadow-nav border border-neutral-200 dark:border-dark-border rounded py-1 z-50;
+    animation: slideDown 0.2s ease-out forwards;
+  }
+
+  /* Navigation link */
+  .nav-link {
+    @apply relative text-sm font-medium text-primary-light dark:text-neutral-300 hover:text-accent dark:hover:text-accent transition-colors duration-200;
+  }
+  .nav-link::after {
+    content: '';
+    @apply absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all duration-300;
+  }
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    @apply w-full;
+  }
+  .nav-link.active {
+    @apply text-accent;
+  }
+
+  /* Button variants — see Button.jsx for JSX wrapper */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-6 py-3 bg-primary text-white font-heading font-semibold text-sm tracking-wide rounded
+           hover:bg-primary-light active:bg-primary-dark transition-colors duration-200 focus-visible:ring-2 ring-accent ring-offset-2;
+  }
+  .btn-accent {
+    @apply inline-flex items-center gap-2 px-6 py-3 bg-accent text-primary font-heading font-semibold text-sm tracking-wide rounded
+           hover:bg-accent-light active:bg-accent-dark shadow-accent transition-all duration-200;
+  }
+  .btn-cta {
+    @apply inline-flex items-center gap-2 px-6 py-3 bg-cta text-white font-heading font-semibold text-sm tracking-wide rounded
+           hover:bg-cta-hover active:bg-cta-dark shadow-cta transition-all duration-200;
+  }
+  .btn-outline {
+    @apply inline-flex items-center gap-2 px-6 py-3 border-2 border-primary text-primary dark:border-neutral-300 dark:text-neutral-300 font-heading font-semibold text-sm tracking-wide rounded
+           hover:bg-primary hover:text-white dark:hover:bg-primary dark:hover:text-white transition-all duration-200;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 px-4 py-2 text-primary dark:text-neutral-300 font-medium text-sm rounded
+           hover:bg-neutral-100 dark:hover:bg-dark-card transition-colors duration-200;
+  }
+
+  /* Project filter pill */
+  .filter-pill {
+    @apply px-4 py-2 text-sm font-heading font-semibold rounded border border-neutral-300 dark:border-dark-border
+           text-neutral-600 dark:text-neutral-400 hover:border-accent hover:text-accent dark:hover:border-accent dark:hover:text-accent
+           transition-all duration-200 cursor-pointer;
+  }
+  .filter-pill.active {
+    @apply bg-primary text-white border-primary dark:bg-accent dark:text-primary dark:border-accent;
+  }
+}
+
+/* ─── Swiper Overrides ────────────────────────────────────────────────────── */
+.swiper-pagination-bullet {
+  background: rgba(197, 160, 89, 0.4) !important;
+}
+.swiper-pagination-bullet-active {
+  background: #C5A059 !important;
+}
+.swiper-button-next,
+.swiper-button-prev {
+  color: #C5A059 !important;
+}
+
+/* ─── Print Styles ────────────────────────────────────────────────────────── */
+@media print {
+  .no-print {
+    display: none !important;
+  }
 }
