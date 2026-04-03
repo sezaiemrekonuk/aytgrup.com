@@ -297,33 +297,38 @@ export default function Header() {
   const { pathname } = useLocation();
   useEffect(() => setMobileOpen(false), [pathname]);
 
+  // Only the home page has the dark full-viewport hero — force light text
+  // there when the header is still transparent (not scrolled).
+  const isHome = pathname === '/';
+  const transparent = isHome && !scrolled;
+
   return (
     <>
       <header
         className={clsx(
           'fixed top-0 inset-x-0 z-30 transition-all duration-300 no-print',
-          scrolled
-            ? 'bg-white/95 dark:bg-dark-card/95 backdrop-blur-md shadow-nav'
-            : 'bg-transparent',
+          transparent
+            ? 'bg-transparent'
+            : 'bg-white/95 dark:bg-dark-card/95 backdrop-blur-md shadow-nav',
         )}
         style={{ height: 'var(--header-height)' }}
       >
         <div className="container-site h-full flex items-center justify-between">
           {/* Logo */}
-          <LogoMark light={!scrolled} />
+          <LogoMark light={transparent} />
 
           {/* Desktop nav */}
           <nav className="hidden lg:flex items-center gap-7">
             {NAV_ITEMS.map((item) =>
               item.children ? (
-                <NavDropdown key={item.key} item={item} t={t} scrolled={scrolled} />
+                <NavDropdown key={item.key} item={item} t={t} scrolled={!transparent} />
               ) : (
                 <NavLink
                   key={item.key}
                   to={item.path}
                   end={item.path === '/'}
                   className={({ isActive }) =>
-                    clsx('nav-link', isActive && 'active', !scrolled && !isActive && '!text-neutral-200')
+                    clsx('nav-link', isActive && 'active', transparent && !isActive && '!text-neutral-200')
                   }
                 >
                   {t(`nav.${item.key}`)}
@@ -334,8 +339,8 @@ export default function Header() {
 
           {/* Right controls */}
           <div className="flex items-center gap-2">
-            <ThemeToggle scrolled={scrolled} />
-            <LanguageSwitcher scrolled={scrolled} />
+            <ThemeToggle scrolled={!transparent} />
+            <LanguageSwitcher scrolled={!transparent} />
 
             {/* CTA — desktop only */}
             <a
@@ -349,9 +354,9 @@ export default function Header() {
             <button
               className={clsx(
                 'lg:hidden p-2 rounded hover:text-accent transition-colors',
-                scrolled
-                  ? 'text-neutral-600 dark:text-neutral-300'
-                  : 'text-neutral-200',
+                transparent
+                  ? 'text-neutral-200'
+                  : 'text-neutral-600 dark:text-neutral-300',
               )}
               onClick={() => setMobileOpen(true)}
               aria-label={t('common.menu')}
