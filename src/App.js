@@ -11,7 +11,6 @@ import './i18n';
 const Home            = lazy(() => import('./pages/Home'));
 const About           = lazy(() => import('./pages/Corporate/About'));
 const Mission         = lazy(() => import('./pages/Corporate/Mission'));
-const Certifications  = lazy(() => import('./pages/Corporate/Certifications'));
 const Projects        = lazy(() => import('./pages/Projects'));
 const ProjectDetail   = lazy(() => import('./pages/Projects/ProjectDetail'));
 const Services        = lazy(() => import('./pages/Services'));
@@ -45,7 +44,6 @@ export default function App() {
                   <Route path="kurumsal">
                     <Route path="hakkimizda"    element={<About />} />
                     <Route path="misyon-vizyon"  element={<Mission />} />
-                    <Route path="belgelerimiz"   element={<Certifications />} />
                   </Route>
 
                   <Route path="projelerimiz">

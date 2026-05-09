@@ -217,8 +217,8 @@ function MobileNav({ open, onClose, t }) {
 
             {/* Bottom bar */}
             <div className="px-6 py-5 border-t border-neutral-100 dark:border-dark-border space-y-3">
-              <a href={`tel:${BRAND.phone}`} className="btn-cta w-full justify-center">
-                <PhoneIcon /> {BRAND.phone}
+              <a href={`mailto:${BRAND.email}`} className="btn-cta w-full justify-center">
+                <MailIcon /> {BRAND.email}
               </a>
             </div>
           </motion.nav>
@@ -276,13 +276,15 @@ function MobileDropdown({ item, onClose, t }) {
 
 // ─── Logo ─────────────────────────────────────────────────────────────────────
 function LogoMark({ size = 'md', light = false }) {
-  const sizes = { sm: 'text-lg', md: 'text-xl' };
+  const sizes = { sm: 'h-9', md: 'h-10' };
   return (
     <Link to="/" aria-label="AYT Grup – Ana Sayfa">
-      <span className={clsx('font-heading font-black tracking-tight', sizes[size], light ? 'text-white' : 'text-primary dark:text-neutral-100')}>
-        AYT<span className="text-accent">.</span>
-        <span className={clsx('font-light', light ? 'text-neutral-300' : 'text-neutral-500 dark:text-neutral-400')}>Grup</span>
-      </span>
+      <img
+        src="/AYT LOGO.png"
+        alt="AYT Grup"
+        className={clsx(sizes[size], 'w-auto', light ? 'drop-shadow-[0_0_8px_rgba(0,0,0,0.45)]' : '')}
+        loading="eager"
+      />
     </Link>
   );
 }
@@ -344,10 +346,10 @@ export default function Header() {
 
             {/* CTA — desktop only */}
             <a
-              href={`tel:${BRAND.phone}`}
+              href={`mailto:${BRAND.email}`}
               className="hidden md:inline-flex items-center gap-1.5 btn-cta py-2 px-4 text-xs"
             >
-              <PhoneIcon /> {t('common.callNow')}
+              <MailIcon /> {t('common.sendMessage')}
             </a>
 
             {/* Hamburger — mobile */}
@@ -416,10 +418,10 @@ function SunIcon() {
     </svg>
   );
 }
-function PhoneIcon() {
+function MailIcon() {
   return (
     <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+      <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
     </svg>
   );
 }

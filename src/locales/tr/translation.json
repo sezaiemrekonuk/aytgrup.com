@@ -39,7 +39,7 @@
     "noResults": "Sonuç bulunamadı."
   },
   "hero": {
-    "tagline": "25 Yıllık Güven ve Uzmanlık",
+    "tagline": "Güven ve Mühendislik Disiplini",
     "title": "Geleceği\nİnşa Ediyoruz",
     "subtitle": "Ankara'nın en prestijli inşaat şirketi olarak konut, ticari ve endüstriyel projelerde kalıcı eserler bırakıyoruz.",
     "cta": {
@@ -55,7 +55,7 @@
   "stats": {
     "title": "Rakamlarla AYT Grup",
     "projects": "Tamamlanan Proje",
-    "years": "Yıllık Deneyim",
+    "experts": "Uzman Ekip",
     "sqm": "m² İnşaat",
     "clients": "Memnun Müşteri"
   },
@@ -136,12 +136,12 @@
   },
   "about": {
     "title": "Hakkımızda",
-    "subtitle": "25 yıldır Ankara'nın siluetini şekillendiriyoruz",
-    "content": "AYT Grup, 2000 yılında Ankara'da kurulan ve bugün Türkiye'nin önde gelen inşaat şirketleri arasında yer alan köklü bir kuruluştur. Konut, ticari ve endüstriyel alanlarda gerçekleştirdiğimiz 120'yi aşkın başarılı proje ile yüz binlerce metrekare yapı inşa ettik.\n\nFirma kurucularımız tarafından oluşturulan güçlü mühendislik temeli üzerine büyüyen şirketimiz, bugün 500'ü aşkın deneyimli teknik uzman ve işçisi ile faaliyet göstermektedir. ISO 9001, ISO 14001 ve OHSAS 18001 sertifikaları ile kalite, çevre ve iş güvenliğine olan bağlılığımızı belgelemiş bulunmaktayız.",
+    "subtitle": "Güvenilir mühendislik, sürdürülebilir projeler",
+    "content": "AYT Grup, altyapı ve üstyapı projelerinde güvenilir ve çözüm odaklı yaklaşımıyla faaliyet gösteren bir mühendislik ve inşaat markasıdır. Kamu ve özel sektör için geliştirdiğimiz projelerde teknik doğruluk, planlı uygulama ve kaliteli teslim anlayışını birlikte yürütürüz.\n\nUzman teknik kadromuz ve çağdaş yönetim yaklaşımımızla her projede iş güvenliğini, çevresel duyarlılığı ve müşteri memnuniyetini temel öncelik olarak ele alırız. Hedefimiz, uzun vadeli değer üreten yapılarla sektörümüze kalıcı katkı sunmaktır.",
     "values": {
       "title": "Değerlerimiz",
       "quality": { "title": "Kalite", "desc": "Malzeme seçiminden son teslimatа kadar her aşamada en yüksek kalite standartlarını uyguluyor, yaptığımız işin arkasında duruyoruz." },
-      "trust": { "title": "Güven", "desc": "25 yıldır müşterilerimizle inşa ettiğimiz güven ilişkisi, en değerli varlığımızdır. Söz verdiğimizi teslim ederiz." },
+      "trust": { "title": "Güven", "desc": "Müşterilerimizle kurduğumuz güven ilişkisi, en değerli varlığımızdır. Söz verdiğimizi teslim ederiz." },
       "innovation": { "title": "Yenilikçilik", "desc": "Sektördeki en son teknoloji ve yöntemleri takip ederek projelerimize katma değer katıyor, geleceğin yapılarını bugünden inşa ediyoruz." },
       "sustainability": { "title": "Sürdürülebilirlik", "desc": "Çevre dostu inşaat yöntemleri ve enerji verimli tasarımlar ile hem doğaya hem de gelecek nesillere karşı sorumluluğumuzu yerine getiriyoruz." }
     }
@@ -149,9 +149,9 @@
   "mission": {
     "title": "Misyon & Vizyon",
     "missionTitle": "Misyonumuz",
-    "missionContent": "Kaliteli, güvenli ve zamanında teslim edilen projeler ile müşterilerimizin hayallerini gerçeğe dönüştürmek; Türkiye'nin inşaat sektöründe etik, yenilikçi ve sürdürülebilir bir model olmak.",
+    "missionContent": "Altyapı ve üstyapı projelerinde güvenilir, yenilikçi ve sürdürülebilir çözümler üreterek ülkemizin gelişimine katkı sağlamak. Her projede iş güvenliği, çevresel duyarlılık ve müşteri memnuniyetini ön planda tutmak.",
     "visionTitle": "Vizyonumuz",
-    "visionContent": "2030 yılına kadar yurt içi ve yurt dışı projelerle Türkiye'nin en büyük 10 inşaat şirketi arasında yer almak; uluslararası standartlarda, sektöre öncülük eden bir marka olarak tanınmak.",
+    "visionContent": "Kalite, güven ve yenilikçiliği bir araya getirerek inşaat sektöründe öncü ve örnek bir marka olmak; çağdaş yönetim anlayışıyla geleceğin ihtiyaçlarına yön veren projeler geliştirmek.",
     "valuesTitle": "Temel Değerlerimiz"
   },
   "certifications": {
@@ -211,17 +211,17 @@
     "social": {
       "title": "Sosyal Medya"
     },
-    "rights": "© {{year}} AYT Grup. Tüm hakları saklıdır.",
+    "rights": "© AYT Grup. Tüm hakları saklıdır.",
     "madeWith": "Ankara'da yapıldı."
   },
   "seo": {
     "home": {
       "title": "AYT Grup – İnşaat ve Müteahhitlik",
-      "description": "AYT Grup, Ankara'da 25 yıllık deneyimiyle konut, ticari ve endüstriyel inşaat projeleri gerçekleştiren lider müteahhit firmadır."
+      "description": "AYT Grup, Ankara merkezli olarak konut, ticari ve endüstriyel projelerde güvenilir inşaat ve müteahhitlik hizmetleri sunar."
     },
     "about": {
       "title": "Hakkımızda – AYT Grup",
-      "description": "AYT Grup hakkında detaylı bilgi: kuruluş hikayemiz, değerlerimiz ve Ankara'daki 25 yıllık inşaat deneyimimiz."
+      "description": "AYT Grup hakkında detaylı bilgi: değerlerimiz, mühendislik yaklaşımımız ve sürdürülebilir proje anlayışımız."
     },
     "mission": {
       "title": "Misyon ve Vizyon – AYT Grup",

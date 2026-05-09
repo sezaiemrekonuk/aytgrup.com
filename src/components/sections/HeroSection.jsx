@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
@@ -14,23 +14,35 @@ import { BRAND } from '../../constants'; // eslint-disable-line no-unused-vars
  */
 export default function HeroSection() {
   const { t } = useTranslation();
+  const [activeSlide, setActiveSlide] = useState(0);
+
+  const slides = ['/hero/slide-1.jpg', '/hero/slide-2.jpg', '/hero/slide-3.jpg'];
+
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      setActiveSlide((prev) => (prev + 1) % slides.length);
+    }, 5500);
+
+    return () => window.clearInterval(timer);
+  }, [slides.length]);
 
   return (
     <section className="relative min-h-screen flex flex-col justify-center overflow-hidden -mt-[var(--header-height)]">
 
       {/* ── Background ── */}
-      {/* Option A: Gradient + blueprint grid (default, no external assets needed) */}
-      <div className="absolute inset-0 bg-hero-gradient" aria-hidden />
-      <div className="absolute inset-0 bg-blueprint-grid-dark bg-grid-lg opacity-60" aria-hidden />
-
-      {/* Option B: Video background — uncomment and remove the two divs above
-      <video
-        className="absolute inset-0 w-full h-full object-cover"
-        src="/hero.mp4"
-        autoPlay muted loop playsInline
-        poster="/hero-poster.jpg"
-      />
-      <div className="absolute inset-0 bg-primary/70" aria-hidden /> */}
+      <div className="absolute inset-0 bg-primary" aria-hidden />
+      {slides.map((slide, index) => (
+        <div
+          key={slide}
+          className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ${
+            index === activeSlide ? 'opacity-100' : 'opacity-0'
+          }`}
+          style={{ backgroundImage: `url(${slide})` }}
+          aria-hidden
+        />
+      ))}
+      <div className="absolute inset-0 bg-primary/70" aria-hidden />
+      <div className="absolute inset-0 bg-blueprint-grid-dark bg-grid-lg opacity-30" aria-hidden />
 
       {/* Decorative gold accent line */}
       <div className="absolute top-0 left-0 w-1 h-full bg-accent/30" aria-hidden />

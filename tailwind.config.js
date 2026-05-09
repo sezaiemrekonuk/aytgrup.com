@@ -7,30 +7,30 @@ module.exports = {
       colors: {
         // ─── Design System: "The Foundation" Palette ─────────────────────
         primary: {
-          DEFAULT: '#1A2B3C',
-          light: '#243A52',
-          dark: '#111E2A',
+          DEFAULT: '#41484E',
+          light: '#58626B',
+          dark: '#2B3136',
         },
         accent: {
-          DEFAULT: '#C5A059',
-          light: '#D4B47A',
-          dark: '#A8893C',
+          DEFAULT: '#37A9D6',
+          light: '#58B9DF',
+          dark: '#1B95C4',
         },
         neutral: {
-          DEFAULT: '#F4F4F4',
+          DEFAULT: '#F3F7F9',
         },
         cta: {
-          DEFAULT: '#E67E22',
-          light: '#F39C12',
-          dark: '#D35400',
-          hover: '#CF6D17',
+          DEFAULT: '#2796C4',
+          light: '#37A9D6',
+          dark: '#1B78A0',
+          hover: '#1F86B0',
         },
         // Dark mode surface colors
         dark: {
-          bg: '#0D1B2A',
-          card: '#162436',
-          border: '#243A52',
-          muted: '#8099B3',
+          bg: '#0F1418',
+          card: '#1A2229',
+          border: '#2F3A43',
+          muted: '#95A3AE',
         },
       },
       fontFamily: {
@@ -47,15 +47,15 @@ module.exports = {
       backgroundImage: {
         // Architectural blueprint grid lines
         'blueprint-grid':
-          'linear-gradient(rgba(197,160,89,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(197,160,89,0.06) 1px, transparent 1px)',
+          'linear-gradient(rgba(55,169,214,0.09) 1px, transparent 1px), linear-gradient(90deg, rgba(55,169,214,0.09) 1px, transparent 1px)',
         'blueprint-grid-dark':
-          'linear-gradient(rgba(197,160,89,0.10) 1px, transparent 1px), linear-gradient(90deg, rgba(197,160,89,0.10) 1px, transparent 1px)',
+          'linear-gradient(rgba(55,169,214,0.14) 1px, transparent 1px), linear-gradient(90deg, rgba(55,169,214,0.14) 1px, transparent 1px)',
         'hero-gradient':
-          'linear-gradient(135deg, #0D1B2A 0%, #1A2B3C 60%, #243A52 100%)',
+          'linear-gradient(135deg, #171C21 0%, #313940 60%, #4C5863 100%)',
         'card-overlay':
-          'linear-gradient(180deg, transparent 30%, rgba(13,27,42,0.96) 100%)',
+          'linear-gradient(180deg, transparent 30%, rgba(15,20,24,0.96) 100%)',
         'gold-shimmer':
-          'linear-gradient(90deg, #C5A059 0%, #D4B47A 50%, #C5A059 100%)',
+          'linear-gradient(90deg, #37A9D6 0%, #58B9DF 50%, #37A9D6 100%)',
       },
       backgroundSize: {
         'grid-sm': '40px 40px',
@@ -63,11 +63,11 @@ module.exports = {
         'grid-lg': '80px 80px',
       },
       boxShadow: {
-        card: '0 4px 24px rgba(26,43,60,0.10)',
-        'card-hover': '0 8px 40px rgba(26,43,60,0.20)',
-        cta: '0 4px 20px rgba(230,126,34,0.40)',
-        accent: '0 4px 20px rgba(197,160,89,0.30)',
-        nav: '0 2px 20px rgba(13,27,42,0.15)',
+        card: '0 4px 24px rgba(25,35,45,0.10)',
+        'card-hover': '0 8px 40px rgba(25,35,45,0.20)',
+        cta: '0 4px 20px rgba(39,150,196,0.40)',
+        accent: '0 4px 20px rgba(55,169,214,0.30)',
+        nav: '0 2px 20px rgba(15,20,24,0.18)',
       },
       animation: {
         'fade-in': 'fadeIn 0.6s ease-out forwards',

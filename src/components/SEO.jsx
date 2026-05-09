@@ -69,7 +69,6 @@ export default function SEO({
     name: BRAND.name,
     url: `https://${BRAND.domain}`,
     email: BRAND.email,
-    telephone: BRAND.phone,
     logo: `https://${BRAND.domain}/logo192.png`,
     sameAs: [
       'https://linkedin.com/company/aytgrup',
@@ -91,7 +90,6 @@ export default function SEO({
     name: BRAND.name,
     url: `https://${BRAND.domain}`,
     email: BRAND.email,
-    telephone: BRAND.phone,
     image: `https://${BRAND.domain}${ogImg}`,
     areaServed: {
       '@type': 'Country',

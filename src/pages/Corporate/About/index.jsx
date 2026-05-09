@@ -60,10 +60,10 @@ export default function About() {
               {/* Stats row */}
               <div className="mt-10 grid grid-cols-2 gap-6">
                 {[
-                  { num: '25+', label: 'Yıllık Deneyim' },
                   { num: '120+', label: 'Tamamlanan Proje' },
                   { num: '500K+', label: 'm² İnşaat' },
-                  { num: '500+', label: 'Uzman Çalışan' },
+                  { num: '350+', label: 'Memnun İş Ortağı' },
+                  { num: '500+', label: 'Uzman Ekip' },
                 ].map(({ num, label }) => (
                   <div key={label} className="border-l-accent pl-4">
                     <p className="font-heading font-black text-3xl text-primary dark:text-neutral-100">{num}</p>

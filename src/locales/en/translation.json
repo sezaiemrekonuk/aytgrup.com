@@ -39,7 +39,7 @@
     "noResults": "No results found."
   },
   "hero": {
-    "tagline": "25 Years of Trust & Expertise",
+    "tagline": "Trust and Engineering Discipline",
     "title": "Building\nthe Future",
     "subtitle": "As Ankara's most prestigious construction company, we create lasting landmarks across residential, commercial, and industrial projects.",
     "cta": {
@@ -55,7 +55,7 @@
   "stats": {
     "title": "AYT Grup by the Numbers",
     "projects": "Completed Projects",
-    "years": "Years of Experience",
+    "experts": "Expert Team",
     "sqm": "m² Constructed",
     "clients": "Satisfied Clients"
   },
@@ -136,12 +136,12 @@
   },
   "about": {
     "title": "About Us",
-    "subtitle": "Shaping Ankara's skyline for 25 years",
-    "content": "AYT Grup is a well-established company founded in Ankara in 2000, today ranking among Turkey's leading construction firms. With over 120 successful projects in residential, commercial, and industrial sectors, we have built hundreds of thousands of square metres of structures.\n\nBuilt on the strong engineering foundation laid by our founders, the company now operates with more than 500 experienced technical experts and workers. Our ISO 9001, ISO 14001, and OHSAS 18001 certifications document our commitment to quality, environment, and occupational safety.",
+    "subtitle": "Reliable engineering, sustainable projects",
+    "content": "AYT Grup is an engineering and construction brand focused on reliable execution and solution-oriented project delivery in infrastructure and superstructure works. In projects for both public and private sectors, we combine technical accuracy, disciplined planning, and quality-focused completion.\n\nWith our expert technical team and modern management approach, we prioritize occupational safety, environmental responsibility, and client satisfaction in every project. Our goal is to create long-term value through structures that make a lasting contribution to the sector.",
     "values": {
       "title": "Our Values",
       "quality": { "title": "Quality", "desc": "We apply the highest quality standards at every stage, from material selection to final handover, and we stand behind our work." },
-      "trust": { "title": "Trust", "desc": "The trust we have built with our clients over 25 years is our most valuable asset. We deliver what we promise." },
+      "trust": { "title": "Trust", "desc": "The trust we build with our clients is our most valuable asset. We deliver what we promise." },
       "innovation": { "title": "Innovation", "desc": "By following the latest technologies and methods in the industry, we add value to our projects and build tomorrow's structures today." },
       "sustainability": { "title": "Sustainability", "desc": "Through eco-friendly construction methods and energy-efficient designs, we fulfil our responsibility to nature and future generations." }
     }
@@ -149,9 +149,9 @@
   "mission": {
     "title": "Mission & Vision",
     "missionTitle": "Our Mission",
-    "missionContent": "To transform our clients' dreams into reality through quality, safe, and on-time project delivery; to be an ethical, innovative, and sustainable model in Turkey's construction sector.",
+    "missionContent": "To contribute to our country's development by delivering reliable, innovative, and sustainable solutions in infrastructure and superstructure projects. To prioritize occupational safety, environmental awareness, and client satisfaction in every project.",
     "visionTitle": "Our Vision",
-    "visionContent": "To rank among Turkey's top 10 construction companies by 2030 through domestic and international projects; to be recognised as an internationally standard, industry-leading brand.",
+    "visionContent": "To become a leading and exemplary construction brand by combining quality, trust, and innovation, and to develop projects that shape future needs through a modern management approach.",
     "valuesTitle": "Our Core Values"
   },
   "certifications": {
@@ -211,17 +211,17 @@
     "social": {
       "title": "Social Media"
     },
-    "rights": "© {{year}} AYT Grup. All rights reserved.",
+    "rights": "© AYT Grup. All rights reserved.",
     "madeWith": "Made in Ankara."
   },
   "seo": {
     "home": {
       "title": "AYT Grup – Construction & Contracting",
-      "description": "AYT Grup is Ankara's leading construction contractor with 25 years of experience in residential, commercial, and industrial projects."
+      "description": "AYT Grup provides reliable construction and contracting services for residential, commercial, and industrial projects based in Ankara."
     },
     "about": {
       "title": "About Us – AYT Grup",
-      "description": "Learn about AYT Grup: our founding story, values, and 25 years of construction experience in Ankara."
+      "description": "Learn about AYT Grup: our values, engineering approach, and commitment to sustainable project delivery."
     },
     "mission": {
       "title": "Mission and Vision – AYT Grup",

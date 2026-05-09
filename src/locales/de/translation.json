@@ -39,7 +39,7 @@
     "noResults": "Keine Ergebnisse gefunden."
   },
   "hero": {
-    "tagline": "25 Jahre Vertrauen & Expertise",
+    "tagline": "Vertrauen und Ingenieursdisziplin",
     "title": "Die Zukunft\nbauen",
     "subtitle": "Als Ankaras renommiertestes Bauunternehmen schaffen wir dauerhafte Wahrzeichen in Wohn-, Gewerbe- und Industrieprojekten.",
     "cta": {
@@ -55,7 +55,7 @@
   "stats": {
     "title": "AYT Grup in Zahlen",
     "projects": "Abgeschlossene Projekte",
-    "years": "Jahre Erfahrung",
+    "experts": "Expertenteam",
     "sqm": "m² Baufläche",
     "clients": "Zufriedene Kunden"
   },
@@ -136,12 +136,12 @@
   },
   "about": {
     "title": "Über uns",
-    "subtitle": "Seit 25 Jahren prägen wir Ankaras Skyline",
-    "content": "AYT Grup ist ein im Jahr 2000 in Ankara gegründetes Unternehmen, das heute zu den führenden Bauunternehmen der Türkei zählt. Mit über 120 erfolgreichen Projekten im Wohn-, Gewerbe- und Industriebereich haben wir hunderttausende Quadratmeter Bauwerke errichtet.\n\nAufgebaut auf dem starken Ingenieursfundament unserer Gründer beschäftigt das Unternehmen heute mehr als 500 erfahrene Fachleute und Mitarbeiter. Unsere ISO 9001-, ISO 14001- und OHSAS 18001-Zertifizierungen belegen unser Engagement für Qualität, Umwelt und Arbeitssicherheit.",
+    "subtitle": "Zuverlässige Ingenieursarbeit, nachhaltige Projekte",
+    "content": "AYT Grup ist eine Ingenieur- und Baumarke mit Fokus auf zuverlässige Umsetzung und lösungsorientierte Projektabwicklung in Infrastruktur- und Hochbauprojekten. In Projekten für den öffentlichen und privaten Sektor verbinden wir technische Präzision, strukturierte Planung und qualitätsorientierte Fertigstellung.\n\nMit unserem erfahrenen technischen Team und einem modernen Managementansatz setzen wir in jedem Projekt Arbeitssicherheit, Umweltverantwortung und Kundenzufriedenheit in den Mittelpunkt. Unser Ziel ist es, durch Bauwerke mit langfristigem Nutzen einen dauerhaften Beitrag für die Branche zu leisten.",
     "values": {
       "title": "Unsere Werte",
       "quality": { "title": "Qualität", "desc": "Von der Materialauswahl bis zur endgültigen Übergabe wenden wir die höchsten Qualitätsstandards an und stehen hinter unserer Arbeit." },
-      "trust": { "title": "Vertrauen", "desc": "Das Vertrauen, das wir in 25 Jahren mit unseren Kunden aufgebaut haben, ist unser wertvollstes Gut. Wir liefern, was wir versprechen." },
+      "trust": { "title": "Vertrauen", "desc": "Das Vertrauen, das wir mit unseren Kunden aufbauen, ist unser wertvollstes Gut. Wir liefern, was wir versprechen." },
       "innovation": { "title": "Innovation", "desc": "Indem wir die neuesten Technologien und Methoden der Branche verfolgen, fügen wir unseren Projekten Mehrwert hinzu." },
       "sustainability": { "title": "Nachhaltigkeit", "desc": "Durch umweltfreundliche Baumethoden und energieeffiziente Designs erfüllen wir unsere Verantwortung gegenüber der Natur und künftigen Generationen." }
     }
@@ -149,9 +149,9 @@
   "mission": {
     "title": "Mission & Vision",
     "missionTitle": "Unsere Mission",
-    "missionContent": "Die Träume unserer Kunden durch qualitativ hochwertige, sichere und termingerechte Projektlieferung Wirklichkeit werden zu lassen; ein ethisches, innovatives und nachhaltiges Vorbild im türkischen Bausektor zu sein.",
+    "missionContent": "Durch zuverlässige, innovative und nachhaltige Lösungen in Infrastruktur- und Hochbauprojekten zur Entwicklung unseres Landes beizutragen. In jedem Projekt Arbeitssicherheit, Umweltbewusstsein und Kundenzufriedenheit als Priorität zu setzen.",
     "visionTitle": "Unsere Vision",
-    "visionContent": "Bis 2030 durch inländische und internationale Projekte zu den Top 10 der türkischen Bauunternehmen zu gehören und als international standardisierte, branchenführende Marke anerkannt zu werden.",
+    "visionContent": "Eine führende und beispielhafte Marke im Bausektor zu werden, indem wir Qualität, Vertrauen und Innovation vereinen, und mit modernem Management Projekte zu entwickeln, die zukünftige Anforderungen prägen.",
     "valuesTitle": "Unsere Grundwerte"
   },
   "certifications": {
@@ -211,17 +211,17 @@
     "social": {
       "title": "Soziale Medien"
     },
-    "rights": "© {{year}} AYT Grup. Alle Rechte vorbehalten.",
+    "rights": "© AYT Grup. Alle Rechte vorbehalten.",
     "madeWith": "Hergestellt in Ankara."
   },
   "seo": {
     "home": {
       "title": "AYT Grup – Bau & Generalunternehmer",
-      "description": "AYT Grup ist Ankaras führendes Bauunternehmen mit 25 Jahren Erfahrung in Wohn-, Gewerbe- und Industrieprojekten."
+      "description": "AYT Grup bietet als Unternehmen mit Sitz in Ankara zuverlässige Bau- und Generalunternehmerleistungen für Wohn-, Gewerbe- und Industrieprojekte."
     },
     "about": {
       "title": "Über uns – AYT Grup",
-      "description": "Erfahren Sie mehr über AYT Grup: unsere Gründungsgeschichte, Werte und 25 Jahre Bauerfahrung in Ankara."
+      "description": "Erfahren Sie mehr über AYT Grup: unsere Werte, unseren Ingenieursansatz und unser Engagement für nachhaltige Projektabwicklung."
     },
     "mission": {
       "title": "Mission und Vision – AYT Grup",

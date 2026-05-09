@@ -60,7 +60,6 @@ export const NAV_ITEMS = [
     children: [
       { key: 'about', path: '/kurumsal/hakkimizda' },
       { key: 'mission', path: '/kurumsal/misyon-vizyon' },
-      { key: 'certifications', path: '/kurumsal/belgelerimiz' },
     ],
   },
   {
@@ -95,7 +94,7 @@ export const PROGRESS_STAGES = ['foundation', 'structure', 'finishing'];
 // ─── Company Stats ────────────────────────────────────────────────────────────
 export const COMPANY_STATS = [
   { key: 'projects', value: 120, suffix: '+', icon: 'building' },
-  { key: 'years', value: 25, suffix: '+', icon: 'calendar' },
+  { key: 'experts', value: 500, suffix: '+', icon: 'users' },
   { key: 'sqm', value: 500, suffix: 'K+', icon: 'ruler' },
   { key: 'clients', value: 350, suffix: '+', icon: 'users' },
 ];

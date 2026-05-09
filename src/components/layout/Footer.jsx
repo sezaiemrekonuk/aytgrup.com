@@ -5,7 +5,6 @@ import { BRAND, SOCIAL_LINKS, NAV_ITEMS } from '../../constants';
 
 export default function Footer() {
   const { t } = useTranslation();
-  const year  = new Date().getFullYear();
 
   const flatLinks = NAV_ITEMS.flatMap((item) =>
     item.children
@@ -23,10 +22,7 @@ export default function Footer() {
             {/* ── Brand column ── */}
             <div className="lg:col-span-2">
               <Link to="/" className="inline-block mb-4" aria-label="AYT Grup">
-                <span className="font-heading font-black text-2xl text-white">
-                  AYT<span className="text-accent">.</span>
-                  <span className="font-light text-neutral-400">Grup</span>
-                </span>
+                <img src="/AYT LOGO.png" alt="AYT Grup" className="h-14 w-auto" loading="lazy" />
               </Link>
               <p className="text-sm text-neutral-400 mb-6 max-w-xs leading-relaxed">
                 {t('footer.tagline')}
@@ -34,12 +30,6 @@ export default function Footer() {
 
               {/* Contact info */}
               <ul className="space-y-2 text-sm">
-                <li className="flex items-start gap-2">
-                  <PhoneIcon />
-                  <a href={`tel:${BRAND.phone}`} className="hover:text-accent transition-colors">
-                    {BRAND.phone}
-                  </a>
-                </li>
                 <li className="flex items-start gap-2">
                   <MailIcon />
                   <a href={`mailto:${BRAND.email}`} className="hover:text-accent transition-colors">
@@ -114,7 +104,7 @@ export default function Footer() {
         {/* ── Bottom bar ── */}
         <div className="border-t border-neutral-800">
           <div className="container-site py-5 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-neutral-500">
-            <p>{t('footer.rights', { year })}</p>
+            <p>{t('footer.rights')}</p>
             <p>{t('footer.madeWith')}</p>
           </div>
         </div>
@@ -124,13 +114,6 @@ export default function Footer() {
 }
 
 // ─── Icons ────────────────────────────────────────────────────────────────────
-function PhoneIcon() {
-  return (
-    <svg className="w-4 h-4 mt-0.5 shrink-0 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-    </svg>
-  );
-}
 function MailIcon() {
   return (
     <svg className="w-4 h-4 mt-0.5 shrink-0 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
