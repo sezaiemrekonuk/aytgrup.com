@@ -30,8 +30,10 @@ i18n
     },
     detection: {
       // Keep Turkish as default for first-time visitors.
-      // If user selected a language before, localStorage still wins.
-      order: ['localStorage', 'htmlTag'],
+      // `?lang=en` / `?lang=de` supports crawlable alternate URLs.
+      // If no query param is present, localStorage still wins.
+      order: ['querystring', 'localStorage', 'htmlTag'],
+      lookupQuerystring: 'lang',
       lookupLocalStorage: 'aytgrup-lang',
       caches: ['localStorage'],
     },

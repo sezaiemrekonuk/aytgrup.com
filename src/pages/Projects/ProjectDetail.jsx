@@ -18,7 +18,8 @@ import { PROGRESS_STAGES } from '../../constants';
 export default function ProjectDetail() {
   const { slug }                    = useParams();
   const { t, i18n }                 = useTranslation();
-  const lang                        = i18n.language;
+  const normalizedLang              = (i18n.language || 'tr').split('-')[0];
+  const lang                        = ['tr', 'en', 'de'].includes(normalizedLang) ? normalizedLang : 'tr';
   const { project, loading, notFound } = useProject(slug);
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
@@ -42,6 +43,22 @@ export default function ProjectDetail() {
   const gallery     = project.gallery?.length ? project.gallery : [project.heroImage].filter(Boolean);
 
   const seoKeywords = `${location} ${project.category === 'residential' ? 'konut projesi' : project.category === 'commercial' ? 'ticari yapı' : 'endüstriyel tesis'}, AYT Grup`;
+  const projectUrl = `https://aytgrup.com/projelerimiz/${slug}${lang === 'tr' ? '' : `?lang=${lang}`}`;
+  const projectSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: title,
+    description,
+    inLanguage: lang,
+    mainEntityOfPage: projectUrl,
+    image: gallery.length ? gallery : undefined,
+    about: [location, project.category, 'construction'],
+    publisher: {
+      '@type': 'Organization',
+      name: 'AYT Grup',
+      url: 'https://aytgrup.com',
+    },
+  };
 
   return (
     <>
@@ -50,6 +67,8 @@ export default function ProjectDetail() {
         description={description.slice(0, 160)}
         canonicalPath={`/projelerimiz/${slug}`}
         keywords={seoKeywords}
+        ogType="article"
+        structuredData={projectSchema}
       />
 
       {/* ── Hero Image ── */}

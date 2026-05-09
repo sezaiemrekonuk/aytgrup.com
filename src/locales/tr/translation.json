@@ -223,6 +223,14 @@
       "title": "Hakkımızda – AYT Grup",
       "description": "AYT Grup hakkında detaylı bilgi: kuruluş hikayemiz, değerlerimiz ve Ankara'daki 25 yıllık inşaat deneyimimiz."
     },
+    "mission": {
+      "title": "Misyon ve Vizyon – AYT Grup",
+      "description": "AYT Grup misyonu, vizyonu ve inşaat projelerinde benimsediği kalite, güven ve sürdürülebilirlik odaklı değerler."
+    },
+    "certifications": {
+      "title": "Belgelerimiz – AYT Grup",
+      "description": "AYT Grup kalite belgeleri ve sertifikaları: ISO 9001, ISO 14001, OHSAS 18001 ve TSE standartları."
+    },
     "projects": {
       "title": "Projelerimiz – AYT Grup",
       "description": "AYT Grup'un tamamlanan ve devam eden konut, ticari ve endüstriyel inşaat projeleri. Ankara Çankaya, Söğütözü, Sincan ve daha fazlası."

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+>
+  <url>
+    <loc>https://aytgrup.com/</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://aytgrup.com/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://aytgrup.com/?lang=en" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://aytgrup.com/?lang=de" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aytgrup.com/" />
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://aytgrup.com/kurumsal/hakkimizda</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://aytgrup.com/kurumsal/hakkimizda" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://aytgrup.com/kurumsal/hakkimizda?lang=en" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://aytgrup.com/kurumsal/hakkimizda?lang=de" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aytgrup.com/kurumsal/hakkimizda" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://aytgrup.com/kurumsal/misyon-vizyon</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://aytgrup.com/kurumsal/misyon-vizyon" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://aytgrup.com/kurumsal/misyon-vizyon?lang=en" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://aytgrup.com/kurumsal/misyon-vizyon?lang=de" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aytgrup.com/kurumsal/misyon-vizyon" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://aytgrup.com/kurumsal/belgelerimiz</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://aytgrup.com/kurumsal/belgelerimiz" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://aytgrup.com/kurumsal/belgelerimiz?lang=en" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://aytgrup.com/kurumsal/belgelerimiz?lang=de" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aytgrup.com/kurumsal/belgelerimiz" />
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://aytgrup.com/projelerimiz</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://aytgrup.com/projelerimiz" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://aytgrup.com/projelerimiz?lang=en" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://aytgrup.com/projelerimiz?lang=de" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aytgrup.com/projelerimiz" />
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://aytgrup.com/hizmetler</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://aytgrup.com/hizmetler" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://aytgrup.com/hizmetler?lang=en" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://aytgrup.com/hizmetler?lang=de" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aytgrup.com/hizmetler" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://aytgrup.com/iletisim</loc>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://aytgrup.com/iletisim" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://aytgrup.com/iletisim?lang=en" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://aytgrup.com/iletisim?lang=de" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://aytgrup.com/iletisim" />
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>

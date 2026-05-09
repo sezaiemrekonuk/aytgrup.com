@@ -10,8 +10,8 @@ export default function Certifications() {
   return (
     <>
       <SEO
-        title="Belgelerimiz – AYT Grup"
-        description="AYT Grup kalite ve çevre sertifikaları: ISO 9001, ISO 14001, OHSAS 18001, TSE."
+        titleKey="seo.certifications.title"
+        descriptionKey="seo.certifications.description"
         canonicalPath="/kurumsal/belgelerimiz"
       />
 

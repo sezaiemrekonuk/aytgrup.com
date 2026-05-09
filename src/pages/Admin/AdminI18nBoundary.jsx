@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import i18n from '../../i18n';
 import {
   getStoredAdminLanguage,
@@ -23,5 +24,12 @@ export default function AdminI18nBoundary() {
     };
   }, []);
 
-  return <Outlet />;
+  return (
+    <>
+      <Helmet>
+        <meta name="robots" content="noindex,nofollow,noarchive,nosnippet" />
+      </Helmet>
+      <Outlet />
+    </>
+  );
 }
