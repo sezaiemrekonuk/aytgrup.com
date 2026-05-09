@@ -6,7 +6,6 @@ module.exports = {
     extend: {
       colors: {
         // ─── Design System: "The Foundation" Palette ─────────────────────
-        
         primary: {
           DEFAULT: '#1A2B3C',
           light: '#243A52',
