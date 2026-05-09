@@ -1,8 +1,8 @@
-# AYT Group – Corporate Website
+# AYT Grup – Corporate Website
 
-Professional multi-lingual corporate website for **AYT Group**, an Ankara-based construction and contracting company. Built with React, Firebase, and Tailwind CSS.
+Professional multi-lingual corporate website for **AYT Grup**, an Ankara-based construction and contracting company. Built with React, Firebase, and Tailwind CSS.
 
-🌐 **Domain:** [aytgroup.com.tr](https://aytgroup.com.tr)
+🌐 **Domain:** [aytgrup.com](https://aytgrup.com)
 
 ---
 
@@ -40,8 +40,8 @@ Professional multi-lingual corporate website for **AYT Group**, an Ankara-based 
 
 ```bash
 # Clone
-git clone https://github.com/your-org/aytgroup.com.tr.git
-cd aytgroup.com.tr
+git clone https://github.com/your-org/aytgrup.com.git
+cd aytgrup.com
 
 # Install
 npm install --legacy-peer-deps
@@ -99,9 +99,9 @@ Copy `.env.example` to `.env.local` and fill in your Firebase project values. Se
 docker build \
   --build-arg REACT_APP_FIREBASE_PROJECT_ID=your_id \
   # ... other Firebase args \
-  -t aytgroup-web .
+  -t aytgrup-web .
 
-docker run -d -p 80:80 --restart unless-stopped --name aytgroup-web aytgroup-web
+docker run -d -p 80:80 --restart unless-stopped --name aytgrup-web aytgrup-web
 ```
 
 ### Firebase Hosting
@@ -121,4 +121,4 @@ Internal project. For issues or questions, contact the development team.
 
 ## License
 
-Private — all rights reserved © AYT Group.
+Private — all rights reserved © AYT Grup.

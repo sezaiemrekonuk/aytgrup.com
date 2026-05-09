@@ -84,7 +84,7 @@ export default function About() {
               <div className="aspect-[4/5] bg-primary/5 dark:bg-dark-card rounded overflow-hidden">
                 <img
                   src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=75"
-                  alt="AYT Group Team"
+                  alt="AYT Grup Team"
                   className="w-full h-full object-cover"
                   loading="lazy"
                 />

@@ -41,12 +41,12 @@ export default function ProjectDetail() {
   const location    = project.location?.[lang] || project.location?.tr || '';
   const gallery     = project.gallery?.length ? project.gallery : [project.heroImage].filter(Boolean);
 
-  const seoKeywords = `${location} ${project.category === 'residential' ? 'konut projesi' : project.category === 'commercial' ? 'ticari yapı' : 'endüstriyel tesis'}, AYT Group`;
+  const seoKeywords = `${location} ${project.category === 'residential' ? 'konut projesi' : project.category === 'commercial' ? 'ticari yapı' : 'endüstriyel tesis'}, AYT Grup`;
 
   return (
     <>
       <SEO
-        title={`${title} – AYT Group`}
+        title={`${title} – AYT Grup`}
         description={description.slice(0, 160)}
         canonicalPath={`/projelerimiz/${slug}`}
         keywords={seoKeywords}

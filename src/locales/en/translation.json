@@ -53,7 +53,7 @@
     }
   },
   "stats": {
-    "title": "AYT Group by the Numbers",
+    "title": "AYT Grup by the Numbers",
     "projects": "Completed Projects",
     "years": "Years of Experience",
     "sqm": "m² Constructed",
@@ -137,7 +137,7 @@
   "about": {
     "title": "About Us",
     "subtitle": "Shaping Ankara's skyline for 25 years",
-    "content": "AYT Group is a well-established company founded in Ankara in 2000, today ranking among Turkey's leading construction firms. With over 120 successful projects in residential, commercial, and industrial sectors, we have built hundreds of thousands of square metres of structures.\n\nBuilt on the strong engineering foundation laid by our founders, the company now operates with more than 500 experienced technical experts and workers. Our ISO 9001, ISO 14001, and OHSAS 18001 certifications document our commitment to quality, environment, and occupational safety.",
+    "content": "AYT Grup is a well-established company founded in Ankara in 2000, today ranking among Turkey's leading construction firms. With over 120 successful projects in residential, commercial, and industrial sectors, we have built hundreds of thousands of square metres of structures.\n\nBuilt on the strong engineering foundation laid by our founders, the company now operates with more than 500 experienced technical experts and workers. Our ISO 9001, ISO 14001, and OHSAS 18001 certifications document our commitment to quality, environment, and occupational safety.",
     "values": {
       "title": "Our Values",
       "quality": { "title": "Quality", "desc": "We apply the highest quality standards at every stage, from material selection to final handover, and we stand behind our work." },
@@ -211,41 +211,41 @@
     "social": {
       "title": "Social Media"
     },
-    "rights": "© {{year}} AYT Group. All rights reserved.",
+    "rights": "© {{year}} AYT Grup. All rights reserved.",
     "madeWith": "Made in Ankara."
   },
   "seo": {
     "home": {
-      "title": "AYT Group – Construction & Contracting",
-      "description": "AYT Group is Ankara's leading construction contractor with 25 years of experience in residential, commercial, and industrial projects."
+      "title": "AYT Grup – Construction & Contracting",
+      "description": "AYT Grup is Ankara's leading construction contractor with 25 years of experience in residential, commercial, and industrial projects."
     },
     "about": {
-      "title": "About Us – AYT Group",
-      "description": "Learn about AYT Group: our founding story, values, and 25 years of construction experience in Ankara."
+      "title": "About Us – AYT Grup",
+      "description": "Learn about AYT Grup: our founding story, values, and 25 years of construction experience in Ankara."
     },
     "projects": {
-      "title": "Projects – AYT Group",
-      "description": "AYT Group's completed and ongoing residential, commercial, and industrial construction projects. Ankara Çankaya, Söğütözü, Sincan and more."
+      "title": "Projects – AYT Grup",
+      "description": "AYT Grup's completed and ongoing residential, commercial, and industrial construction projects. Ankara Çankaya, Söğütözü, Sincan and more."
     },
     "services": {
-      "title": "Services – AYT Group",
-      "description": "Services offered by AYT Group: general contracting, urban transformation, residential, commercial and industrial buildings, restoration."
+      "title": "Services – AYT Grup",
+      "description": "Services offered by AYT Grup: general contracting, urban transformation, residential, commercial and industrial buildings, restoration."
     },
     "contact": {
-      "title": "Contact – AYT Group",
-      "description": "Contact AYT Group. Get a quote for construction and contracting services in Ankara."
+      "title": "Contact – AYT Grup",
+      "description": "Contact AYT Grup. Get a quote for construction and contracting services in Ankara."
     }
   },
   "testimonials": {
     "title": "What Our Clients Say",
     "subtitle": "Reviews from our satisfied clients",
-    "testimonial1": "Working with AYT Group is a privilege. Project management on the Söğütözü Plaza was excellent in terms of time and budget. Highly recommended.",
+    "testimonial1": "Working with AYT Grup is a privilege. Project management on the Söğütözü Plaza was excellent in terms of time and budget. Highly recommended.",
     "testimonial1Name": "Ahmet Yılmaz",
     "testimonial1Role": "CEO, Yılmaz Holding",
     "testimonial2": "On our Etimesgut residential project, quality and reliability exceeded our expectations. Thank you for your client-focused approach.",
     "testimonial2Name": "Ayşe Kaya",
     "testimonial2Role": "Homeowner",
-    "testimonial3": "The professionalism and technical competence on the Sincan Logistics Center project were truly impressive. The AYT Group team supported us in every way.",
+    "testimonial3": "The professionalism and technical competence on the Sincan Logistics Center project were truly impressive. The AYT Grup team supported us in every way.",
     "testimonial3Name": "Mehmet Demir",
     "testimonial3Role": "General Manager, Demir Lojistik A.Ş."
   },
@@ -299,7 +299,7 @@
       "email": "Email address",
       "password": "Password",
       "signingIn": "Signing in…",
-      "footerNote": "AYT Group Admin Panel — Authorized access only",
+      "footerNote": "AYT Grup Admin Panel — Authorized access only",
       "errors": {
         "invalidCredential": "Invalid email or password.",
         "userNotFound": "No account found with this email.",

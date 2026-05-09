@@ -203,7 +203,7 @@ export default function Contact() {
             </h2>
             <div className="w-full h-80 rounded overflow-hidden border border-neutral-200 dark:border-dark-border">
               <iframe
-                title="AYT Group Konumu"
+                title="AYT Grup Konumu"
                 src={BRAND.mapEmbedUrl}
                 className="w-full h-full border-0"
                 loading="lazy"

@@ -53,7 +53,7 @@
     }
   },
   "stats": {
-    "title": "Rakamlarla AYT Group",
+    "title": "Rakamlarla AYT Grup",
     "projects": "Tamamlanan Proje",
     "years": "Yıllık Deneyim",
     "sqm": "m² İnşaat",
@@ -137,7 +137,7 @@
   "about": {
     "title": "Hakkımızda",
     "subtitle": "25 yıldır Ankara'nın siluetini şekillendiriyoruz",
-    "content": "AYT Group, 2000 yılında Ankara'da kurulan ve bugün Türkiye'nin önde gelen inşaat şirketleri arasında yer alan köklü bir kuruluştur. Konut, ticari ve endüstriyel alanlarda gerçekleştirdiğimiz 120'yi aşkın başarılı proje ile yüz binlerce metrekare yapı inşa ettik.\n\nFirma kurucularımız tarafından oluşturulan güçlü mühendislik temeli üzerine büyüyen şirketimiz, bugün 500'ü aşkın deneyimli teknik uzman ve işçisi ile faaliyet göstermektedir. ISO 9001, ISO 14001 ve OHSAS 18001 sertifikaları ile kalite, çevre ve iş güvenliğine olan bağlılığımızı belgelemiş bulunmaktayız.",
+    "content": "AYT Grup, 2000 yılında Ankara'da kurulan ve bugün Türkiye'nin önde gelen inşaat şirketleri arasında yer alan köklü bir kuruluştur. Konut, ticari ve endüstriyel alanlarda gerçekleştirdiğimiz 120'yi aşkın başarılı proje ile yüz binlerce metrekare yapı inşa ettik.\n\nFirma kurucularımız tarafından oluşturulan güçlü mühendislik temeli üzerine büyüyen şirketimiz, bugün 500'ü aşkın deneyimli teknik uzman ve işçisi ile faaliyet göstermektedir. ISO 9001, ISO 14001 ve OHSAS 18001 sertifikaları ile kalite, çevre ve iş güvenliğine olan bağlılığımızı belgelemiş bulunmaktayız.",
     "values": {
       "title": "Değerlerimiz",
       "quality": { "title": "Kalite", "desc": "Malzeme seçiminden son teslimatа kadar her aşamada en yüksek kalite standartlarını uyguluyor, yaptığımız işin arkasında duruyoruz." },
@@ -211,41 +211,41 @@
     "social": {
       "title": "Sosyal Medya"
     },
-    "rights": "© {{year}} AYT Group. Tüm hakları saklıdır.",
+    "rights": "© {{year}} AYT Grup. Tüm hakları saklıdır.",
     "madeWith": "Ankara'da yapıldı."
   },
   "seo": {
     "home": {
-      "title": "AYT Group – İnşaat ve Müteahhitlik",
-      "description": "AYT Group, Ankara'da 25 yıllık deneyimiyle konut, ticari ve endüstriyel inşaat projeleri gerçekleştiren lider müteahhit firmadır."
+      "title": "AYT Grup – İnşaat ve Müteahhitlik",
+      "description": "AYT Grup, Ankara'da 25 yıllık deneyimiyle konut, ticari ve endüstriyel inşaat projeleri gerçekleştiren lider müteahhit firmadır."
     },
     "about": {
-      "title": "Hakkımızda – AYT Group",
-      "description": "AYT Group hakkında detaylı bilgi: kuruluş hikayemiz, değerlerimiz ve Ankara'daki 25 yıllık inşaat deneyimimiz."
+      "title": "Hakkımızda – AYT Grup",
+      "description": "AYT Grup hakkında detaylı bilgi: kuruluş hikayemiz, değerlerimiz ve Ankara'daki 25 yıllık inşaat deneyimimiz."
     },
     "projects": {
-      "title": "Projelerimiz – AYT Group",
-      "description": "AYT Group'un tamamlanan ve devam eden konut, ticari ve endüstriyel inşaat projeleri. Ankara Çankaya, Söğütözü, Sincan ve daha fazlası."
+      "title": "Projelerimiz – AYT Grup",
+      "description": "AYT Grup'un tamamlanan ve devam eden konut, ticari ve endüstriyel inşaat projeleri. Ankara Çankaya, Söğütözü, Sincan ve daha fazlası."
     },
     "services": {
-      "title": "Hizmetler – AYT Group",
-      "description": "AYT Group'un sunduğu hizmetler: genel inşaat, kentsel dönüşüm, konut, ticari ve endüstriyel yapılar, restorasyon."
+      "title": "Hizmetler – AYT Grup",
+      "description": "AYT Grup'un sunduğu hizmetler: genel inşaat, kentsel dönüşüm, konut, ticari ve endüstriyel yapılar, restorasyon."
     },
     "contact": {
-      "title": "İletişim – AYT Group",
-      "description": "AYT Group ile iletişime geçin. Ankara'da inşaat ve müteahhitlik hizmetleri için teklif alın."
+      "title": "İletişim – AYT Grup",
+      "description": "AYT Grup ile iletişime geçin. Ankara'da inşaat ve müteahhitlik hizmetleri için teklif alın."
     }
   },
   "testimonials": {
     "title": "Müşterilerimiz Ne Diyor?",
     "subtitle": "Memnun müşterilerimizin görüşleri",
-    "testimonial1": "AYT Group ile çalışmak bir ayrıcalık. Söğütözü Plaza projemizde zaman ve bütçe yönetimi mükemmeldi. Kesinlikle tavsiye ederim.",
+    "testimonial1": "AYT Grup ile çalışmak bir ayrıcalık. Söğütözü Plaza projemizde zaman ve bütçe yönetimi mükemmeldi. Kesinlikle tavsiye ederim.",
     "testimonial1Name": "Ahmet Yılmaz",
     "testimonial1Role": "CEO, Yılmaz Holding",
     "testimonial2": "Etimesgut'taki konut projemizde kalite ve güven beklentilerimizin ötesine geçildi. Müşteri odaklı yaklaşımları için teşekkürler.",
     "testimonial2Name": "Ayşe Kaya",
     "testimonial2Role": "Konut Sahibi",
-    "testimonial3": "Sincan Lojistik Merkezi projemizde profesyonellik ve teknik yetkinlik gerçekten etkileyiciydi. AYT Group ekibi her konuda destek oldu.",
+    "testimonial3": "Sincan Lojistik Merkezi projemizde profesyonellik ve teknik yetkinlik gerçekten etkileyiciydi. AYT Grup ekibi her konuda destek oldu.",
     "testimonial3Name": "Mehmet Demir",
     "testimonial3Role": "Genel Müdür, Demir Lojistik A.Ş."
   },
@@ -299,7 +299,7 @@
       "email": "E-posta adresi",
       "password": "Şifre",
       "signingIn": "Giriş yapılıyor…",
-      "footerNote": "AYT Group Yönetim Paneli — Yalnızca yetkili kullanıcılar",
+      "footerNote": "AYT Grup Yönetim Paneli — Yalnızca yetkili kullanıcılar",
       "errors": {
         "invalidCredential": "E-posta veya şifre hatalı.",
         "userNotFound": "Bu e-posta ile kayıtlı hesap bulunamadı.",

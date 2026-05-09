@@ -1,5 +1,5 @@
 /** Persisted preference for admin UI language (Turkish default, English optional). */
-export const ADMIN_LANG_STORAGE_KEY = 'aytgroup-admin-lang';
+export const ADMIN_LANG_STORAGE_KEY = 'aytgrup-admin-lang';
 
 /** Session-only: public-site language to restore when leaving /admin. */
 export const PRE_ADMIN_LANG_SESSION_KEY = 'ayt-i18n-pre-admin';

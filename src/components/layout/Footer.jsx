@@ -22,7 +22,7 @@ export default function Footer() {
 
             {/* ── Brand column ── */}
             <div className="lg:col-span-2">
-              <Link to="/" className="inline-block mb-4" aria-label="AYT Group">
+              <Link to="/" className="inline-block mb-4" aria-label="AYT Grup">
                 <span className="font-heading font-black text-2xl text-white">
                   AYT<span className="text-accent">.</span>
                   <span className="font-light text-neutral-400">Group</span>

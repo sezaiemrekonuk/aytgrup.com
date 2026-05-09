@@ -12,8 +12,8 @@ export default function Mission() {
   return (
     <>
       <SEO
-        title="Misyon & Vizyon – AYT Group"
-        description="AYT Group misyon ve vizyon ifadeleri ile temel değerleri."
+        title="Misyon & Vizyon – AYT Grup"
+        description="AYT Grup misyon ve vizyon ifadeleri ile temel değerleri."
         canonicalPath="/kurumsal/misyon-vizyon"
       />
 

@@ -9,7 +9,7 @@ export default function NotFound() {
 
   return (
     <>
-      <SEO title="404 – AYT Group" noIndex />
+      <SEO title="404 – AYT Grup" noIndex />
       <div className="min-h-[70vh] flex flex-col items-center justify-center text-center px-4 bg-neutral dark:bg-dark-bg">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

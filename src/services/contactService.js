@@ -48,11 +48,11 @@ function getUserReplyTemplate(locale, name) {
       subject: 'We received your contact request',
       text: `Hello ${name},
 
-Thank you for contacting AYT Group.
+Thank you for contacting AYT Grup.
 We have received your request and our team will get back to you as soon as possible.
 
 Best regards,
-AYT Group`,
+AYT Grup`,
     };
   }
 
@@ -61,11 +61,11 @@ AYT Group`,
       subject: 'Wir haben Ihre Kontaktanfrage erhalten',
       text: `Hallo ${name},
 
-Vielen Dank, dass Sie AYT Group kontaktiert haben.
+Vielen Dank, dass Sie AYT Grup kontaktiert haben.
 Wir haben Ihre Anfrage erhalten und unser Team wird sich so schnell wie möglich bei Ihnen melden.
 
 Mit freundlichen Grüßen
-AYT Group`,
+AYT Grup`,
     };
   }
 
@@ -73,11 +73,11 @@ AYT Group`,
     subject: 'İletişim talebinizi aldık',
     text: `Merhaba ${name},
 
-AYT Group ile iletişime geçtiğiniz için teşekkür ederiz.
+AYT Grup ile iletişime geçtiğiniz için teşekkür ederiz.
 Talebinizi aldık, ekibimiz en kısa sürede sizinle iletişime geçecektir.
 
 Saygılarımızla
-AYT Group`,
+AYT Grup`,
   };
 }
 

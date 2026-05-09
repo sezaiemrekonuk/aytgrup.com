@@ -8,7 +8,7 @@ export function PageLoader() {
       <div className="flex flex-col items-center gap-4">
         <Spinner size="lg" />
         <span className="font-heading text-sm text-neutral-400 dark:text-dark-muted tracking-widest uppercase">
-          AYT Group
+          AYT Grup
         </span>
       </div>
     </div>

@@ -30,7 +30,7 @@ i18n
     },
     detection: {
       order: ['localStorage', 'navigator', 'htmlTag'],
-      lookupLocalStorage: 'aytgroup-lang',
+      lookupLocalStorage: 'aytgrup-lang',
       caches: ['localStorage'],
     },
     react: {

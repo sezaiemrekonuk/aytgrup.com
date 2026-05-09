@@ -1,5 +1,5 @@
 /**
- * AYT Group – Design System & Application Constants
+ * AYT Grup – Design System & Application Constants
  *
  * This file is the single source of truth for all design tokens,
  * navigation structure, static company data, and configuration maps.
@@ -8,14 +8,14 @@
 
 // ─── Brand ────────────────────────────────────────────────────────────────────
 export const BRAND = {
-  name: 'AYT Group',
+  name: 'AYT Grup',
   tagline: {
     tr: 'Geleceği İnşa Ediyoruz',
     en: 'Building the Future',
     de: 'Die Zukunft bauen',
   },
-  domain: 'aytgroup.com.tr',
-  email: 'info@aytgroup.com.tr',
+  domain: 'aytgrup.com',
+  email: 'info@aytgrup.com',
   phone: '+90 312 000 00 00',
   whatsapp: '+905000000000',
   address: {
@@ -40,10 +40,10 @@ export const BRAND = {
 
 // ─── Social Media ─────────────────────────────────────────────────────────────
 export const SOCIAL_LINKS = [
-  { platform: 'linkedin', url: 'https://linkedin.com/company/aytgroup', icon: 'linkedin' },
-  { platform: 'instagram', url: 'https://instagram.com/aytgroup', icon: 'instagram' },
-  { platform: 'twitter', url: 'https://twitter.com/aytgroup', icon: 'twitter' },
-  { platform: 'facebook', url: 'https://facebook.com/aytgroup', icon: 'facebook' },
+  { platform: 'linkedin', url: 'https://linkedin.com/company/aytgrup', icon: 'linkedin' },
+  { platform: 'instagram', url: 'https://instagram.com/aytgrup', icon: 'instagram' },
+  { platform: 'twitter', url: 'https://twitter.com/aytgrup', icon: 'twitter' },
+  { platform: 'facebook', url: 'https://facebook.com/aytgrup', icon: 'facebook' },
 ];
 
 // ─── Navigation ───────────────────────────────────────────────────────────────
@@ -195,15 +195,15 @@ export const DEFAULT_LANGUAGE = 'tr';
 
 // ─── SEO Defaults ─────────────────────────────────────────────────────────────
 export const SEO_DEFAULTS = {
-  siteName: 'AYT Group',
+  siteName: 'AYT Grup',
   separator: ' | ',
-  twitterHandle: '@aytgroup',
+  twitterHandle: '@aytgrup',
   ogImageUrl: '/og-image.jpg', // place a 1200x630 image in /public
 };
 
 // ─── Theme ────────────────────────────────────────────────────────────────────
-export const THEME_STORAGE_KEY = 'aytgroup-theme';
-export const LANG_STORAGE_KEY = 'aytgroup-lang';
+export const THEME_STORAGE_KEY = 'aytgrup-theme';
+export const LANG_STORAGE_KEY = 'aytgrup-lang';
 
 // ─── Firestore Collection Names ───────────────────────────────────────────────
 export const COLLECTIONS = {

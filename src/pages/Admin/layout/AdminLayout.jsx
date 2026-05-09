@@ -91,7 +91,7 @@ function Sidebar({ onClose }) {
             <span className="font-heading font-bold text-white text-sm">A</span>
           </div>
           <div className="min-w-0">
-            <p className="font-heading font-bold text-white text-sm leading-none">AYT Group</p>
+            <p className="font-heading font-bold text-white text-sm leading-none">AYT Grup</p>
             <p className="text-[10px] text-slate-500 mt-0.5 truncate">{t('admin.brand.panelSubtitle')}</p>
           </div>
         </div>

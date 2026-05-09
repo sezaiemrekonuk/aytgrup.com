@@ -278,7 +278,7 @@ function MobileDropdown({ item, onClose, t }) {
 function LogoMark({ size = 'md', light = false }) {
   const sizes = { sm: 'text-lg', md: 'text-xl' };
   return (
-    <Link to="/" aria-label="AYT Group – Ana Sayfa">
+    <Link to="/" aria-label="AYT Grup – Ana Sayfa">
       <span className={clsx('font-heading font-black tracking-tight', sizes[size], light ? 'text-white' : 'text-primary dark:text-neutral-100')}>
         AYT<span className="text-accent">.</span>
         <span className={clsx('font-light', light ? 'text-neutral-300' : 'text-neutral-500 dark:text-neutral-400')}>Group</span>

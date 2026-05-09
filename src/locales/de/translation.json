@@ -53,7 +53,7 @@
     }
   },
   "stats": {
-    "title": "AYT Group in Zahlen",
+    "title": "AYT Grup in Zahlen",
     "projects": "Abgeschlossene Projekte",
     "years": "Jahre Erfahrung",
     "sqm": "m² Baufläche",
@@ -137,7 +137,7 @@
   "about": {
     "title": "Über uns",
     "subtitle": "Seit 25 Jahren prägen wir Ankaras Skyline",
-    "content": "AYT Group ist ein im Jahr 2000 in Ankara gegründetes Unternehmen, das heute zu den führenden Bauunternehmen der Türkei zählt. Mit über 120 erfolgreichen Projekten im Wohn-, Gewerbe- und Industriebereich haben wir hunderttausende Quadratmeter Bauwerke errichtet.\n\nAufgebaut auf dem starken Ingenieursfundament unserer Gründer beschäftigt das Unternehmen heute mehr als 500 erfahrene Fachleute und Mitarbeiter. Unsere ISO 9001-, ISO 14001- und OHSAS 18001-Zertifizierungen belegen unser Engagement für Qualität, Umwelt und Arbeitssicherheit.",
+    "content": "AYT Grup ist ein im Jahr 2000 in Ankara gegründetes Unternehmen, das heute zu den führenden Bauunternehmen der Türkei zählt. Mit über 120 erfolgreichen Projekten im Wohn-, Gewerbe- und Industriebereich haben wir hunderttausende Quadratmeter Bauwerke errichtet.\n\nAufgebaut auf dem starken Ingenieursfundament unserer Gründer beschäftigt das Unternehmen heute mehr als 500 erfahrene Fachleute und Mitarbeiter. Unsere ISO 9001-, ISO 14001- und OHSAS 18001-Zertifizierungen belegen unser Engagement für Qualität, Umwelt und Arbeitssicherheit.",
     "values": {
       "title": "Unsere Werte",
       "quality": { "title": "Qualität", "desc": "Von der Materialauswahl bis zur endgültigen Übergabe wenden wir die höchsten Qualitätsstandards an und stehen hinter unserer Arbeit." },
@@ -211,41 +211,41 @@
     "social": {
       "title": "Soziale Medien"
     },
-    "rights": "© {{year}} AYT Group. Alle Rechte vorbehalten.",
+    "rights": "© {{year}} AYT Grup. Alle Rechte vorbehalten.",
     "madeWith": "Hergestellt in Ankara."
   },
   "seo": {
     "home": {
-      "title": "AYT Group – Bau & Generalunternehmer",
-      "description": "AYT Group ist Ankaras führendes Bauunternehmen mit 25 Jahren Erfahrung in Wohn-, Gewerbe- und Industrieprojekten."
+      "title": "AYT Grup – Bau & Generalunternehmer",
+      "description": "AYT Grup ist Ankaras führendes Bauunternehmen mit 25 Jahren Erfahrung in Wohn-, Gewerbe- und Industrieprojekten."
     },
     "about": {
-      "title": "Über uns – AYT Group",
-      "description": "Erfahren Sie mehr über AYT Group: unsere Gründungsgeschichte, Werte und 25 Jahre Bauerfahrung in Ankara."
+      "title": "Über uns – AYT Grup",
+      "description": "Erfahren Sie mehr über AYT Grup: unsere Gründungsgeschichte, Werte und 25 Jahre Bauerfahrung in Ankara."
     },
     "projects": {
-      "title": "Projekte – AYT Group",
-      "description": "Abgeschlossene und laufende Wohn-, Gewerbe- und Industriebauprojekte von AYT Group. Ankara Çankaya, Söğütözü, Sincan und mehr."
+      "title": "Projekte – AYT Grup",
+      "description": "Abgeschlossene und laufende Wohn-, Gewerbe- und Industriebauprojekte von AYT Grup. Ankara Çankaya, Söğütözü, Sincan und mehr."
     },
     "services": {
-      "title": "Dienstleistungen – AYT Group",
-      "description": "Dienstleistungen von AYT Group: Generalunternehmer, Stadtumbau, Wohn-, Gewerbe- und Industriebauten, Restaurierung."
+      "title": "Dienstleistungen – AYT Grup",
+      "description": "Dienstleistungen von AYT Grup: Generalunternehmer, Stadtumbau, Wohn-, Gewerbe- und Industriebauten, Restaurierung."
     },
     "contact": {
-      "title": "Kontakt – AYT Group",
-      "description": "Kontaktieren Sie AYT Group. Fordern Sie ein Angebot für Bau- und Auftragnehmerdienstleistungen in Ankara an."
+      "title": "Kontakt – AYT Grup",
+      "description": "Kontaktieren Sie AYT Grup. Fordern Sie ein Angebot für Bau- und Auftragnehmerdienstleistungen in Ankara an."
     }
   },
   "testimonials": {
     "title": "Was unsere Kunden sagen",
     "subtitle": "Bewertungen von unseren zufriedenen Kunden",
-    "testimonial1": "Mit AYT Group zu arbeiten ist ein Privileg. Das Projektmanagement beim Söğütözü Plaza war in Bezug auf Zeit und Budget hervorragend. Sehr empfehlenswert.",
+    "testimonial1": "Mit AYT Grup zu arbeiten ist ein Privileg. Das Projektmanagement beim Söğütözü Plaza war in Bezug auf Zeit und Budget hervorragend. Sehr empfehlenswert.",
     "testimonial1Name": "Ahmet Yılmaz",
     "testimonial1Role": "CEO, Yılmaz Holding",
     "testimonial2": "Bei unserem Etimesgut-Wohnprojekt übertrafen Qualität und Zuverlässigkeit unsere Erwartungen. Danke für den kundenorientierten Ansatz.",
     "testimonial2Name": "Ayşe Kaya",
     "testimonial2Role": "Hausbesitzerin",
-    "testimonial3": "Die Professionalität und technische Kompetenz beim Sincan-Logistikzentrum waren wirklich beeindruckend. Das AYT Group-Team unterstützte uns in jeder Hinsicht.",
+    "testimonial3": "Die Professionalität und technische Kompetenz beim Sincan-Logistikzentrum waren wirklich beeindruckend. Das AYT Grup-Team unterstützte uns in jeder Hinsicht.",
     "testimonial3Name": "Mehmet Demir",
     "testimonial3Role": "Geschäftsführer, Demir Lojistik A.Ş."
   },

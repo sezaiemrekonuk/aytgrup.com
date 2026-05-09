@@ -78,7 +78,7 @@ export default function AdminLogin() {
               <div className="w-10 h-10 rounded-lg bg-accent flex items-center justify-center">
                 <span className="font-heading font-bold text-white text-lg">A</span>
               </div>
-              <span className="font-heading font-bold text-2xl text-white">AYT Group</span>
+              <span className="font-heading font-bold text-2xl text-white">AYT Grup</span>
             </div>
             <p className="text-slate-400 text-sm">{t('admin.login.subtitle')}</p>
           </div>
@@ -99,7 +99,7 @@ export default function AdminLogin() {
                 required
                 autoComplete="email"
                 className="w-full bg-[#1A2B3C] border border-[#243A52] text-white rounded-lg px-3 py-2.5 text-sm placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition"
-                placeholder="admin@aytgroup.com.tr"
+                placeholder="admin@aytgrup.com"
               />
             </div>
 
