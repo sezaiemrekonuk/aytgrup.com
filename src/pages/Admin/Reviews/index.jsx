@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { getReviews, addReview, updateReview, deleteReview } from '../../../services/reviewService';
 
 function Stars({ rating, onRate }) {
@@ -25,12 +26,13 @@ function Stars({ rating, onRate }) {
 const EMPTY_FORM = { name: '', role: '', content: '', rating: 5, status: 'approved' };
 
 function ReviewModal({ review, onSave, onClose }) {
+  const { t } = useTranslation();
   const [form,   setForm]   = useState(review ? { ...review } : { ...EMPTY_FORM });
   const [saving, setSaving] = useState(false);
 
   async function handleSave() {
     if (!form.name.trim() || !form.content.trim()) {
-      alert('Name and content are required.');
+      alert(t('admin.reviewsPage.modal.required'));
       return;
     }
     setSaving(true);
@@ -38,7 +40,7 @@ function ReviewModal({ review, onSave, onClose }) {
       await onSave(form);
       onClose();
     } catch (e) {
-      alert('Save failed: ' + e.message);
+      alert(t('admin.reviewsPage.modal.saveFailed', { message: e.message }));
     } finally {
       setSaving(false);
     }
@@ -48,63 +50,63 @@ function ReviewModal({ review, onSave, onClose }) {
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4">
       <div className="bg-white rounded-xl border border-slate-200 p-6 w-full max-w-md shadow-xl">
         <h3 className="font-heading font-semibold text-slate-800 mb-5">
-          {review ? 'Edit Review' : 'Add Review'}
+          {review ? t('admin.reviewsPage.modal.editTitle') : t('admin.reviewsPage.modal.addTitle')}
         </h3>
         <div className="space-y-4">
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="text-xs font-semibold text-slate-600 mb-1 block">Name *</label>
+              <label className="text-xs font-semibold text-slate-600 mb-1 block">{t('admin.reviewsPage.modal.name')}</label>
               <input
                 value={form.name}
                 onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
-                placeholder="Client name"
+                placeholder={t('admin.reviewsPage.modal.namePlaceholder')}
                 className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent"
               />
             </div>
             <div>
-              <label className="text-xs font-semibold text-slate-600 mb-1 block">Role / Company</label>
+              <label className="text-xs font-semibold text-slate-600 mb-1 block">{t('admin.reviewsPage.modal.role')}</label>
               <input
                 value={form.role}
                 onChange={(e) => setForm((f) => ({ ...f, role: e.target.value }))}
-                placeholder="CEO, AnyCompany Ltd."
+                placeholder={t('admin.reviewsPage.modal.rolePlaceholder')}
                 className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent"
               />
             </div>
           </div>
           <div>
-            <label className="text-xs font-semibold text-slate-600 mb-1 block">Review *</label>
+            <label className="text-xs font-semibold text-slate-600 mb-1 block">{t('admin.reviewsPage.modal.content')}</label>
             <textarea
               value={form.content}
               onChange={(e) => setForm((f) => ({ ...f, content: e.target.value }))}
               rows={4}
-              placeholder="What did the client say…"
+              placeholder={t('admin.reviewsPage.modal.contentPlaceholder')}
               className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent resize-none"
             />
           </div>
           <div className="flex items-center justify-between">
             <div>
-              <label className="text-xs font-semibold text-slate-600 mb-2 block">Rating</label>
+              <label className="text-xs font-semibold text-slate-600 mb-2 block">{t('admin.reviewsPage.modal.rating')}</label>
               <Stars rating={form.rating} onRate={(r) => setForm((f) => ({ ...f, rating: r }))} />
             </div>
             <div>
-              <label className="text-xs font-semibold text-slate-600 mb-1 block">Status</label>
+              <label className="text-xs font-semibold text-slate-600 mb-1 block">{t('admin.reviewsPage.modal.status')}</label>
               <select
                 value={form.status}
                 onChange={(e) => setForm((f) => ({ ...f, status: e.target.value }))}
                 className="border border-slate-300 rounded-lg px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-accent/30"
               >
-                <option value="approved">Approved</option>
-                <option value="pending">Pending</option>
+                <option value="approved">{t('admin.reviewsPage.statusApproved')}</option>
+                <option value="pending">{t('admin.reviewsPage.statusPending')}</option>
               </select>
             </div>
           </div>
         </div>
         <div className="flex gap-3 justify-end mt-6">
           <button onClick={onClose} className="px-4 py-2 text-sm font-medium text-slate-600 bg-slate-100 hover:bg-slate-200 rounded-lg transition">
-            Cancel
+            {t('admin.common.cancel')}
           </button>
           <button onClick={handleSave} disabled={saving} className="px-4 py-2 text-sm font-medium text-white bg-[#1A2B3C] hover:bg-[#243A52] rounded-lg transition disabled:opacity-60">
-            {saving ? 'Saving…' : 'Save Review'}
+            {saving ? t('admin.common.saving') : t('admin.reviewsPage.modal.saveReview')}
           </button>
         </div>
       </div>
@@ -113,6 +115,7 @@ function ReviewModal({ review, onSave, onClose }) {
 }
 
 export default function ReviewsAdmin() {
+  const { t } = useTranslation();
   const [reviews,  setReviews]  = useState([]);
   const [loading,  setLoading]  = useState(true);
   const [error,    setError]    = useState('');
@@ -150,7 +153,7 @@ export default function ReviewsAdmin() {
       await deleteReview(deleteId);
       setReviews((prev) => prev.filter((r) => r.id !== deleteId));
     } catch (e) {
-      alert('Delete failed: ' + e.message);
+      alert(t('admin.reviewsPage.deleteFailed', { message: e.message }));
     } finally {
       setDeleting(false);
       setDeleteId(null);
@@ -166,9 +169,9 @@ export default function ReviewsAdmin() {
     <div className="p-6 lg:p-8 max-w-7xl mx-auto">
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="font-heading font-bold text-2xl text-slate-800">Reviews</h1>
+          <h1 className="font-heading font-bold text-2xl text-slate-800">{t('admin.reviewsPage.title')}</h1>
           <p className="text-slate-500 text-sm mt-0.5">
-            {reviews.length} total — {approvedCount} approved · {pendingCount} pending
+            {t('admin.reviewsPage.subtitle', { total: reviews.length, approved: approvedCount, pending: pendingCount })}
           </p>
         </div>
         <button
@@ -178,34 +181,34 @@ export default function ReviewsAdmin() {
           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
           </svg>
-          Add Review
+          {t('admin.reviewsPage.addReview')}
         </button>
       </div>
 
       {/* Filter */}
       <div className="flex gap-2 mb-5">
         {[
-          { key: 'all',      label: `All (${reviews.length})` },
-          { key: 'approved', label: `Approved (${approvedCount})` },
-          { key: 'pending',  label: `Pending (${pendingCount})` },
-        ].map((t) => (
+          { key: 'all',      label: t('admin.reviewsPage.filterAll', { count: reviews.length }) },
+          { key: 'approved', label: t('admin.reviewsPage.filterApproved', { count: approvedCount }) },
+          { key: 'pending',  label: t('admin.reviewsPage.filterPending', { count: pendingCount }) },
+        ].map((tab) => (
           <button
-            key={t.key}
-            onClick={() => setFilter(t.key)}
+            key={tab.key}
+            onClick={() => setFilter(tab.key)}
             className={`px-3 py-1.5 rounded-lg text-sm font-medium transition ${
-              filter === t.key
+              filter === tab.key
                 ? 'bg-[#1A2B3C] text-white'
                 : 'bg-white border border-slate-200 text-slate-600 hover:bg-slate-50'
             }`}
           >
-            {t.label}
+            {tab.label}
           </button>
         ))}
       </div>
 
       {error && (
         <div className="bg-red-50 border border-red-200 rounded-lg px-4 py-3 text-sm text-red-600 mb-5">
-          {error} — Make sure Firebase is configured.
+          {error} — {t('admin.contactsPage.firebaseHint')}
         </div>
       )}
 
@@ -215,7 +218,7 @@ export default function ReviewsAdmin() {
         </div>
       ) : filtered.length === 0 ? (
         <div className="bg-white rounded-xl border border-slate-200 text-center py-16 text-slate-400 text-sm">
-          No reviews found. Add the first one!
+          {t('admin.reviewsPage.empty')}
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -233,7 +236,9 @@ export default function ReviewsAdmin() {
                     ? 'bg-green-100 text-green-700'
                     : 'bg-orange-100 text-orange-700'
                 }`}>
-                  {review.status}
+                  {review.status === 'approved'
+                    ? t('admin.reviewsPage.statusApproved')
+                    : t('admin.reviewsPage.statusPending')}
                 </span>
               </div>
               <blockquote className="text-sm text-slate-600 leading-relaxed mb-4 line-clamp-4">
@@ -255,7 +260,7 @@ export default function ReviewsAdmin() {
                   onClick={() => setModal(review)}
                   className="flex-1 py-1.5 text-xs font-medium bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg transition"
                 >
-                  Edit
+                  {t('admin.common.edit')}
                 </button>
                 <button
                   onClick={() => toggleStatus(review)}
@@ -265,7 +270,7 @@ export default function ReviewsAdmin() {
                       : 'bg-green-50 hover:bg-green-100 text-green-600'
                   }`}
                 >
-                  {review.status === 'approved' ? 'Unpublish' : 'Approve'}
+                  {review.status === 'approved' ? t('admin.reviewsPage.unpublish') : t('admin.reviewsPage.approve')}
                 </button>
                 <button
                   onClick={() => setDeleteId(review.id)}
@@ -292,12 +297,12 @@ export default function ReviewsAdmin() {
       {deleteId && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4">
           <div className="bg-white rounded-xl border border-slate-200 p-6 w-full max-w-sm shadow-xl">
-            <h3 className="font-heading font-semibold text-slate-800 mb-2">Delete review?</h3>
-            <p className="text-sm text-slate-500 mb-6">This review will be permanently deleted.</p>
+            <h3 className="font-heading font-semibold text-slate-800 mb-2">{t('admin.reviewsPage.deleteTitle')}</h3>
+            <p className="text-sm text-slate-500 mb-6">{t('admin.reviewsPage.deleteBody')}</p>
             <div className="flex gap-3 justify-end">
-              <button onClick={() => setDeleteId(null)} disabled={deleting} className="px-4 py-2 text-sm font-medium text-slate-600 bg-slate-100 hover:bg-slate-200 rounded-lg transition">Cancel</button>
+              <button onClick={() => setDeleteId(null)} disabled={deleting} className="px-4 py-2 text-sm font-medium text-slate-600 bg-slate-100 hover:bg-slate-200 rounded-lg transition">{t('admin.common.cancel')}</button>
               <button onClick={confirmDelete} disabled={deleting} className="px-4 py-2 text-sm font-medium text-white bg-red-500 hover:bg-red-600 rounded-lg transition disabled:opacity-60">
-                {deleting ? 'Deleting…' : 'Delete'}
+                {deleting ? t('admin.common.deleting') : t('admin.common.delete')}
               </button>
             </div>
           </div>

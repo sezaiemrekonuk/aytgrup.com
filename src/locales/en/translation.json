@@ -258,5 +258,269 @@
     "title": "Let's Build Your Dream Project Together",
     "subtitle": "Our expert team is with you at every stage of your project.",
     "cta": "Get a Free Quote"
+  },
+  "admin": {
+    "nav": {
+      "dashboard": "Dashboard",
+      "projects": "Projects",
+      "services": "Services",
+      "contacts": "Contacts",
+      "reviews": "Reviews",
+      "settings": "Settings"
+    },
+    "language": {
+      "tr": "Türkçe",
+      "en": "English",
+      "switch": "Language"
+    },
+    "brand": {
+      "panelSubtitle": "Admin Panel",
+      "mobileTitle": "AYT Admin"
+    },
+    "sidebar": {
+      "viewWebsite": "View Website",
+      "signOut": "Sign Out"
+    },
+    "common": {
+      "cancel": "Cancel",
+      "save": "Save",
+      "saving": "Saving…",
+      "delete": "Delete",
+      "deleting": "Deleting…",
+      "edit": "Edit",
+      "yes": "Yes",
+      "no": "No",
+      "optional": "optional",
+      "actions": "Actions"
+    },
+    "login": {
+      "subtitle": "Admin Panel",
+      "signIn": "Sign In",
+      "email": "Email address",
+      "password": "Password",
+      "signingIn": "Signing in…",
+      "footerNote": "AYT Group Admin Panel — Authorized access only",
+      "errors": {
+        "invalidCredential": "Invalid email or password.",
+        "userNotFound": "No account found with this email.",
+        "wrongPassword": "Incorrect password.",
+        "tooManyRequests": "Too many attempts. Try again later.",
+        "network": "Network error. Check your connection.",
+        "generic": "Login failed. Please try again."
+      }
+    },
+    "dashboard": {
+      "title": "Dashboard",
+      "welcome": "Welcome back. Here's what's happening.",
+      "stats": {
+        "totalProjects": "Total Projects",
+        "completedOngoing": "{{completed}} completed · {{ongoing}} ongoing",
+        "newContacts": "New Contacts",
+        "totalSubmissions": "{{count}} total submissions",
+        "reviews": "Reviews",
+        "reviewsSub": "{{total}} total · {{approved}} approved",
+        "ongoingProjects": "Ongoing Projects",
+        "completedCount": "{{completed}} completed"
+      },
+      "quickActions": {
+        "newProject": "New Project",
+        "addReview": "Add Review",
+        "viewContacts": "View Contacts",
+        "manageServices": "Manage Services"
+      },
+      "recentContacts": "Recent Contacts",
+      "viewAll": "View all",
+      "noContacts": "No contact submissions yet."
+    },
+    "contacts": {
+      "status": {
+        "new": "New",
+        "read": "Read",
+        "replied": "Replied"
+      }
+    },
+    "projects": {
+      "list": {
+        "title": "Projects",
+        "total": "{{count}} total projects",
+        "newProject": "New Project",
+        "searchPlaceholder": "Search projects…",
+        "empty": "No projects found.",
+        "table": {
+          "title": "Title",
+          "category": "Category",
+          "status": "Status",
+          "featured": "Featured",
+          "featuredYes": "Yes",
+          "featuredNo": "No"
+        },
+        "deleteTitle": "Delete project?",
+        "deleteBody": "This action cannot be undone. The project will be permanently removed from Firestore.",
+        "deleteFailed": "Delete failed: {{message}}"
+      },
+      "form": {
+        "newTitle": "New Project",
+        "editTitle": "Edit Project",
+        "newSubtitle": "Add a new project to the portfolio",
+        "editSubtitle": "Update project information",
+        "notFound": "Project not found.",
+        "titleRequired": "Turkish title is required.",
+        "saveFailed": "Save failed: {{message}}",
+        "sectionTitle": "Title",
+        "sectionDescription": "Description",
+        "sectionLocation": "Location",
+        "labelTr": "Turkish (TR)",
+        "labelTrRequired": "Turkish (TR) *",
+        "labelEn": "English (EN)",
+        "labelDe": "German (DE)",
+        "placeholderTitleTr": "Project name",
+        "placeholderTitleEn": "Project name",
+        "placeholderTitleDe": "Projektname",
+        "sectionImages": "Images",
+        "heroImage": "Hero image",
+        "uploadHeroImage": "Upload hero image",
+        "heroUrl": "Hero Image URL",
+        "optionalLink": "Or paste image link (optional)",
+        "optionalLinkPlaceholder": "https://example.com/image.jpg",
+        "uploadImage": "Upload image",
+        "changeImage": "Change",
+        "removeImage": "Remove",
+        "deletingImage": "Deleting...",
+        "previewImage": "Preview",
+        "uploading": "Uploading...",
+        "uploadFailed": "Image upload failed: {{message}}",
+        "deleteFailed": "Image delete failed: {{message}}",
+        "galleryLabel": "Gallery Images",
+        "galleryImage": "Gallery image {{n}}",
+        "galleryPlaceholder": "Optional link for image {{n}}",
+        "deleteSlot": "Remove slot",
+        "addImage": "+ Add image",
+        "sectionSettings": "Settings",
+        "featuredHomepage": "Featured on homepage",
+        "sortOrder": "Sort Order",
+        "areaSqm": "Area (m²)",
+        "unitsOptional": "Units (optional)",
+        "startDate": "Start Date (YYYY-MM)",
+        "completionDate": "Completion Date (YYYY-MM)",
+        "saveChanges": "Save Changes",
+        "createProject": "Create Project"
+      }
+    },
+    "services": {
+      "title": "Services",
+      "count": "{{count}} services",
+      "seedFirestore": "Import default services",
+      "newService": "New Service",
+      "seedSuccess": "Default services added. You can now edit them.",
+      "editModal": {
+        "newTitle": "New Service",
+        "editTitle": "Edit Service",
+        "key": "Key (unique ID)",
+        "keyPlaceholder": "e.g. contracting",
+        "sortOrder": "Sort Order",
+        "icon": "Icon",
+        "color": "Color",
+        "titleTr": "Title (TR)",
+        "titleEn": "Title (EN)",
+        "descTr": "Description (TR)",
+        "titleDe": "Title (DE)",
+        "descDe": "Description (DE)",
+        "descEn": "Description (EN)",
+        "featuredPage": "Featured on Services page",
+        "saveService": "Save Service",
+        "keyRequired": "Key is required.",
+        "saveFailed": "Save failed: {{message}}"
+      },
+      "card": {
+        "featured": "Featured",
+        "hidden": "Hidden",
+        "toggleSeedFirst": "Import default services first to edit this item."
+      },
+      "deleteTitle": "Delete service?",
+      "deleteBody": "This service will be removed permanently.",
+      "deleteFailed": "Delete failed: {{message}}"
+    },
+    "contactsPage": {
+      "title": "Contacts",
+      "subtitle": "{{total}} total — {{newCount}} new",
+      "filterAll": "All ({{count}})",
+      "filterNew": "New ({{count}})",
+      "filterRead": "Read ({{count}})",
+      "filterReplied": "Replied ({{count}})",
+      "firebaseHint": "Please check your connection settings.",
+      "empty": "No contacts found.",
+      "email": "Email",
+      "phone": "Phone",
+      "subject": "Subject",
+      "markRead": "Mark as Read",
+      "markReplied": "Mark as Replied",
+      "replyEmail": "Reply via Email",
+      "deleteTitle": "Delete message?",
+      "deleteBody": "This contact submission will be permanently deleted.",
+      "deleteFailed": "Delete failed: {{message}}"
+    },
+    "reviewsPage": {
+      "title": "Reviews",
+      "subtitle": "{{total}} total — {{approved}} approved · {{pending}} pending",
+      "addReview": "Add Review",
+      "filterAll": "All ({{count}})",
+      "filterApproved": "Approved ({{count}})",
+      "filterPending": "Pending ({{count}})",
+      "statusApproved": "Approved",
+      "statusPending": "Pending",
+      "empty": "No reviews found. Add the first one!",
+      "unpublish": "Unpublish",
+      "approve": "Approve",
+      "deleteTitle": "Delete review?",
+      "deleteBody": "This review will be permanently deleted.",
+      "deleteFailed": "Delete failed: {{message}}",
+      "modal": {
+        "editTitle": "Edit Review",
+        "addTitle": "Add Review",
+        "name": "Name *",
+        "role": "Role / Company",
+        "namePlaceholder": "Client name",
+        "rolePlaceholder": "CEO, AnyCompany Ltd.",
+        "content": "Review *",
+        "contentPlaceholder": "What did the client say…",
+        "rating": "Rating",
+        "status": "Status",
+        "saveReview": "Save Review",
+        "required": "Name and content are required.",
+        "saveFailed": "Save failed: {{message}}"
+      }
+    },
+    "multiLang": {
+      "tabs": {
+        "tr": "Turkish",
+        "en": "English",
+        "de": "German"
+      },
+      "autoTranslate": "Auto Translate",
+      "translating": "Translating…",
+      "noContent": "Enter content in this language first.",
+      "translateError": "Translation error: {{message}}",
+      "translateSuccess": "Translation complete."
+    },
+    "settingsPage": {
+      "title": "Settings",
+      "subtitle": "Connection status and admin setup",
+      "firebaseTitle": "System Connection",
+      "connected": "Connected",
+      "notConfigured": "Connection settings are missing",
+      "setupTitle": "Setup required",
+      "setupBody": "Copy {{example}} to {{local}} and fill in your connection details.",
+      "exampleFile": ".env.example",
+      "localFile": ".env.local",
+      "projectId": "Project ID",
+      "authDomain": "Auth Domain",
+      "storageBucket": "Storage Bucket",
+      "authHelpTitle": "Firebase Auth Setup",
+      "authHelpIntro": "To create an admin account, go to your Firebase Console under Authentication → Users.",
+      "authStep1": "Open Firebase Console → your project",
+      "authStep2": "Go to Authentication → Users",
+      "authStep3": "Click Add user and enter email + password",
+      "authStep4": "Use those credentials to log in here"
+    }
   }
 }

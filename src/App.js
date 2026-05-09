@@ -19,6 +19,7 @@ const Contact         = lazy(() => import('./pages/Contact'));
 const NotFound        = lazy(() => import('./pages/NotFound'));
 
 // ─── Admin pages (lazy) ───────────────────────────────────────────────────────
+const AdminI18nBoundary = lazy(() => import('./pages/Admin/AdminI18nBoundary'));
 const AdminLogin      = lazy(() => import('./pages/Admin/Login'));
 const AdminLayout     = lazy(() => import('./pages/Admin/layout/AdminLayout'));
 const AdminDashboard  = lazy(() => import('./pages/Admin/Dashboard'));
@@ -57,17 +58,19 @@ export default function App() {
                   <Route path="*"         element={<NotFound />} />
                 </Route>
 
-                {/* ── Admin ── */}
-                <Route path="/admin/login" element={<AdminLogin />} />
-                <Route path="/admin" element={<AdminLayout />}>
-                  <Route index                element={<AdminDashboard />} />
-                  <Route path="projects"      element={<AdminProjects />} />
-                  <Route path="projects/new"  element={<ProjectForm />} />
-                  <Route path="projects/:id"  element={<ProjectForm />} />
-                  <Route path="services"      element={<AdminServices />} />
-                  <Route path="contacts"      element={<AdminContacts />} />
-                  <Route path="reviews"       element={<AdminReviews />} />
-                  <Route path="settings"      element={<AdminSettings />} />
+                {/* ── Admin (TR default, EN selectable; restores public locale on exit) ── */}
+                <Route path="/admin" element={<AdminI18nBoundary />}>
+                  <Route path="login" element={<AdminLogin />} />
+                  <Route element={<AdminLayout />}>
+                    <Route index               element={<AdminDashboard />} />
+                    <Route path="projects"     element={<AdminProjects />} />
+                    <Route path="projects/new" element={<ProjectForm />} />
+                    <Route path="projects/:id" element={<ProjectForm />} />
+                    <Route path="services"     element={<AdminServices />} />
+                    <Route path="contacts"     element={<AdminContacts />} />
+                    <Route path="reviews"      element={<AdminReviews />} />
+                    <Route path="settings"     element={<AdminSettings />} />
+                  </Route>
                 </Route>
               </Routes>
             </Suspense>

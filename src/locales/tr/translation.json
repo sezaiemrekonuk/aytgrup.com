@@ -258,5 +258,269 @@
     "title": "Hayalinizdeki Projeyi Birlikte İnşa Edelim",
     "subtitle": "Uzman ekibimiz projenizin her aşamasında yanınızda.",
     "cta": "Ücretsiz Teklif Alın"
+  },
+  "admin": {
+    "nav": {
+      "dashboard": "Panel",
+      "projects": "Projeler",
+      "services": "Hizmetler",
+      "contacts": "Mesajlar",
+      "reviews": "Yorumlar",
+      "settings": "Ayarlar"
+    },
+    "language": {
+      "tr": "Türkçe",
+      "en": "English",
+      "switch": "Dil"
+    },
+    "brand": {
+      "panelSubtitle": "Yönetim Paneli",
+      "mobileTitle": "AYT Yönetim"
+    },
+    "sidebar": {
+      "viewWebsite": "Siteyi Görüntüle",
+      "signOut": "Çıkış Yap"
+    },
+    "common": {
+      "cancel": "İptal",
+      "save": "Kaydet",
+      "saving": "Kaydediliyor…",
+      "delete": "Sil",
+      "deleting": "Siliniyor…",
+      "edit": "Düzenle",
+      "yes": "Evet",
+      "no": "Hayır",
+      "optional": "isteğe bağlı",
+      "actions": "İşlemler"
+    },
+    "login": {
+      "subtitle": "Yönetim Paneli",
+      "signIn": "Giriş Yap",
+      "email": "E-posta adresi",
+      "password": "Şifre",
+      "signingIn": "Giriş yapılıyor…",
+      "footerNote": "AYT Group Yönetim Paneli — Yalnızca yetkili kullanıcılar",
+      "errors": {
+        "invalidCredential": "E-posta veya şifre hatalı.",
+        "userNotFound": "Bu e-posta ile kayıtlı hesap bulunamadı.",
+        "wrongPassword": "Şifre yanlış.",
+        "tooManyRequests": "Çok fazla deneme. Lütfen daha sonra tekrar deneyin.",
+        "network": "Ağ hatası. Bağlantınızı kontrol edin.",
+        "generic": "Giriş başarısız. Lütfen tekrar deneyin."
+      }
+    },
+    "dashboard": {
+      "title": "Panel",
+      "welcome": "Tekrar hoş geldiniz. Özet bilgiler aşağıda.",
+      "stats": {
+        "totalProjects": "Toplam Proje",
+        "completedOngoing": "{{completed}} tamamlandı · {{ongoing}} devam ediyor",
+        "newContacts": "Yeni Mesaj",
+        "totalSubmissions": "{{count}} toplam başvuru",
+        "reviews": "Yorumlar",
+        "reviewsSub": "{{total}} toplam · {{approved}} onaylı",
+        "ongoingProjects": "Devam Eden Projeler",
+        "completedCount": "{{count}} tamamlandı"
+      },
+      "quickActions": {
+        "newProject": "Yeni Proje",
+        "addReview": "Yorum Ekle",
+        "viewContacts": "Mesajları Gör",
+        "manageServices": "Hizmetleri Yönet"
+      },
+      "recentContacts": "Son Mesajlar",
+      "viewAll": "Tümünü gör",
+      "noContacts": "Henüz iletişim başvurusu yok."
+    },
+    "contacts": {
+      "status": {
+        "new": "Yeni",
+        "read": "Okundu",
+        "replied": "Yanıtlandı"
+      }
+    },
+    "projects": {
+      "list": {
+        "title": "Projeler",
+        "total": "{{count}} proje",
+        "newProject": "Yeni Proje",
+        "searchPlaceholder": "Proje ara…",
+        "empty": "Proje bulunamadı.",
+        "table": {
+          "title": "Başlık",
+          "category": "Kategori",
+          "status": "Durum",
+          "featured": "Öne çıkan",
+          "featuredYes": "Evet",
+          "featuredNo": "Hayır"
+        },
+        "deleteTitle": "Projeyi sil?",
+        "deleteBody": "Bu işlem geri alınamaz. Proje Firestore'dan kalıcı olarak kaldırılır.",
+        "deleteFailed": "Silme başarısız: {{message}}"
+      },
+      "form": {
+        "newTitle": "Yeni Proje",
+        "editTitle": "Projeyi Düzenle",
+        "newSubtitle": "Portföye yeni bir proje ekleyin",
+        "editSubtitle": "Proje bilgilerini güncelleyin",
+        "notFound": "Proje bulunamadı.",
+        "titleRequired": "Türkçe başlık zorunludur.",
+        "saveFailed": "Kayıt başarısız: {{message}}",
+        "sectionTitle": "Başlık",
+        "sectionDescription": "Açıklama",
+        "sectionLocation": "Konum",
+        "labelTr": "Türkçe (TR)",
+        "labelTrRequired": "Türkçe (TR) *",
+        "labelEn": "İngilizce (EN)",
+        "labelDe": "Almanca (DE)",
+        "placeholderTitleTr": "Proje adı",
+        "placeholderTitleEn": "Project name",
+        "placeholderTitleDe": "Projektname",
+        "sectionImages": "Görseller",
+        "heroImage": "Kapak görseli",
+        "uploadHeroImage": "Kapak görseli yükle",
+        "heroUrl": "Kapak görseli bağlantısı",
+        "optionalLink": "Veya bağlantı ekleyin (isteğe bağlı)",
+        "optionalLinkPlaceholder": "https://ornek.com/gorsel.jpg",
+        "uploadImage": "Görsel yükle",
+        "changeImage": "Değiştir",
+        "removeImage": "Sil",
+        "deletingImage": "Siliniyor...",
+        "previewImage": "Görüntüle",
+        "uploading": "Yükleniyor...",
+        "uploadFailed": "Görsel yükleme başarısız: {{message}}",
+        "deleteFailed": "Görsel silme başarısız: {{message}}",
+        "galleryLabel": "Galeri görselleri",
+        "galleryImage": "Galeri görseli {{n}}",
+        "galleryPlaceholder": "İsteğe bağlı bağlantı ({{n}})",
+        "deleteSlot": "Alanı kaldır",
+        "addImage": "+ Görsel ekle",
+        "sectionSettings": "Ayarlar",
+        "featuredHomepage": "Ana sayfada öne çıkar",
+        "sortOrder": "Sıralama",
+        "areaSqm": "Alan (m²)",
+        "unitsOptional": "Daire sayısı (isteğe bağlı)",
+        "startDate": "Başlangıç (YYYY-AA)",
+        "completionDate": "Teslim (YYYY-AA)",
+        "saveChanges": "Değişiklikleri Kaydet",
+        "createProject": "Proje Oluştur"
+      }
+    },
+    "services": {
+      "title": "Hizmetler",
+      "count": "{{count}} hizmet",
+      "seedFirestore": "Hazır hizmetleri içe aktar",
+      "newService": "Yeni Hizmet",
+      "seedSuccess": "Hazır hizmetler eklendi. Artık düzenleyebilirsiniz.",
+      "editModal": {
+        "newTitle": "Yeni Hizmet",
+        "editTitle": "Hizmeti Düzenle",
+        "key": "Anahtar (benzersiz)",
+        "keyPlaceholder": "ör. contracting",
+        "sortOrder": "Sıralama",
+        "icon": "İkon",
+        "color": "Renk",
+        "titleTr": "Başlık (TR)",
+        "titleEn": "Başlık (EN)",
+        "descTr": "Açıklama (TR)",
+        "titleDe": "Başlık (DE)",
+        "descDe": "Açıklama (DE)",
+        "descEn": "Açıklama (EN)",
+        "featuredPage": "Hizmetler sayfasında öne çıkar",
+        "saveService": "Hizmeti Kaydet",
+        "keyRequired": "Anahtar zorunludur.",
+        "saveFailed": "Kayıt başarısız: {{message}}"
+      },
+      "card": {
+        "featured": "Öne çıkan",
+        "hidden": "Gizli",
+        "toggleSeedFirst": "Bu hizmeti düzenlemek için önce hazır hizmetleri içe aktarın."
+      },
+      "deleteTitle": "Hizmeti sil?",
+      "deleteBody": "Bu hizmet kalıcı olarak kaldırılacak.",
+      "deleteFailed": "Silme başarısız: {{message}}"
+    },
+    "contactsPage": {
+      "title": "Mesajlar",
+      "subtitle": "{{total}} toplam — {{newCount}} yeni",
+      "filterAll": "Tümü ({{count}})",
+      "filterNew": "Yeni ({{count}})",
+      "filterRead": "Okundu ({{count}})",
+      "filterReplied": "Yanıtlandı ({{count}})",
+      "firebaseHint": "Bağlantı ayarlarını kontrol edin.",
+      "empty": "Mesaj bulunamadı.",
+      "email": "E-posta",
+      "phone": "Telefon",
+      "subject": "Konu",
+      "markRead": "Okundu işaretle",
+      "markReplied": "Yanıtlandı işaretle",
+      "replyEmail": "E-posta ile yanıtla",
+      "deleteTitle": "Mesajı sil?",
+      "deleteBody": "Bu iletişim kaydı kalıcı olarak silinecek.",
+      "deleteFailed": "Silme başarısız: {{message}}"
+    },
+    "reviewsPage": {
+      "title": "Yorumlar",
+      "subtitle": "{{total}} toplam — {{approved}} onaylı · {{pending}} beklemede",
+      "addReview": "Yorum Ekle",
+      "filterAll": "Tümü ({{count}})",
+      "filterApproved": "Onaylı ({{count}})",
+      "filterPending": "Beklemede ({{count}})",
+      "statusApproved": "Onaylı",
+      "statusPending": "Beklemede",
+      "empty": "Yorum bulunamadı. İlk yorumu ekleyin!",
+      "unpublish": "Yayından kaldır",
+      "approve": "Onayla",
+      "deleteTitle": "Yorumu sil?",
+      "deleteBody": "Bu yorum kalıcı olarak silinecek.",
+      "deleteFailed": "Silme başarısız: {{message}}",
+      "modal": {
+        "editTitle": "Yorumu Düzenle",
+        "addTitle": "Yorum Ekle",
+        "name": "İsim *",
+        "role": "Rol / Şirket",
+        "namePlaceholder": "Müşteri adı",
+        "rolePlaceholder": "CEO, Firma A.Ş.",
+        "content": "Yorum *",
+        "contentPlaceholder": "Müşteri ne dedi…",
+        "rating": "Puan",
+        "status": "Durum",
+        "saveReview": "Yorumu Kaydet",
+        "required": "İsim ve yorum zorunludur.",
+        "saveFailed": "Kayıt başarısız: {{message}}"
+      }
+    },
+    "multiLang": {
+      "tabs": {
+        "tr": "Türkçe",
+        "en": "İngilizce",
+        "de": "Almanca"
+      },
+      "autoTranslate": "Otomatik Çevir",
+      "translating": "Çeviriliyor…",
+      "noContent": "Önce bu dil için içerik girin.",
+      "translateError": "Çeviri hatası: {{message}}",
+      "translateSuccess": "Çeviri tamamlandı."
+    },
+    "settingsPage": {
+      "title": "Ayarlar",
+      "subtitle": "Bağlantı durumu ve yönetici ayarları",
+      "firebaseTitle": "Sistem Bağlantısı",
+      "connected": "Bağlı",
+      "notConfigured": "Bağlantı ayarları eksik",
+      "setupTitle": "Kurulum gerekli",
+      "setupBody": "{{example}} dosyasını {{local}} olarak kopyalayıp gerekli bağlantı bilgilerini girin.",
+      "exampleFile": ".env.example",
+      "localFile": ".env.local",
+      "projectId": "Proje Kimliği",
+      "authDomain": "Kimlik Doğrulama Alanı",
+      "storageBucket": "Depolama Alanı",
+      "authHelpTitle": "Yönetici Giriş Kurulumu",
+      "authHelpIntro": "Yönetici hesabı oluşturmak için Firebase Console'da Authentication > Users bölümüne gidin.",
+      "authStep1": "Firebase Console'u açın ve projenizi seçin",
+      "authStep2": "Authentication > Users bölümüne geçin",
+      "authStep3": "Kullanıcı ekleyip e-posta ve şifre girin",
+      "authStep4": "Bu bilgilerle buradan giriş yapın"
+    }
   }
 }

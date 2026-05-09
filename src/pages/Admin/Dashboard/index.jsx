@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { getProjects } from '../../../services/projectService';
 import { getContacts } from '../../../services/contactAdminService';
 import { getReviews } from '../../../services/reviewService';
@@ -22,19 +23,23 @@ function StatCard({ label, value, sub, color, icon }) {
 }
 
 function StatusBadge({ status }) {
+  const { t } = useTranslation();
   const styles = {
     new:     'bg-blue-100 text-blue-700',
     read:    'bg-slate-100 text-slate-600',
     replied: 'bg-green-100 text-green-700',
   };
+  const labelKey = `admin.contacts.status.${status}`;
+  const label = t(labelKey, { defaultValue: status });
   return (
     <span className={`inline-flex px-2 py-0.5 rounded text-xs font-medium ${styles[status] ?? styles.read}`}>
-      {status}
+      {label}
     </span>
   );
 }
 
 export default function Dashboard() {
+  const { t } = useTranslation();
   const [projects, setProjects] = useState([]);
   const [contacts, setContacts] = useState([]);
   const [reviews,  setReviews]  = useState([]);
@@ -71,72 +76,67 @@ export default function Dashboard() {
 
   return (
     <div className="p-6 lg:p-8 max-w-7xl mx-auto">
-      {/* Header */}
-      <div className="mb-8">
-        <h1 className="font-heading font-bold text-2xl text-slate-800">Dashboard</h1>
-        <p className="text-slate-500 text-sm mt-1">Welcome back. Here's what's happening.</p>
+      <div className="mb-8 bg-white border border-slate-200 rounded-2xl p-6">
+        <h1 className="font-heading font-bold text-2xl text-slate-800">{t('admin.dashboard.title')}</h1>
+        <p className="text-slate-500 text-sm mt-1">{t('admin.dashboard.welcome')}</p>
+        <div className="mt-4 grid grid-cols-2 sm:grid-cols-4 gap-3">
+          {[
+            { to: '/admin/projects/new', labelKey: 'admin.dashboard.quickActions.newProject',  color: 'bg-[#1A2B3C] text-white' },
+            { to: '/admin/reviews',      labelKey: 'admin.dashboard.quickActions.addReview',   color: 'bg-accent text-white' },
+            { to: '/admin/contacts',     labelKey: 'admin.dashboard.quickActions.viewContacts',color: 'bg-slate-100 text-slate-700' },
+            { to: '/admin/services',     labelKey: 'admin.dashboard.quickActions.manageServices', color: 'bg-slate-100 text-slate-700' },
+          ].map((a) => (
+            <Link
+              key={a.to}
+              to={a.to}
+              className={`text-center py-2.5 px-4 rounded-xl text-sm font-semibold transition hover:opacity-90 ${a.color}`}
+            >
+              {t(a.labelKey)}
+            </Link>
+          ))}
+        </div>
       </div>
 
-      {/* Stat cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
         <StatCard
-          label="Total Projects"
+          label={t('admin.dashboard.stats.totalProjects')}
           value={projects.length}
-          sub={`${completed} completed · ${ongoing} ongoing`}
+          sub={t('admin.dashboard.stats.completedOngoing', { completed, ongoing })}
           color="bg-[#1A2B3C]"
           icon={ICONS.projects}
         />
         <StatCard
-          label="New Contacts"
+          label={t('admin.dashboard.stats.newContacts')}
           value={newMsgs}
-          sub={`${contacts.length} total submissions`}
+          sub={t('admin.dashboard.stats.totalSubmissions', { count: contacts.length })}
           color="bg-cta"
           icon={ICONS.contacts}
         />
         <StatCard
-          label="Reviews"
+          label={t('admin.dashboard.stats.reviews')}
           value={approvedR}
-          sub={`${reviews.length} total · ${approvedR} approved`}
+          sub={t('admin.dashboard.stats.reviewsSub', { total: reviews.length, approved: approvedR })}
           color="bg-accent"
           icon={ICONS.reviews}
         />
         <StatCard
-          label="Ongoing Projects"
+          label={t('admin.dashboard.stats.ongoingProjects')}
           value={ongoing}
-          sub={`${completed} completed`}
+          sub={t('admin.dashboard.stats.completedCount', { completed })}
           color="bg-emerald-600"
           icon={ICONS.ongoing}
         />
       </div>
 
-      {/* Quick actions */}
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8">
-        {[
-          { to: '/admin/projects/new', label: 'New Project',  color: 'bg-[#1A2B3C] text-white' },
-          { to: '/admin/reviews/new',  label: 'Add Review',   color: 'bg-accent text-white' },
-          { to: '/admin/contacts',     label: 'View Contacts',color: 'bg-white text-slate-700 border border-slate-200' },
-          { to: '/admin/services',     label: 'Manage Services', color: 'bg-white text-slate-700 border border-slate-200' },
-        ].map((a) => (
-          <Link
-            key={a.to}
-            to={a.to}
-            className={`text-center py-3 px-4 rounded-xl text-sm font-semibold transition hover:opacity-90 ${a.color}`}
-          >
-            {a.label}
-          </Link>
-        ))}
-      </div>
-
-      {/* Recent contacts */}
       <div className="bg-white rounded-xl border border-slate-200">
         <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100">
-          <h2 className="font-heading font-semibold text-slate-800">Recent Contacts</h2>
+          <h2 className="font-heading font-semibold text-slate-800">{t('admin.dashboard.recentContacts')}</h2>
           <Link to="/admin/contacts" className="text-sm text-accent hover:underline">
-            View all
+            {t('admin.dashboard.viewAll')}
           </Link>
         </div>
         {recentContacts.length === 0 ? (
-          <div className="px-6 py-12 text-center text-slate-400 text-sm">No contact submissions yet.</div>
+          <div className="px-6 py-12 text-center text-slate-400 text-sm">{t('admin.dashboard.noContacts')}</div>
         ) : (
           <div className="divide-y divide-slate-100">
             {recentContacts.map((c) => (

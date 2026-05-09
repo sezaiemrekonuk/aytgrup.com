@@ -2,6 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { addProject, updateProject, getProject } from '../../../services/projectService';
+import { autoTranslateFields } from '../../../services/translateService';
+import { uploadImageFile, deleteImageByUrl } from '../../../services/storageService';
+import LangTabBar from '../../../components/admin/LangTabBar';
 
 const EMPTY = {
   title:          { tr: '', en: '', de: '' },
@@ -37,20 +40,6 @@ function Input({ label, value, onChange, type = 'text', placeholder, min, max })
   );
 }
 
-function Textarea({ label, value, onChange, rows = 3, placeholder }) {
-  return (
-    <div>
-      <label className="block text-xs font-semibold text-slate-600 mb-1">{label}</label>
-      <textarea
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        rows={rows}
-        placeholder={placeholder}
-        className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition resize-none"
-      />
-    </div>
-  );
-}
 
 function Select({ label, value, onChange, options }) {
   return (
@@ -103,16 +92,20 @@ export default function ProjectForm() {
   const { t } = useTranslation();
   const isEdit = Boolean(id) && id !== 'new';
 
-  const [form,    setForm]    = useState(EMPTY);
-  const [loading, setLoading] = useState(isEdit);
-  const [saving,  setSaving]  = useState(false);
-  const [error,   setError]   = useState('');
+  const [form,        setForm]        = useState(EMPTY);
+  const [loading,     setLoading]     = useState(isEdit);
+  const [saving,      setSaving]      = useState(false);
+  const [error,       setError]       = useState('');
+  const [langTab,     setLangTab]     = useState('tr');
+  const [translating, setTranslating] = useState(false);
+  const [uploading,   setUploading]   = useState({ hero: false, gallery: {} });
+  const [deleting,    setDeleting]    = useState({ hero: false, gallery: {} });
 
   useEffect(() => {
     if (!isEdit) return;
     getProject(id)
       .then((project) => {
-        if (!project) { setError('Project not found.'); return; }
+        if (!project) { setError(t('admin.projects.form.notFound')); return; }
         // Normalize fields
         const normalize = (field) =>
           typeof field === 'object' && field !== null
@@ -144,7 +137,7 @@ export default function ProjectForm() {
       })
       .catch((e) => setError(e.message))
       .finally(() => setLoading(false));
-  }, [id, isEdit]);
+  }, [id, isEdit]); // eslint-disable-line react-hooks/exhaustive-deps -- t() only localizes one error string
 
   function setLang(field, lang, value) {
     setForm((f) => ({ ...f, [field]: { ...f[field], [lang]: value } }));
@@ -162,7 +155,20 @@ export default function ProjectForm() {
     setForm((f) => ({ ...f, gallery: [...f.gallery, ''] }));
   }
 
-  function removeGallerySlot(index) {
+  async function removeGallerySlot(index) {
+    const currentUrl = form.gallery[index];
+    if (currentUrl) {
+      setDeleting((prev) => ({ ...prev, gallery: { ...prev.gallery, [index]: true } }));
+      try {
+        await deleteImageByUrl(currentUrl);
+      } catch (e) {
+        setError(t('admin.projects.form.deleteFailed', { message: e.message }));
+        setDeleting((prev) => ({ ...prev, gallery: { ...prev.gallery, [index]: false } }));
+        return;
+      }
+      setDeleting((prev) => ({ ...prev, gallery: { ...prev.gallery, [index]: false } }));
+    }
+
     setForm((f) => ({ ...f, gallery: f.gallery.filter((_, i) => i !== index) }));
   }
 
@@ -170,10 +176,109 @@ export default function ProjectForm() {
     setForm((f) => ({ ...f, progress: { ...f.progress, [key]: value } }));
   }
 
+  async function uploadHeroImage(file) {
+    if (!file) return;
+    setError('');
+    setUploading((prev) => ({ ...prev, hero: true }));
+    try {
+      const url = await uploadImageFile(file, { folder: 'projects/hero' });
+      setForm((prev) => ({ ...prev, heroImage: url }));
+    } catch (e) {
+      setError(t('admin.projects.form.uploadFailed', { message: e.message }));
+    } finally {
+      setUploading((prev) => ({ ...prev, hero: false }));
+    }
+  }
+
+  async function uploadGalleryImage(index, file) {
+    if (!file) return;
+    setError('');
+    setUploading((prev) => ({
+      ...prev,
+      gallery: { ...prev.gallery, [index]: true },
+    }));
+    try {
+      const url = await uploadImageFile(file, { folder: 'projects/gallery' });
+      setGallery(index, url);
+    } catch (e) {
+      setError(t('admin.projects.form.uploadFailed', { message: e.message }));
+    } finally {
+      setUploading((prev) => ({
+        ...prev,
+        gallery: { ...prev.gallery, [index]: false },
+      }));
+    }
+  }
+
+  function openImagePreview(url) {
+    if (!url) return;
+    window.open(url, '_blank', 'noopener,noreferrer');
+  }
+
+  async function removeHeroImage() {
+    if (!form.heroImage) return;
+    setDeleting((prev) => ({ ...prev, hero: true }));
+    setError('');
+    try {
+      await deleteImageByUrl(form.heroImage);
+      setForm((prev) => ({ ...prev, heroImage: '' }));
+    } catch (e) {
+      setError(t('admin.projects.form.deleteFailed', { message: e.message }));
+    } finally {
+      setDeleting((prev) => ({ ...prev, hero: false }));
+    }
+  }
+
+  async function removeGalleryImage(index) {
+    const currentUrl = form.gallery[index];
+    if (!currentUrl) return;
+    setDeleting((prev) => ({ ...prev, gallery: { ...prev.gallery, [index]: true } }));
+    setError('');
+    try {
+      await deleteImageByUrl(currentUrl);
+      setGallery(index, '');
+    } catch (e) {
+      setError(t('admin.projects.form.deleteFailed', { message: e.message }));
+    } finally {
+      setDeleting((prev) => ({ ...prev, gallery: { ...prev.gallery, [index]: false } }));
+    }
+  }
+
+  async function handleAutoTranslate(fromLang) {
+    const fields = {
+      title:       form.title[fromLang]       ?? '',
+      description: form.description[fromLang] ?? '',
+      location:    form.location[fromLang]    ?? '',
+    };
+    const nonEmpty = Object.fromEntries(
+      Object.entries(fields).filter(([, v]) => v.trim()),
+    );
+    if (!Object.keys(nonEmpty).length) return;
+
+    setTranslating(true);
+    setError('');
+    try {
+      const results = await autoTranslateFields(nonEmpty, fromLang);
+      setForm((prev) => {
+        const next = { ...prev };
+        for (const [toLang, translations] of Object.entries(results)) {
+          for (const [field, text] of Object.entries(translations)) {
+            next[field] = { ...next[field], [toLang]: text };
+          }
+        }
+        return next;
+      });
+    } catch (e) {
+      setError(t('admin.multiLang.translateError', { message: e.message }));
+    } finally {
+      setTranslating(false);
+    }
+  }
+
   async function handleSave(e) {
     e.preventDefault();
     setError('');
-    if (!form.title.tr.trim()) { setError('Turkish title is required.'); return; }
+    if (!form.title.tr.trim()) { setError(t('admin.projects.form.titleRequired')); return; }
 
     setSaving(true);
     try {
@@ -196,7 +301,7 @@ export default function ProjectForm() {
       }
       navigate('/admin/projects');
     } catch (e) {
-      setError('Save failed: ' + e.message);
+      setError(t('admin.projects.form.saveFailed', { message: e.message }));
     } finally {
       setSaving(false);
     }
@@ -224,10 +329,10 @@ export default function ProjectForm() {
         </button>
         <div>
           <h1 className="font-heading font-bold text-2xl text-slate-800">
-            {isEdit ? 'Edit Project' : 'New Project'}
+            {isEdit ? t('admin.projects.form.editTitle') : t('admin.projects.form.newTitle')}
           </h1>
           <p className="text-slate-500 text-sm mt-0.5">
-            {isEdit ? 'Update project information' : 'Add a new project to the portfolio'}
+            {isEdit ? t('admin.projects.form.editSubtitle') : t('admin.projects.form.newSubtitle')}
           </p>
         </div>
       </div>
@@ -239,27 +344,60 @@ export default function ProjectForm() {
       )}
 
       <form onSubmit={handleSave} className="space-y-0">
-        {/* ─── Translations ──────────────────────────────────────────────── */}
+        {/* ─── Translations (tabbed: TR / EN / DE) ──────────────────────── */}
         <div className="bg-white rounded-xl border border-slate-200 p-6 mb-5">
-          <SectionHeader title="Title" />
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <Input label="Turkish (TR) *" value={form.title.tr} onChange={(v) => setLang('title', 'tr', v)} placeholder="Proje adı" />
-            <Input label="English (EN)" value={form.title.en} onChange={(v) => setLang('title', 'en', v)} placeholder="Project name" />
-            <Input label="German (DE)" value={form.title.de} onChange={(v) => setLang('title', 'de', v)} placeholder="Projektname" />
-          </div>
+          <LangTabBar
+            activeLang={langTab}
+            onLangChange={setLangTab}
+            onTranslate={handleAutoTranslate}
+            translating={translating}
+            hasContent={Boolean(
+              (form.title[langTab]       ?? '').trim() ||
+              (form.description[langTab] ?? '').trim() ||
+              (form.location[langTab]    ?? '').trim()
+            )}
+          />
 
-          <SectionHeader title="Description" />
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <Textarea label="Turkish (TR)" value={form.description.tr} onChange={(v) => setLang('description', 'tr', v)} placeholder="Türkçe açıklama…" />
-            <Textarea label="English (EN)" value={form.description.en} onChange={(v) => setLang('description', 'en', v)} placeholder="English description…" />
-            <Textarea label="German (DE)" value={form.description.de} onChange={(v) => setLang('description', 'de', v)} placeholder="Deutsche Beschreibung…" />
-          </div>
+          <div className="space-y-4">
+            {/* Title */}
+            <div>
+              <label className="block text-xs font-semibold text-slate-600 mb-1">
+                {t('admin.projects.form.sectionTitle')}
+                {langTab === 'tr' && <span className="text-red-400 ml-0.5">*</span>}
+              </label>
+              <input
+                type="text"
+                value={form.title[langTab] ?? ''}
+                onChange={(e) => setLang('title', langTab, e.target.value)}
+                className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition"
+              />
+            </div>
 
-          <SectionHeader title="Location" />
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <Input label="Turkish (TR)" value={form.location.tr} onChange={(v) => setLang('location', 'tr', v)} placeholder="Şehir, İlçe" />
-            <Input label="English (EN)" value={form.location.en} onChange={(v) => setLang('location', 'en', v)} placeholder="City, District" />
-            <Input label="German (DE)" value={form.location.de} onChange={(v) => setLang('location', 'de', v)} placeholder="Stadt, Bezirk" />
+            {/* Description */}
+            <div>
+              <label className="block text-xs font-semibold text-slate-600 mb-1">
+                {t('admin.projects.form.sectionDescription')}
+              </label>
+              <textarea
+                rows={4}
+                value={form.description[langTab] ?? ''}
+                onChange={(e) => setLang('description', langTab, e.target.value)}
+                className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition resize-none"
+              />
+            </div>
+
+            {/* Location */}
+            <div>
+              <label className="block text-xs font-semibold text-slate-600 mb-1">
+                {t('admin.projects.form.sectionLocation')}
+              </label>
+              <input
+                type="text"
+                value={form.location[langTab] ?? ''}
+                onChange={(e) => setLang('location', langTab, e.target.value)}
+                className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition"
+              />
+            </div>
           </div>
         </div>
 
@@ -286,51 +424,148 @@ export default function ProjectForm() {
                 { value: 'completed', label: t('projects.status.completed') },
               ]}
             />
-            <Input label="Area (m²)" type="number" value={form.sqm} onChange={(v) => setForm((f) => ({ ...f, sqm: v }))} placeholder="e.g. 32000" />
-            <Input label="Units (optional)" type="number" value={form.units} onChange={(v) => setForm((f) => ({ ...f, units: v }))} placeholder="e.g. 180" />
+            <Input label={t('admin.projects.form.areaSqm')} type="number" value={form.sqm} onChange={(v) => setForm((f) => ({ ...f, sqm: v }))} placeholder="32000" />
+            <Input label={t('admin.projects.form.unitsOptional')} type="number" value={form.units} onChange={(v) => setForm((f) => ({ ...f, units: v }))} placeholder="180" />
           </div>
           <div className="grid grid-cols-2 gap-4">
-            <Input label="Start Date (YYYY-MM)" value={form.startDate} onChange={(v) => setForm((f) => ({ ...f, startDate: v }))} placeholder="2023-06" />
-            <Input label="Completion Date (YYYY-MM)" value={form.completionDate} onChange={(v) => setForm((f) => ({ ...f, completionDate: v }))} placeholder="2025-12" />
+            <Input label={t('admin.projects.form.startDate')} value={form.startDate} onChange={(v) => setForm((f) => ({ ...f, startDate: v }))} placeholder="2023-06" />
+            <Input label={t('admin.projects.form.completionDate')} value={form.completionDate} onChange={(v) => setForm((f) => ({ ...f, completionDate: v }))} placeholder="2025-12" />
           </div>
         </div>
 
         {/* ─── Images ──────────────────────────────────────────────────── */}
         <div className="bg-white rounded-xl border border-slate-200 p-6 mb-5">
-          <SectionHeader title="Images" />
-          <div className="mb-4">
-            <Input
-              label="Hero Image URL"
-              value={form.heroImage}
-              onChange={(v) => setForm((f) => ({ ...f, heroImage: v }))}
-              placeholder="https://…"
-            />
-            {form.heroImage && (
-              <img src={form.heroImage} alt="Hero preview" className="mt-3 h-32 rounded-lg object-cover w-full" />
+          <SectionHeader title={t('admin.projects.form.sectionImages')} />
+          <div className="mb-5">
+            <label className="block text-xs font-semibold text-slate-600 mb-2">
+              {t('admin.projects.form.heroImage')}
+            </label>
+            {form.heroImage ? (
+              <div className="relative mt-1 rounded-xl overflow-hidden border border-slate-200">
+                <img src={form.heroImage} alt="Hero preview" className="h-44 w-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-100 sm:opacity-0 sm:hover:opacity-100 transition-opacity">
+                  <div className="absolute bottom-3 right-3 flex gap-2">
+                    <button
+                      type="button"
+                      onClick={() => openImagePreview(form.heroImage)}
+                      className="px-3 py-1.5 text-xs font-medium rounded-md bg-white/90 text-slate-800 hover:bg-white transition"
+                    >
+                      {t('admin.projects.form.previewImage')}
+                    </button>
+                    <label className="px-3 py-1.5 text-xs font-medium rounded-md bg-accent text-white hover:bg-accent/90 cursor-pointer transition">
+                      {uploading.hero ? t('admin.projects.form.uploading') : t('admin.projects.form.changeImage')}
+                      <input
+                        type="file"
+                        accept="image/*"
+                        disabled={uploading.hero}
+                        onChange={(e) => {
+                          const file = e.target.files?.[0];
+                          uploadHeroImage(file);
+                          e.target.value = '';
+                        }}
+                        className="hidden"
+                      />
+                    </label>
+                    <button
+                      type="button"
+                      onClick={removeHeroImage}
+                      disabled={deleting.hero}
+                      className="px-3 py-1.5 text-xs font-medium rounded-md bg-red-500 text-white hover:bg-red-600 transition"
+                    >
+                      {deleting.hero ? t('admin.projects.form.deletingImage') : t('admin.projects.form.removeImage')}
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <label className="mt-1 h-36 w-full border-2 border-dashed border-slate-300 hover:border-accent rounded-xl flex items-center justify-center text-sm font-medium text-slate-600 hover:text-accent cursor-pointer transition">
+                {uploading.hero ? t('admin.projects.form.uploading') : t('admin.projects.form.uploadHeroImage')}
+                <input
+                  type="file"
+                  accept="image/*"
+                  disabled={uploading.hero}
+                  onChange={(e) => {
+                    const file = e.target.files?.[0];
+                    uploadHeroImage(file);
+                    e.target.value = '';
+                  }}
+                  className="hidden"
+                />
+              </label>
             )}
           </div>
           <div className="space-y-3">
-            <label className="block text-xs font-semibold text-slate-600">Gallery Images</label>
+            <label className="block text-xs font-semibold text-slate-600">{t('admin.projects.form.galleryLabel')}</label>
             {form.gallery.map((url, i) => (
-              <div key={i} className="flex gap-2 items-center">
-                <input
-                  type="text"
-                  value={url}
-                  onChange={(e) => setGallery(i, e.target.value)}
-                  placeholder={`Image ${i + 1} URL…`}
-                  className="flex-1 border border-slate-300 rounded-lg px-3 py-2 text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition"
-                />
-                {form.gallery.length > 1 && (
-                  <button
-                    type="button"
-                    onClick={() => removeGallerySlot(i)}
-                    className="text-slate-400 hover:text-red-500 transition p-1"
-                  >
-                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                  </button>
+              <div key={i} className="border border-slate-200 rounded-xl p-3">
+                <div className="text-xs font-semibold text-slate-600 mb-2">
+                  {t('admin.projects.form.galleryImage', { n: i + 1 })}
+                </div>
+                {url ? (
+                  <div className="relative rounded-lg overflow-hidden border border-slate-200">
+                    <img src={url} alt={`Gallery ${i + 1}`} className="h-36 w-full object-cover" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-100 sm:opacity-0 sm:hover:opacity-100 transition-opacity">
+                      <div className="absolute bottom-3 right-3 flex gap-2">
+                        <button
+                          type="button"
+                          onClick={() => openImagePreview(url)}
+                          className="px-3 py-1.5 text-xs font-medium rounded-md bg-white/90 text-slate-800 hover:bg-white transition"
+                        >
+                          {t('admin.projects.form.previewImage')}
+                        </button>
+                        <label className="px-3 py-1.5 text-xs font-medium rounded-md bg-accent text-white hover:bg-accent/90 cursor-pointer transition">
+                          {uploading.gallery[i] ? t('admin.projects.form.uploading') : t('admin.projects.form.changeImage')}
+                          <input
+                            type="file"
+                            accept="image/*"
+                            disabled={Boolean(uploading.gallery[i])}
+                            onChange={(e) => {
+                              const file = e.target.files?.[0];
+                              uploadGalleryImage(i, file);
+                              e.target.value = '';
+                            }}
+                            className="hidden"
+                          />
+                        </label>
+                        <button
+                          type="button"
+                          onClick={() => removeGalleryImage(i)}
+                          disabled={Boolean(deleting.gallery[i])}
+                          className="px-3 py-1.5 text-xs font-medium rounded-md bg-red-500 text-white hover:bg-red-600 transition"
+                        >
+                          {deleting.gallery[i] ? t('admin.projects.form.deletingImage') : t('admin.projects.form.removeImage')}
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  <label className="h-24 w-full border-2 border-dashed border-slate-300 hover:border-accent rounded-lg flex items-center justify-center text-sm font-medium text-slate-600 hover:text-accent cursor-pointer transition">
+                    {uploading.gallery[i] ? t('admin.projects.form.uploading') : t('admin.projects.form.uploadImage')}
+                    <input
+                      type="file"
+                      accept="image/*"
+                      disabled={Boolean(uploading.gallery[i])}
+                      onChange={(e) => {
+                        const file = e.target.files?.[0];
+                        uploadGalleryImage(i, file);
+                        e.target.value = '';
+                      }}
+                      className="hidden"
+                    />
+                  </label>
                 )}
+                <div className="flex items-center justify-end mt-2">
+                  {form.gallery.length > 1 && (
+                    <button
+                      type="button"
+                      onClick={() => removeGallerySlot(i)}
+                      disabled={Boolean(deleting.gallery[i])}
+                      className="text-xs text-slate-400 hover:text-red-500 transition"
+                    >
+                      {deleting.gallery[i] ? t('admin.projects.form.deletingImage') : t('admin.projects.form.deleteSlot')}
+                    </button>
+                  )}
+                </div>
               </div>
             ))}
             <button
@@ -338,7 +573,7 @@ export default function ProjectForm() {
               onClick={addGallerySlot}
               className="text-sm text-accent hover:underline"
             >
-              + Add image
+              {t('admin.projects.form.addImage')}
             </button>
           </div>
         </div>
@@ -356,7 +591,7 @@ export default function ProjectForm() {
 
         {/* ─── Settings ────────────────────────────────────────────────── */}
         <div className="bg-white rounded-xl border border-slate-200 p-6 mb-5">
-          <SectionHeader title="Settings" />
+          <SectionHeader title={t('admin.projects.form.sectionSettings')} />
           <div className="flex flex-wrap gap-6 items-center">
             <label className="flex items-center gap-3 cursor-pointer">
               <button
@@ -372,11 +607,11 @@ export default function ProjectForm() {
                   form.featured ? 'translate-x-5' : 'translate-x-0.5'
                 }`} />
               </button>
-              <span className="text-sm font-medium text-slate-700">Featured on homepage</span>
+              <span className="text-sm font-medium text-slate-700">{t('admin.projects.form.featuredHomepage')}</span>
             </label>
             <div className="w-28">
               <Input
-                label="Sort Order"
+                label={t('admin.projects.form.sortOrder')}
                 type="number"
                 value={form.order}
                 onChange={(v) => setForm((f) => ({ ...f, order: v }))}
@@ -393,14 +628,14 @@ export default function ProjectForm() {
             onClick={() => navigate('/admin/projects')}
             className="px-5 py-2.5 text-sm font-semibold text-slate-600 bg-white border border-slate-200 hover:bg-slate-50 rounded-lg transition"
           >
-            Cancel
+            {t('admin.common.cancel')}
           </button>
           <button
             type="submit"
             disabled={saving}
             className="px-5 py-2.5 text-sm font-semibold text-white bg-[#1A2B3C] hover:bg-[#243A52] rounded-lg transition disabled:opacity-60"
           >
-            {saving ? 'Saving…' : isEdit ? 'Save Changes' : 'Create Project'}
+            {saving ? t('admin.common.saving') : isEdit ? t('admin.projects.form.saveChanges') : t('admin.projects.form.createProject')}
           </button>
         </div>
       </form>

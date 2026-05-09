@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { autoTranslateFields } from '../../../services/translateService';
+import LangTabBar from '../../../components/admin/LangTabBar';
 import {
   collection,
   getDocs,
@@ -30,35 +33,81 @@ const COLOR_PREVIEW = {
 };
 
 function EditModal({ service, onSave, onClose }) {
+  const { t } = useTranslation();
+  const [langTab,     setLangTab]     = useState('tr');
+  const [translating, setTranslating] = useState(false);
   const [form, setForm] = useState({
-    key:         service?.key      ?? '',
-    icon:        service?.icon     ?? 'HardHat',
-    color:       service?.color    ?? 'accent',
-    featured:    service?.featured ?? false,
-    order:       service?.order    ?? 1,
+    key:         service?.key       ?? '',
+    icon:        service?.icon      ?? 'HardHat',
+    color:       service?.color     ?? 'accent',
+    featured:    service?.featured  ?? false,
+    order:       service?.order     ?? 1,
     title_tr:    service?.title?.tr ?? '',
     title_en:    service?.title?.en ?? '',
+    title_de:    service?.title?.de ?? '',
     desc_tr:     service?.desc?.tr  ?? '',
     desc_en:     service?.desc?.en  ?? '',
+    desc_de:     service?.desc?.de  ?? '',
   });
   const [saving, setSaving] = useState(false);
 
+  const titleKey = `title_${langTab}`;
+  const descKey  = `desc_${langTab}`;
+
+  function toServiceKey(value) {
+    return value
+      .toLowerCase()
+      .trim()
+      .replace(/[^a-z0-9\s-]/g, '')
+      .replace(/\s+/g, '_')
+      .replace(/_+/g, '_');
+  }
+
+  async function handleAutoTranslate(fromLang) {
+    const fields = {
+      title: form[`title_${fromLang}`] ?? '',
+      desc:  form[`desc_${fromLang}`]  ?? '',
+    };
+    const nonEmpty = Object.fromEntries(
+      Object.entries(fields).filter(([, v]) => v.trim()),
+    );
+    if (!Object.keys(nonEmpty).length) return;
+
+    setTranslating(true);
+    try {
+      const results = await autoTranslateFields(nonEmpty, fromLang);
+      setForm((prev) => {
+        const next = { ...prev };
+        for (const [toLang, translations] of Object.entries(results)) {
+          if (translations.title !== undefined) next[`title_${toLang}`] = translations.title;
+          if (translations.desc  !== undefined) next[`desc_${toLang}`]  = translations.desc;
+        }
+        return next;
+      });
+    } catch (e) {
+      alert(t('admin.multiLang.translateError', { message: e.message }));
+    } finally {
+      setTranslating(false);
+    }
+  }
+
   async function handleSave() {
-    if (!form.key.trim()) { alert('Key is required.'); return; }
+    const keySource = form.key || form.title_tr || form.title_en || form.title_de;
+    if (!keySource.trim()) { alert(t('admin.services.editModal.keyRequired')); return; }
     setSaving(true);
     try {
       await onSave({
-        key:      form.key.trim().replace(/\s+/g, '_'),
+        key:      toServiceKey(keySource),
         icon:     form.icon,
         color:    form.color,
         featured: form.featured,
         order:    Number(form.order) || 1,
-        title:    { tr: form.title_tr, en: form.title_en },
-        desc:     { tr: form.desc_tr,  en: form.desc_en  },
+        title:    { tr: form.title_tr, en: form.title_en, de: form.title_de },
+        desc:     { tr: form.desc_tr,  en: form.desc_en,  de: form.desc_de  },
       });
       onClose();
     } catch (e) {
-      alert('Save failed: ' + e.message);
+      alert(t('admin.services.editModal.saveFailed', { message: e.message }));
     } finally {
       setSaving(false);
     }
@@ -68,21 +117,15 @@ function EditModal({ service, onSave, onClose }) {
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4">
       <div className="bg-white rounded-xl border border-slate-200 p-6 w-full max-w-lg shadow-xl max-h-[90vh] overflow-y-auto">
         <h3 className="font-heading font-semibold text-slate-800 mb-5">
-          {service ? 'Edit Service' : 'New Service'}
+          {service ? t('admin.services.editModal.editTitle') : t('admin.services.editModal.newTitle')}
         </h3>
+        <p className="text-sm text-slate-500 mb-5">{t('admin.services.editModal.subtleHint')}</p>
+
         <div className="space-y-4">
+          {/* Order + icon */}
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="text-xs font-semibold text-slate-600 mb-1 block">Key (unique ID)</label>
-              <input
-                value={form.key}
-                onChange={(e) => setForm((f) => ({ ...f, key: e.target.value }))}
-                placeholder="e.g. contracting"
-                className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent"
-              />
-            </div>
-            <div>
-              <label className="text-xs font-semibold text-slate-600 mb-1 block">Sort Order</label>
+              <label className="text-xs font-semibold text-slate-600 mb-1 block">{t('admin.services.editModal.sortOrder')}</label>
               <input
                 type="number"
                 value={form.order}
@@ -91,9 +134,11 @@ function EditModal({ service, onSave, onClose }) {
               />
             </div>
           </div>
+
+          {/* Icon + color */}
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label className="text-xs font-semibold text-slate-600 mb-1 block">Icon</label>
+              <label className="text-xs font-semibold text-slate-600 mb-1 block">{t('admin.services.editModal.icon')}</label>
               <select
                 value={form.icon}
                 onChange={(e) => setForm((f) => ({ ...f, icon: e.target.value }))}
@@ -103,7 +148,7 @@ function EditModal({ service, onSave, onClose }) {
               </select>
             </div>
             <div>
-              <label className="text-xs font-semibold text-slate-600 mb-1 block">Color</label>
+              <label className="text-xs font-semibold text-slate-600 mb-1 block">{t('admin.services.editModal.color')}</label>
               <select
                 value={form.color}
                 onChange={(e) => setForm((f) => ({ ...f, color: e.target.value }))}
@@ -113,26 +158,46 @@ function EditModal({ service, onSave, onClose }) {
               </select>
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-4">
-            <div>
-              <label className="text-xs font-semibold text-slate-600 mb-1 block">Title (TR)</label>
-              <input value={form.title_tr} onChange={(e) => setForm((f) => ({ ...f, title_tr: e.target.value }))} className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent" placeholder="Türkçe başlık" />
-            </div>
-            <div>
-              <label className="text-xs font-semibold text-slate-600 mb-1 block">Title (EN)</label>
-              <input value={form.title_en} onChange={(e) => setForm((f) => ({ ...f, title_en: e.target.value }))} className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent" placeholder="English title" />
+
+          {/* ── Multilingual content (tabbed TR / EN / DE) ── */}
+          <div className="border border-slate-200 rounded-xl p-4">
+            <LangTabBar
+              activeLang={langTab}
+              onLangChange={setLangTab}
+              onTranslate={handleAutoTranslate}
+              translating={translating}
+              hasContent={Boolean(
+                (form[`title_${langTab}`] ?? '').trim() ||
+                (form[`desc_${langTab}`]  ?? '').trim()
+              )}
+            />
+
+            <div className="space-y-3">
+              <div>
+                <label className="text-xs font-semibold text-slate-600 mb-1 block">
+                  {t('admin.services.editModal.titleTr').replace('(TR)', `(${langTab.toUpperCase()})`)}
+                </label>
+                <input
+                  value={form[titleKey] ?? ''}
+                  onChange={(e) => setForm((f) => ({ ...f, [titleKey]: e.target.value }))}
+                  className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent"
+                />
+              </div>
+              <div>
+                <label className="text-xs font-semibold text-slate-600 mb-1 block">
+                  {t('admin.services.editModal.descTr').replace('(TR)', `(${langTab.toUpperCase()})`)}
+                </label>
+                <textarea
+                  value={form[descKey] ?? ''}
+                  onChange={(e) => setForm((f) => ({ ...f, [descKey]: e.target.value }))}
+                  rows={3}
+                  className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent resize-none"
+                />
+              </div>
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-4">
-            <div>
-              <label className="text-xs font-semibold text-slate-600 mb-1 block">Description (TR)</label>
-              <textarea value={form.desc_tr} onChange={(e) => setForm((f) => ({ ...f, desc_tr: e.target.value }))} rows={3} className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent resize-none" placeholder="Türkçe açıklama…" />
-            </div>
-            <div>
-              <label className="text-xs font-semibold text-slate-600 mb-1 block">Description (EN)</label>
-              <textarea value={form.desc_en} onChange={(e) => setForm((f) => ({ ...f, desc_en: e.target.value }))} rows={3} className="w-full border border-slate-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent resize-none" placeholder="English description…" />
-            </div>
-          </div>
+
+          {/* Featured toggle */}
           <label className="flex items-center gap-3 cursor-pointer">
             <button
               type="button"
@@ -141,15 +206,16 @@ function EditModal({ service, onSave, onClose }) {
             >
               <span className={`inline-block h-5 w-5 transform rounded-full bg-white shadow transition-transform mt-0.5 ${form.featured ? 'translate-x-5' : 'translate-x-0.5'}`} />
             </button>
-            <span className="text-sm font-medium text-slate-700">Featured on Services page</span>
+            <span className="text-sm font-medium text-slate-700">{t('admin.services.editModal.featuredPage')}</span>
           </label>
         </div>
+
         <div className="flex gap-3 justify-end mt-6">
           <button onClick={onClose} className="px-4 py-2 text-sm font-medium text-slate-600 bg-slate-100 hover:bg-slate-200 rounded-lg transition">
-            Cancel
+            {t('admin.common.cancel')}
           </button>
           <button onClick={handleSave} disabled={saving} className="px-4 py-2 text-sm font-medium text-white bg-[#1A2B3C] hover:bg-[#243A52] rounded-lg transition disabled:opacity-60">
-            {saving ? 'Saving…' : 'Save Service'}
+            {saving ? t('admin.common.saving') : t('admin.services.editModal.saveService')}
           </button>
         </div>
       </div>
@@ -158,6 +224,7 @@ function EditModal({ service, onSave, onClose }) {
 }
 
 export default function ServicesAdmin() {
+  const { t } = useTranslation();
   const [services,  setServices]  = useState([]);
   const [loading,   setLoading]   = useState(true);
   const [editItem,  setEditItem]  = useState(null);   // null = closed, false = new, object = edit
@@ -201,7 +268,7 @@ export default function ServicesAdmin() {
 
   async function handleToggleFeatured(service) {
     if (service._fromConstants) {
-      alert('Seed these services to Firestore first (Settings page) to edit them.');
+      alert(t('admin.services.card.toggleSeedFirst'));
       return;
     }
     await updateDoc(doc(db, COLLECTIONS.SERVICES, service.id), {
@@ -219,7 +286,7 @@ export default function ServicesAdmin() {
       await deleteDoc(doc(db, COLLECTIONS.SERVICES, deleteId));
       setServices((prev) => prev.filter((s) => s.id !== deleteId));
     } catch (e) {
-      alert('Delete failed: ' + e.message);
+      alert(t('admin.services.deleteFailed', { message: e.message }));
     } finally {
       setDeleting(false);
       setDeleteId(null);
@@ -244,8 +311,8 @@ export default function ServicesAdmin() {
     <div className="p-6 lg:p-8 max-w-7xl mx-auto">
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="font-heading font-bold text-2xl text-slate-800">Services</h1>
-          <p className="text-slate-500 text-sm mt-0.5">{services.length} services</p>
+          <h1 className="font-heading font-bold text-2xl text-slate-800">{t('admin.services.title')}</h1>
+          <p className="text-slate-500 text-sm mt-0.5">{t('admin.services.count', { count: services.length })}</p>
         </div>
         <div className="flex gap-3">
           {!hasSeeded && (
@@ -253,7 +320,7 @@ export default function ServicesAdmin() {
               onClick={seedToFirestore}
               className="px-4 py-2.5 text-sm font-semibold text-slate-700 bg-white border border-slate-200 hover:bg-slate-50 rounded-lg transition"
             >
-              Seed to Firestore
+              {t('admin.services.seedFirestore')}
             </button>
           )}
           <button
@@ -263,14 +330,14 @@ export default function ServicesAdmin() {
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
             </svg>
-            New Service
+            {t('admin.services.newService')}
           </button>
         </div>
       </div>
 
       {seeded && (
         <div className="bg-green-50 border border-green-200 rounded-lg px-4 py-3 text-sm text-green-700 mb-5">
-          Services seeded to Firestore. You can now edit them.
+          {t('admin.services.seedSuccess')}
         </div>
       )}
 
@@ -299,7 +366,7 @@ export default function ServicesAdmin() {
                           : 'bg-slate-100 text-slate-500 hover:bg-slate-200'
                       }`}
                     >
-                      {service.featured ? 'Featured' : 'Hidden'}
+                      {service.featured ? t('admin.services.card.featured') : t('admin.services.card.hidden')}
                     </button>
                   </div>
                 </div>
@@ -312,14 +379,14 @@ export default function ServicesAdmin() {
                     onClick={() => setEditItem(service)}
                     className="flex-1 py-1.5 text-xs font-medium bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg transition"
                   >
-                    Edit
+                    {t('admin.common.edit')}
                   </button>
                   {!service._fromConstants && (
                     <button
                       onClick={() => setDeleteId(service.id)}
                       className="flex-1 py-1.5 text-xs font-medium bg-red-50 hover:bg-red-100 text-red-600 rounded-lg transition"
                     >
-                      Delete
+                      {t('admin.common.delete')}
                     </button>
                   )}
                 </div>
@@ -342,12 +409,12 @@ export default function ServicesAdmin() {
       {deleteId && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4">
           <div className="bg-white rounded-xl border border-slate-200 p-6 w-full max-w-sm shadow-xl">
-            <h3 className="font-heading font-semibold text-slate-800 mb-2">Delete service?</h3>
-            <p className="text-sm text-slate-500 mb-6">This will remove the service from Firestore.</p>
+            <h3 className="font-heading font-semibold text-slate-800 mb-2">{t('admin.services.deleteTitle')}</h3>
+            <p className="text-sm text-slate-500 mb-6">{t('admin.services.deleteBody')}</p>
             <div className="flex gap-3 justify-end">
-              <button onClick={() => setDeleteId(null)} disabled={deleting} className="px-4 py-2 text-sm font-medium text-slate-600 bg-slate-100 hover:bg-slate-200 rounded-lg transition">Cancel</button>
+              <button onClick={() => setDeleteId(null)} disabled={deleting} className="px-4 py-2 text-sm font-medium text-slate-600 bg-slate-100 hover:bg-slate-200 rounded-lg transition">{t('admin.common.cancel')}</button>
               <button onClick={confirmDelete} disabled={deleting} className="px-4 py-2 text-sm font-medium text-white bg-red-500 hover:bg-red-600 rounded-lg transition disabled:opacity-60">
-                {deleting ? 'Deleting…' : 'Delete'}
+                {deleting ? t('admin.common.deleting') : t('admin.common.delete')}
               </button>
             </div>
           </div>

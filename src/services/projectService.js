@@ -20,6 +20,7 @@ import {
 } from 'firebase/firestore';
 import { db } from '../config/firebase';
 import { COLLECTIONS, SEED_PROJECTS } from '../constants';
+import { deleteImageByUrl } from './storageService';
 
 const projectsRef = () => collection(db, COLLECTIONS.PROJECTS);
 
@@ -154,7 +155,29 @@ export async function updateProject(id, data) {
  * @param {string} id
  */
 export async function deleteProject(id) {
-  await deleteDoc(doc(db, COLLECTIONS.PROJECTS, id));
+  const projectRef = doc(db, COLLECTIONS.PROJECTS, id);
+  const projectSnap = await getDoc(projectRef);
+  const projectData = projectSnap.exists() ? projectSnap.data() : null;
+
+  await deleteDoc(projectRef);
+
+  if (!projectData) return;
+
+  const imageUrls = [
+    projectData.heroImage,
+    ...(Array.isArray(projectData.gallery) ? projectData.gallery : []),
+  ].filter(Boolean);
+
+  if (!imageUrls.length) return;
+
+  const results = await Promise.allSettled(
+    imageUrls.map((url) => deleteImageByUrl(url)),
+  );
+
+  const failedCount = results.filter((r) => r.status === 'rejected').length;
+  if (failedCount) {
+    console.warn(`[projectService] ${failedCount} project image(s) could not be deleted from Storage.`);
+  }
 }
 
 /**

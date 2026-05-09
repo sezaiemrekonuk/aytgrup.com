@@ -1,8 +1,40 @@
 import React, { useState } from 'react';
 import { useNavigate, Navigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { useAuth } from '../../context/AuthContext';
+import { persistAdminLanguage } from '../../constants/adminLocale';
+
+function LoginLanguageSwitcher() {
+  const { i18n } = useTranslation();
+  const active = i18n.language.startsWith('en') ? 'en' : 'tr';
+
+  function setLang(code) {
+    const next = persistAdminLanguage(code);
+    i18n.changeLanguage(next);
+  }
+
+  return (
+    <div className="flex rounded-lg border border-[#243A52] overflow-hidden text-[11px] font-semibold">
+      <button
+        type="button"
+        onClick={() => setLang('tr')}
+        className={`px-2.5 py-1 transition ${active === 'tr' ? 'bg-accent text-white' : 'text-slate-400 hover:text-white hover:bg-white/5'}`}
+      >
+        TR
+      </button>
+      <button
+        type="button"
+        onClick={() => setLang('en')}
+        className={`px-2.5 py-1 transition ${active === 'en' ? 'bg-accent text-white' : 'text-slate-400 hover:text-white hover:bg-white/5'}`}
+      >
+        EN
+      </button>
+    </div>
+  );
+}
 
 export default function AdminLogin() {
+  const { t } = useTranslation();
   const { user, login } = useAuth();
   const navigate = useNavigate();
 
@@ -22,13 +54,13 @@ export default function AdminLogin() {
       navigate('/admin', { replace: true });
     } catch (err) {
       const messages = {
-        'auth/invalid-credential':      'Invalid email or password.',
-        'auth/user-not-found':          'No account found with this email.',
-        'auth/wrong-password':          'Incorrect password.',
-        'auth/too-many-requests':       'Too many attempts. Try again later.',
-        'auth/network-request-failed':  'Network error. Check your connection.',
+        'auth/invalid-credential':      t('admin.login.errors.invalidCredential'),
+        'auth/user-not-found':          t('admin.login.errors.userNotFound'),
+        'auth/wrong-password':          t('admin.login.errors.wrongPassword'),
+        'auth/too-many-requests':       t('admin.login.errors.tooManyRequests'),
+        'auth/network-request-failed':  t('admin.login.errors.network'),
       };
-      setError(messages[err.code] ?? 'Login failed. Please try again.');
+      setError(messages[err.code] ?? t('admin.login.errors.generic'));
     } finally {
       setLoading(false);
     }
@@ -37,25 +69,28 @@ export default function AdminLogin() {
   return (
     <div className="min-h-screen bg-[#0D1B2A] flex items-center justify-center px-4">
       <div className="w-full max-w-md">
-        {/* Logo */}
-        <div className="text-center mb-8">
-          <div className="inline-flex items-center gap-2 mb-2">
-            <div className="w-10 h-10 rounded-lg bg-accent flex items-center justify-center">
-              <span className="font-heading font-bold text-white text-lg">A</span>
-            </div>
-            <span className="font-heading font-bold text-2xl text-white">AYT Group</span>
+        <div className="relative mb-8">
+          <div className="absolute top-0 right-0">
+            <LoginLanguageSwitcher />
           </div>
-          <p className="text-slate-400 text-sm">Admin Panel</p>
+          <div className="text-center">
+            <div className="inline-flex items-center gap-2 mb-2">
+              <div className="w-10 h-10 rounded-lg bg-accent flex items-center justify-center">
+                <span className="font-heading font-bold text-white text-lg">A</span>
+              </div>
+              <span className="font-heading font-bold text-2xl text-white">AYT Group</span>
+            </div>
+            <p className="text-slate-400 text-sm">{t('admin.login.subtitle')}</p>
+          </div>
         </div>
 
-        {/* Card */}
         <div className="bg-[#162436] rounded-xl border border-[#243A52] p-8">
-          <h1 className="font-heading font-semibold text-xl text-white mb-6">Sign In</h1>
+          <h1 className="font-heading font-semibold text-xl text-white mb-6">{t('admin.login.signIn')}</h1>
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <label className="block text-sm font-medium text-slate-300 mb-1.5">
-                Email address
+                {t('admin.login.email')}
               </label>
               <input
                 type="email"
@@ -70,7 +105,7 @@ export default function AdminLogin() {
 
             <div>
               <label className="block text-sm font-medium text-slate-300 mb-1.5">
-                Password
+                {t('admin.login.password')}
               </label>
               <input
                 type="password"
@@ -94,13 +129,13 @@ export default function AdminLogin() {
               disabled={loading}
               className="w-full bg-accent hover:bg-accent-dark text-white font-semibold py-2.5 rounded-lg text-sm transition disabled:opacity-60 disabled:cursor-not-allowed mt-2"
             >
-              {loading ? 'Signing in…' : 'Sign In'}
+              {loading ? t('admin.login.signingIn') : t('admin.login.signIn')}
             </button>
           </form>
         </div>
 
         <p className="text-center text-xs text-slate-600 mt-6">
-          AYT Group Admin Panel — Authorized access only
+          {t('admin.login.footerNote')}
         </p>
       </div>
     </div>
