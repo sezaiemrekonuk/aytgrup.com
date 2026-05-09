@@ -21,6 +21,45 @@ service cloud.firestore {
           && d.status  == 'new';
     }
 
+    // Validate a queued email document for Firebase Trigger Email extension.
+    // Only allow a mail document if it mirrors an existing contact submission.
+    function isValidContactMail(mailId) {
+      let d = request.resource.data;
+      let contactPath = /databases/$(database)/documents/contacts/$(d.contactId);
+      return d.keys().hasAll([
+            'to',
+            'message',
+            'contactId',
+            'contactName',
+            'contactEmail',
+            'contactSubject',
+            'contactMessage',
+            'createdAt'
+          ])
+          && d.to is list
+          && d.to.size() == 1
+          && d.to[0] == 'info@aytgrup.com'
+          && d.message is map
+          && d.message.keys().hasAll(['subject', 'text'])
+          && d.message.subject is string
+          && d.message.subject.size() > 0
+          && d.message.subject.size() <= 250
+          && d.message.text is string
+          && d.message.text.size() > 0
+          && d.message.text.size() <= 10000
+          && d.contactId is string
+          && d.contactId == mailId
+          && d.contactName is string
+          && d.contactEmail is string
+          && d.contactSubject is string
+          && d.contactMessage is string
+          && exists(contactPath)
+          && get(contactPath).data.name == d.contactName
+          && get(contactPath).data.email == d.contactEmail
+          && get(contactPath).data.subject == d.contactSubject
+          && get(contactPath).data.message == d.contactMessage;
+    }
+
     // Validate an incoming review submission.
     function isValidReview() {
       let d = request.resource.data;
@@ -61,6 +100,16 @@ service cloud.firestore {
     // Admin:  read, update status, delete
     match /contacts/{id} {
       allow create: if isValidContact();
+      allow read,
+            update,
+            delete: if isAdmin();
+    }
+
+    // ── Mail Queue (Firebase Trigger Email extension) ─────────────────────────
+    // Public: create-only, but strictly tied to an existing contact document.
+    // Admin:  read/update/delete
+    match /mail/{id} {
+      allow create: if isValidContactMail(id);
       allow read,
             update,
             delete: if isAdmin();
