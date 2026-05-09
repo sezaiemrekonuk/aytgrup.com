@@ -276,13 +276,22 @@ function MobileDropdown({ item, onClose, t }) {
 
 // ─── Logo ─────────────────────────────────────────────────────────────────────
 function LogoMark({ size = 'md', light = false }) {
-  const sizes = { sm: 'h-9', md: 'h-10' };
+  const sizes = { sm: 'h-9', md: 'h-12' };
   return (
-    <Link to="/" aria-label="AYT Grup – Ana Sayfa">
+    <Link
+      to="/"
+      aria-label="AYT Grup – Ana Sayfa"
+      className={clsx(
+        'inline-flex items-center rounded-md transition-all',
+        light
+          ? 'bg-white/92 px-2 py-1.5 shadow-md ring-1 ring-white/75'
+          : 'bg-white dark:bg-dark-card px-2 py-1 shadow-sm ring-1 ring-neutral-200/70 dark:ring-dark-border',
+      )}
+    >
       <img
         src="/AYT LOGO.png"
         alt="AYT Grup"
-        className={clsx(sizes[size], 'w-auto', light ? 'drop-shadow-[0_0_8px_rgba(0,0,0,0.45)]' : '')}
+        className={clsx(sizes[size], 'w-auto')}
         loading="eager"
       />
     </Link>

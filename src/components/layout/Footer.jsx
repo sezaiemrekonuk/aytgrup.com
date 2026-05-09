@@ -105,7 +105,18 @@ export default function Footer() {
         <div className="border-t border-neutral-800">
           <div className="container-site py-5 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-neutral-500">
             <p>{t('footer.rights')}</p>
-            <p>{t('footer.madeWith')}</p>
+            <div className="flex items-center gap-2">
+              <p>{t('footer.madeWith')}</p>
+              <a
+                href="https://sezaiemrekonuk.dev"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Developer reference"
+                className="text-[9px] leading-none text-neutral-500/25 hover:text-neutral-400/40 transition-colors"
+              >
+                sezaiemrekonuk.dev
+              </a>
+            </div>
           </div>
         </div>
       </div>

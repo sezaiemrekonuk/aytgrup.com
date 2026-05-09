@@ -41,11 +41,11 @@ export default function HeroSection() {
           aria-hidden
         />
       ))}
-      <div className="absolute inset-0 bg-primary/70" aria-hidden />
-      <div className="absolute inset-0 bg-blueprint-grid-dark bg-grid-lg opacity-30" aria-hidden />
+      <div className="absolute inset-0 bg-primary/78" aria-hidden />
+      <div className="absolute inset-0 bg-blueprint-grid-dark bg-grid-lg opacity-12" aria-hidden />
 
-      {/* Decorative gold accent line */}
-      <div className="absolute top-0 left-0 w-1 h-full bg-accent/30" aria-hidden />
+      {/* Soft edge line for structure */}
+      <div className="absolute top-0 left-0 w-px h-full bg-white/20" aria-hidden />
 
       {/* ── Content ── */}
       <div className="container-site relative z-10 pt-[var(--header-height)] pb-24">
@@ -56,9 +56,9 @@ export default function HeroSection() {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-heading text-xs font-semibold tracking-[0.25em] uppercase text-accent mb-6 flex items-center gap-3"
+            className="font-heading text-xs font-semibold tracking-[0.25em] uppercase text-white/70 mb-6 flex items-center gap-3"
           >
-            <span className="w-8 h-px bg-accent" />
+            <span className="w-8 h-px bg-white/40" />
             {t('hero.tagline')}
           </motion.p>
 
@@ -89,7 +89,7 @@ export default function HeroSection() {
             transition={{ duration: 0.5, delay: 0.5 }}
             className="flex flex-wrap gap-4"
           >
-            <Link to="/projelerimiz" className="btn-accent">
+            <Link to="/projelerimiz" className="btn-accent shadow-none hover:shadow-none">
               {t('hero.cta.primary')}
               <ArrowRight />
             </Link>
@@ -120,7 +120,7 @@ export default function HeroSection() {
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-neutral-400"
       >
         <span className="text-xs font-heading tracking-widest uppercase">{t('common.scrollDown')}</span>
-        <div className="w-px h-10 bg-gradient-to-b from-accent to-transparent animate-pulse" />
+        <div className="w-px h-10 bg-gradient-to-b from-white/65 to-transparent" />
       </motion.div>
     </section>
   );
