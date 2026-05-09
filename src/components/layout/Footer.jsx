@@ -25,7 +25,7 @@ export default function Footer() {
               <Link to="/" className="inline-block mb-4" aria-label="AYT Grup">
                 <span className="font-heading font-black text-2xl text-white">
                   AYT<span className="text-accent">.</span>
-                  <span className="font-light text-neutral-400">Group</span>
+                  <span className="font-light text-neutral-400">Grup</span>
                 </span>
               </Link>
               <p className="text-sm text-neutral-400 mb-6 max-w-xs leading-relaxed">
