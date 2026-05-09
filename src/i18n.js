@@ -29,7 +29,9 @@ i18n
       escapeValue: false, // React already escapes by default
     },
     detection: {
-      order: ['localStorage', 'navigator', 'htmlTag'],
+      // Keep Turkish as default for first-time visitors.
+      // If user selected a language before, localStorage still wins.
+      order: ['localStorage', 'htmlTag'],
       lookupLocalStorage: 'aytgrup-lang',
       caches: ['localStorage'],
     },
