@@ -19,14 +19,14 @@ export const BRAND = {
   phone: '+90 312 000 00 00',
   whatsapp: '+905000000000',
   address: {
-    tr: 'Çankaya, Ankara, Türkiye',
-    en: 'Çankaya, Ankara, Turkey',
-    de: 'Çankaya, Ankara, Türkei',
+    tr: 'Aşağı Öveçler, Çankaya, Ankara, Türkiye',
+    en: 'Asagi Ovecler, Cankaya, Ankara, Turkey',
+    de: 'Asagi Ovecler, Cankaya, Ankara, Turkei',
   },
   addressFull: {
-    tr: 'Kızılırmak Mah. Atatürk Bul. No:1, Çankaya / Ankara',
-    en: 'Kızılırmak District, Atatürk Ave. No:1, Çankaya / Ankara',
-    de: 'Kızılırmak Viertel, Atatürk Allee Nr.1, Çankaya / Ankara',
+    tr: 'Aşağı Öveçler, 1328. Sk. No:10/6, 06460 Çankaya / Ankara',
+    en: 'Asagi Ovecler, 1328 St. No:10/6, 06460 Cankaya / Ankara',
+    de: 'Asagi Ovecler, 1328 Str. Nr.10/6, 06460 Cankaya / Ankara',
   },
   workingHours: {
     tr: 'Pazartesi – Cumartesi: 08:00 – 18:00',
@@ -35,7 +35,7 @@ export const BRAND = {
   },
   // Google Maps embed URL — replace with your actual embed link
   mapEmbedUrl:
-    'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d195754.22996019854!2d32.53537!3d39.91987!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14d347d520732db5%3A0xabbc3da3e2f8611d!2sAnkara!5e0!3m2!1str!2str!4v1700000000000!5m2!1str!2str',
+    'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3061.165931781368!2d32.82502037617677!3d39.892917071528686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14d345807a261a5d%3A0x813ea92dd78c5f0e!2sMige%20M%C3%BChendislik!5e0!3m2!1str!2str!4v1758633322211!5m2!1str!2str',
 };
 
 // ─── Social Media ─────────────────────────────────────────────────────────────
