@@ -9,6 +9,8 @@ import { COLLECTIONS } from '../constants';
 
 const MAIL_COLLECTION = 'mail';
 const SUPPORTED_LOCALES = ['tr', 'en', 'de'];
+const BRAND_FROM = 'AYT Grup <info@aytgrup.com>';
+const BRAND_REPLY_TO = 'info@aytgrup.com';
 
 function normalizeLocale(locale) {
   return SUPPORTED_LOCALES.includes(locale) ? locale : 'tr';
@@ -110,6 +112,8 @@ export async function submitContact(payload) {
   await addDoc(collection(db, MAIL_COLLECTION), {
     type: 'admin',
     to: ['info@aytgrup.com'],
+    from: BRAND_FROM,
+    replyTo: BRAND_REPLY_TO,
     message: {
       subject: `Yeni iletişim talebi - ${name}`,
       text: `Yeni bir iletişim formu talebi geldi.
@@ -133,6 +137,8 @@ ${message}`,
   await addDoc(collection(db, MAIL_COLLECTION), {
     type: 'user',
     to: [email],
+    from: BRAND_FROM,
+    replyTo: BRAND_REPLY_TO,
     message: userReply,
     contactId: ref.id,
     language,
