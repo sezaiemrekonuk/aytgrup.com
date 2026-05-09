@@ -8,7 +8,7 @@ import { submitContact } from '../../services/contactService';
 const INITIAL_FORM = { name: '', email: '', phone: '', subject: '', message: '' };
 
 export default function Contact() {
-  const { t }                       = useTranslation();
+  const { t, i18n }                 = useTranslation();
   const [form, setForm]             = useState(INITIAL_FORM);
   const [errors, setErrors]         = useState({});
   const [submitting, setSubmitting] = useState(false);
@@ -38,7 +38,7 @@ export default function Contact() {
     setSubmitting(true);
     setSubmitError('');
     try {
-      await submitContact(form);
+      await submitContact({ ...form, language: i18n.resolvedLanguage || i18n.language });
       setSuccess(true);
       setForm(INITIAL_FORM);
     } catch (err) {
