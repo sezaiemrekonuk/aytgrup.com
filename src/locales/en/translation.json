@@ -36,7 +36,8 @@
     "projects": "projects",
     "clients": "clients",
     "scrollDown": "Scroll Down",
-    "noResults": "No results found."
+    "noResults": "No results found.",
+    "googleBusiness": "Our Google Business profile"
   },
   "hero": {
     "tagline": "Trust and Engineering Discipline",

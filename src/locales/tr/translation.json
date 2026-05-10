@@ -36,7 +36,8 @@
     "projects": "proje",
     "clients": "müşteri",
     "scrollDown": "Aşağı Kaydır",
-    "noResults": "Sonuç bulunamadı."
+    "noResults": "Sonuç bulunamadı.",
+    "googleBusiness": "Google İşletme Profilimiz"
   },
   "hero": {
     "tagline": "Güven ve Mühendislik Disiplini",

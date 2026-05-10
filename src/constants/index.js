@@ -24,18 +24,20 @@ export const BRAND = {
     de: 'Asagi Ovecler, Cankaya, Ankara, Turkei',
   },
   addressFull: {
-    tr: 'Aşağı Öveçler, 1328. Sk. No:10/6, 06460 Çankaya / Ankara',
-    en: 'Asagi Ovecler, 1328 St. No:10/6, 06460 Cankaya / Ankara',
-    de: 'Asagi Ovecler, 1328 Str. Nr.10/6, 06460 Cankaya / Ankara',
+    tr: 'Aşağı Öveçler, 1328. Sk. No:10 D:6, 06460 Çankaya / Ankara',
+    en: 'Asagi Ovecler, 1328 St. No:10 D:6, 06460 Cankaya / Ankara',
+    de: 'Asagi Ovecler, 1328 Str. Nr.10 D:6, 06460 Cankaya / Ankara',
   },
   workingHours: {
     tr: 'Pazartesi – Cumartesi: 08:00 – 18:00',
     en: 'Monday – Saturday: 08:00 – 18:00',
     de: 'Montag – Samstag: 08:00 – 18:00',
   },
-  // Google Maps embed URL — replace with your actual embed link
+  // Google Maps embed — Aşağı Öveçler office (same location as directions link)
   mapEmbedUrl:
-    'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3061.165931781368!2d32.82502037617677!3d39.892917071528686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14d345807a261a5d%3A0x813ea92dd78c5f0e!2sMige%20M%C3%BChendislik!5e0!3m2!1str!2str!4v1758633322211!5m2!1str!2str',
+    'https://www.google.com/maps?q=A%C5%9Fa%C4%9F%C4%B1+%C3%96ve%C3%A7ler,+1328.+Sk.+No:10+D:6,+06460+%C3%87ankaya%2FAnkara&output=embed&hl=tr',
+  /** Official Google Maps listing (short link) */
+  googleBusinessUrl: 'https://maps.app.goo.gl/G8y2sBuMxYSpSg5y7',
 };
 
 // ─── Social Media ─────────────────────────────────────────────────────────────

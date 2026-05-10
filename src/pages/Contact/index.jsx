@@ -206,6 +206,16 @@ export default function Contact() {
                 allowFullScreen
               />
             </div>
+            <p className="mt-3 text-sm">
+              <a
+                href={BRAND.googleBusinessUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-accent hover:underline font-heading font-semibold"
+              >
+                {t('common.googleBusiness')}
+              </a>
+            </p>
           </motion.div>
         </div>
       </section>

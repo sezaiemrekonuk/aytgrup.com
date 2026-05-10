@@ -75,6 +75,7 @@ export default function SEO({
       'https://instagram.com/aytgrup',
       'https://twitter.com/aytgrup',
       'https://facebook.com/aytgrup',
+      ...(BRAND.googleBusinessUrl ? [BRAND.googleBusinessUrl] : []),
     ],
     address: {
       '@type': 'PostalAddress',
@@ -101,6 +102,7 @@ export default function SEO({
       addressLocality: 'Ankara',
       addressCountry: 'TR',
     },
+    ...(BRAND.googleBusinessUrl ? { sameAs: [BRAND.googleBusinessUrl] } : {}),
   };
 
   const websiteSchema = {

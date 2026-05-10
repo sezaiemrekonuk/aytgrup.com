@@ -42,6 +42,17 @@ export default function Footer() {
                     {BRAND.addressFull?.tr}
                   </address>
                 </li>
+                <li className="flex items-start gap-2">
+                  <ExternalLinkIcon />
+                  <a
+                    href={BRAND.googleBusinessUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs text-neutral-400 hover:text-accent transition-colors"
+                  >
+                    {t('common.googleBusiness')}
+                  </a>
+                </li>
               </ul>
             </div>
 
@@ -137,6 +148,13 @@ function MapPinIcon() {
     <svg className="w-4 h-4 mt-0.5 shrink-0 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
       <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
       <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+    </svg>
+  );
+}
+function ExternalLinkIcon() {
+  return (
+    <svg className="w-4 h-4 mt-0.5 shrink-0 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5M19.5 3v6m-3-3h6m-9 8.25h10.5" />
     </svg>
   );
 }
