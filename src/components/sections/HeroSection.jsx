@@ -6,7 +6,7 @@ import { BRAND } from '../../constants'; // eslint-disable-line no-unused-vars
 
 /**
  * HeroSection — full-viewport hero with blueprint-grid background,
- * animated headings, stats bar, and dual CTAs.
+ * animated headings, and dual CTAs.
  *
  * To use an actual video:
  *   1. Place your video file in /public/hero.mp4
@@ -35,13 +35,14 @@ export default function HeroSection() {
         <div
           key={slide}
           className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ${
-            index === activeSlide ? 'opacity-100' : 'opacity-0'
+            index === activeSlide ? 'opacity-70' : 'opacity-0'
           }`}
           style={{ backgroundImage: `url(${slide})` }}
           aria-hidden
         />
       ))}
-      <div className="absolute inset-0 bg-primary/78" aria-hidden />
+      <div className="absolute inset-0 bg-primary/84" aria-hidden />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/20 to-black/35" aria-hidden />
       <div className="absolute inset-0 bg-blueprint-grid-dark bg-grid-lg opacity-12" aria-hidden />
 
       {/* Soft edge line for structure */}
@@ -98,18 +99,6 @@ export default function HeroSection() {
             </Link>
           </motion.div>
         </div>
-
-        {/* ── Quick stats bar ── */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.7 }}
-          className="mt-20 pt-8 border-t border-white/10 grid grid-cols-3 gap-6 max-w-xl"
-        >
-          <StatItem value="120+" label={t('hero.stats.completedProjects')} />
-          <StatItem value="500K+" label={t('hero.stats.sqmBuilt')} />
-          <StatItem value="350+" label={t('hero.stats.satisfiedClients')} />
-        </motion.div>
       </div>
 
       {/* Scroll indicator */}
@@ -123,15 +112,6 @@ export default function HeroSection() {
         <div className="w-px h-10 bg-gradient-to-b from-white/65 to-transparent" />
       </motion.div>
     </section>
-  );
-}
-
-function StatItem({ value, label }) {
-  return (
-    <div>
-      <p className="font-heading font-black text-3xl text-white">{value}</p>
-      <p className="text-xs text-neutral-400 mt-1">{label}</p>
-    </div>
   );
 }
 

@@ -281,12 +281,7 @@ function LogoMark({ size = 'md', light = false }) {
     <Link
       to="/"
       aria-label="AYT Grup – Ana Sayfa"
-      className={clsx(
-        'inline-flex items-center rounded-md transition-all',
-        light
-          ? 'bg-white/92 px-2 py-1.5 shadow-md ring-1 ring-white/75'
-          : 'bg-white dark:bg-dark-card px-2 py-1 shadow-sm ring-1 ring-neutral-200/70 dark:ring-dark-border',
-      )}
+      className="inline-flex items-center"
     >
       <img
         src="/AYT LOGO.png"
