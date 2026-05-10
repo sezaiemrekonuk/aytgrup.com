@@ -217,8 +217,8 @@
   },
   "seo": {
     "home": {
-      "title": "AYT Grup – İnşaat ve Müteahhitlik",
-      "description": "AYT Grup, Ankara merkezli olarak konut, ticari ve endüstriyel projelerde güvenilir inşaat ve müteahhitlik hizmetleri sunar."
+      "title": "AYT Grup İnşaat | Ankara Müteahhitlik ve Proje Geliştirme",
+      "description": "AYT Grup İnşaat, Ankara merkezli konut, ticari ve endüstriyel projelerde güvenilir müteahhitlik hizmeti sunar. Marka odağı inşaat ve proje geliştirmedir."
     },
     "about": {
       "title": "Hakkımızda – AYT Grup",
@@ -237,12 +237,12 @@
       "description": "AYT Grup'un tamamlanan ve devam eden konut, ticari ve endüstriyel inşaat projeleri. Ankara Çankaya, Söğütözü, Sincan ve daha fazlası."
     },
     "services": {
-      "title": "Hizmetler – AYT Grup",
-      "description": "AYT Grup'un sunduğu hizmetler: genel inşaat, kentsel dönüşüm, konut, ticari ve endüstriyel yapılar, restorasyon."
+      "title": "Hizmetler – AYT Grup İnşaat",
+      "description": "AYT Grup İnşaat hizmetleri: genel müteahhitlik, kentsel dönüşüm, konut, ticari ve endüstriyel yapılar, restorasyon."
     },
     "contact": {
-      "title": "İletişim – AYT Grup",
-      "description": "AYT Grup ile iletişime geçin. Ankara'da inşaat ve müteahhitlik hizmetleri için teklif alın."
+      "title": "İletişim – AYT Grup İnşaat Ankara",
+      "description": "AYT Grup İnşaat ile iletişime geçin. Ankara'da müteahhitlik, kentsel dönüşüm ve yapı projeleri için teklif alın."
     }
   },
   "testimonials": {

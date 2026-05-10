@@ -44,9 +44,9 @@ export default function SEO({
   const langs = ['tr', 'en', 'de'];
   const ogLocaleMap = { tr: 'tr_TR', en: 'en_US', de: 'de_DE' };
   const defaultKeywordsByLang = {
-    tr: 'Ankara insaat firmasi, muteahhitlik, kentsel donusum, konut projeleri',
-    en: 'Ankara construction company, contractor services, residential projects, commercial construction',
-    de: 'Baufirma Ankara, Generalunternehmer, Wohnbauprojekte, Gewerbebau',
+    tr: 'AYT Grup insaat, Ankara insaat firmasi, Ankara muteahhitlik, kentsel donusum, konut projeleri, ticari yapi',
+    en: 'AYT Grup construction, Ankara construction company, contractor services, residential projects, commercial construction',
+    de: 'AYT Grup Bau, Baufirma Ankara, Generalunternehmer, Wohnbauprojekte, Gewerbebau',
   };
 
   const buildLocalizedUrl = (path, locale) => {
@@ -66,10 +66,26 @@ export default function SEO({
   const organizationSchema = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
+    '@id': `https://${BRAND.domain}#organization`,
     name: BRAND.name,
+    legalName: BRAND.legalName || BRAND.name,
+    description: BRAND.disambiguation?.[lang],
     url: `https://${BRAND.domain}`,
     email: BRAND.email,
+    telephone: BRAND.phone,
     logo: `https://${BRAND.domain}/logo192.png`,
+    knowsAbout: [BRAND.industry?.[lang], 'Urban transformation', 'Residential construction'].filter(Boolean),
+    disambiguatingDescription: BRAND.disambiguation?.[lang],
+    contactPoint: [
+      {
+        '@type': 'ContactPoint',
+        contactType: 'customer support',
+        areaServed: 'TR',
+        availableLanguage: ['tr', 'en', 'de'],
+        email: BRAND.email,
+        telephone: BRAND.phone,
+      },
+    ],
     sameAs: [
       'https://linkedin.com/company/aytgrup',
       'https://instagram.com/aytgrup',
@@ -88,10 +104,17 @@ export default function SEO({
   const localBusinessSchema = {
     '@context': 'https://schema.org',
     '@type': 'ConstructionCompany',
+    '@id': `https://${BRAND.domain}#construction-company`,
     name: BRAND.name,
+    description: BRAND.disambiguation?.[lang],
+    disambiguatingDescription: BRAND.disambiguation?.[lang],
     url: `https://${BRAND.domain}`,
     email: BRAND.email,
+    telephone: BRAND.phone,
     image: `https://${BRAND.domain}${ogImg}`,
+    parentOrganization: {
+      '@id': `https://${BRAND.domain}#organization`,
+    },
     areaServed: {
       '@type': 'Country',
       name: 'Turkey',
@@ -102,12 +125,22 @@ export default function SEO({
       addressLocality: 'Ankara',
       addressCountry: 'TR',
     },
+    openingHoursSpecification: [
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+        opens: '08:00',
+        closes: '18:00',
+      },
+    ],
+    hasMap: BRAND.googleBusinessUrl,
     ...(BRAND.googleBusinessUrl ? { sameAs: [BRAND.googleBusinessUrl] } : {}),
   };
 
   const websiteSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
+    '@id': `https://${BRAND.domain}#website`,
     name: BRAND.name,
     url: `https://${BRAND.domain}`,
     inLanguage: lang,
@@ -126,6 +159,9 @@ export default function SEO({
         description,
         url: canonical,
         inLanguage: lang,
+        isPartOf: {
+          '@id': `https://${BRAND.domain}#website`,
+        },
       }
     : null;
 
@@ -146,6 +182,10 @@ export default function SEO({
       <meta httpEquiv="content-language" content={lang} />
       <meta name="author" content={BRAND.name} />
       <meta name="publisher" content={BRAND.name} />
+      <meta name="application-name" content={BRAND.name} />
+      <meta name="apple-mobile-web-app-title" content={BRAND.name} />
+      <meta name="classification" content={BRAND.industry?.[lang] || 'Construction'} />
+      <meta name="subject" content={BRAND.disambiguation?.[lang] || BRAND.name} />
       <meta name="geo.region" content="TR-06" />
       <meta name="geo.placename" content="Ankara" />
       <meta name="keywords" content={keywords || defaultKeywordsByLang[lang]} />
@@ -163,6 +203,8 @@ export default function SEO({
       <meta property="og:title"       content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:image"       content={`https://${BRAND.domain}${ogImg}`} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
       <meta property="og:image:alt"   content={ogImageAlt || title} />
       {canonical && <meta property="og:url" content={canonical} />}
       {langs

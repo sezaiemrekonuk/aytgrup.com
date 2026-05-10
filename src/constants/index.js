@@ -9,6 +9,7 @@
 // ─── Brand ────────────────────────────────────────────────────────────────────
 export const BRAND = {
   name: 'AYT Grup',
+  legalName: 'AYT Grup Insaat',
   tagline: {
     tr: 'Geleceği İnşa Ediyoruz',
     en: 'Building the Future',
@@ -38,6 +39,16 @@ export const BRAND = {
     'https://www.google.com/maps?q=A%C5%9Fa%C4%9F%C4%B1+%C3%96ve%C3%A7ler,+1328.+Sk.+No:10+D:6,+06460+%C3%87ankaya%2FAnkara&output=embed&hl=tr',
   /** Official Google Maps listing (short link) */
   googleBusinessUrl: 'https://maps.app.goo.gl/G8y2sBuMxYSpSg5y7',
+  industry: {
+    tr: 'Insaat ve muteahhitlik',
+    en: 'Construction and contracting',
+    de: 'Bau und Generalunternehmer',
+  },
+  disambiguation: {
+    tr: 'AYT Grup, Ankara merkezli bir insaat ve muteahhitlik sirketidir; kimya sektorunde faaliyet gostermez.',
+    en: 'AYT Grup is a construction and contracting company based in Ankara; it does not operate in the chemical sector.',
+    de: 'AYT Grup ist ein Bau- und Generalunternehmerunternehmen mit Sitz in Ankara; es ist nicht im Chemiesektor taetig.',
+  },
 };
 
 // ─── Social Media ─────────────────────────────────────────────────────────────

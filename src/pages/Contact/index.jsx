@@ -48,9 +48,58 @@ export default function Contact() {
     }
   };
 
+  const normalizedLang = (i18n.language || 'tr').split('-')[0];
+  const lang = ['tr', 'en', 'de'].includes(normalizedLang) ? normalizedLang : 'tr';
+  const faqByLang = {
+    tr: {
+      question: 'AYT Grup hangi sektorde hizmet verir?',
+      answer: 'AYT Grup, Ankara merkezli insaat ve muteahhitlik hizmetleri sunar. Konut, ticari ve endustriyel yapi projelerine odaklanir.',
+    },
+    en: {
+      question: 'What sector does AYT Grup operate in?',
+      answer: 'AYT Grup operates in construction and contracting in Ankara, focusing on residential, commercial, and industrial building projects.',
+    },
+    de: {
+      question: 'In welcher Branche ist AYT Grup taetig?',
+      answer: 'AYT Grup ist im Bereich Bau und Generalunternehmer in Ankara taetig und fokussiert sich auf Wohn-, Gewerbe- und Industriebauprojekte.',
+    },
+  };
+  const contactStructuredData = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'ContactPage',
+      name: t('seo.contact.title'),
+      url: `https://${BRAND.domain}/iletisim`,
+      inLanguage: lang,
+      about: {
+        '@type': 'ConstructionCompany',
+        name: BRAND.name,
+      },
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: faqByLang[lang].question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: faqByLang[lang].answer,
+          },
+        },
+      ],
+    },
+  ];
+
   return (
     <>
-      <SEO titleKey="seo.contact.title" descriptionKey="seo.contact.description" canonicalPath="/iletisim" />
+      <SEO
+        titleKey="seo.contact.title"
+        descriptionKey="seo.contact.description"
+        canonicalPath="/iletisim"
+        structuredData={contactStructuredData}
+      />
 
       {/* Header */}
       <section className="bg-primary dark:bg-dark-bg py-20 relative overflow-hidden">
