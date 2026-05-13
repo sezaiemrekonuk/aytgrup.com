@@ -283,12 +283,14 @@ function LogoMark({ size = 'md', light = false }) {
       aria-label="AYT Grup – Ana Sayfa"
       className="inline-flex items-center"
     >
-      <img
-        src="/AYT LOGO.png"
-        alt="AYT Grup"
-        className={clsx(sizes[size], 'w-auto')}
-        loading="eager"
-      />
+      <span className="inline-flex items-center rounded-md bg-white px-2 py-1">
+        <img
+          src="/AYT LOGO.png"
+          alt="AYT Grup"
+          className={clsx(sizes[size], 'w-auto')}
+          loading="eager"
+        />
+      </span>
     </Link>
   );
 }

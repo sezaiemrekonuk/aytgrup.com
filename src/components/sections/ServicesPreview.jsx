@@ -18,8 +18,8 @@ export default function ServicesPreview() {
         aria-hidden
       />
       {/* Readability overlays */}
-      <div className="absolute inset-0 bg-[#0b1421]/70" aria-hidden />
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0b1421]/75 via-[#0b1421]/55 to-[#0b1421]/85" aria-hidden />
+      <div className="absolute inset-0 bg-[#0b1421]/35 dark:bg-[#0b1421]/70" aria-hidden />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0b1421]/35 via-[#0b1421]/25 to-[#0b1421]/45 dark:from-[#0b1421]/75 dark:via-[#0b1421]/55 dark:to-[#0b1421]/85" aria-hidden />
       <div className="absolute inset-0 bg-blueprint bg-grid-lg opacity-20" aria-hidden />
 
       <div className="container-site relative z-10">

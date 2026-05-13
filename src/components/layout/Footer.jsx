@@ -22,7 +22,9 @@ export default function Footer() {
             {/* ── Brand column ── */}
             <div className="lg:col-span-2">
               <Link to="/" className="inline-block mb-4" aria-label="AYT Grup Insaat">
-                <img src="/AYT LOGO.png" alt="AYT Grup Insaat" className="h-14 w-auto" loading="lazy" />
+                <span className="inline-flex items-center rounded-md bg-white px-2 py-1">
+                  <img src="/AYT LOGO.png" alt="AYT Grup Insaat" className="h-14 w-auto" loading="lazy" />
+                </span>
               </Link>
               <p className="text-sm text-neutral-400 mb-6 max-w-xs leading-relaxed">
                 {t('footer.tagline')}
